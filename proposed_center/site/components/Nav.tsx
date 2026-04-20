@@ -6,6 +6,7 @@ import { useState } from "react";
 const links = [
   { href: "/mission", label: "About" },
   { href: "/programs", label: "Programs" },
+  { href: "/mentors", label: "Mentors" },
 ];
 
 export default function Nav() {
