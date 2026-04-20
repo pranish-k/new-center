@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
 import path from "path";
-import FadeIn from "@/components/FadeIn";
 import MentorsGrid from "./MentorsGrid";
 
 export const metadata = {
@@ -30,9 +29,7 @@ export default function MentorsPage() {
       </section>
 
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <FadeIn>
-          <MentorsGrid mentors={mentorsData} />
-        </FadeIn>
+        <MentorsGrid mentors={mentorsData} />
       </div>
     </>
   );

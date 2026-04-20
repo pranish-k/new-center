@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useState, useMemo } from "react";
-import FadeIn from "@/components/FadeIn";
 
 type Mentor = {
   id: number;
@@ -67,8 +66,7 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
   const imgSrc = hasPhoto ? `/mentors/${mentor.image.replace("images/", "")}` : null;
 
   return (
-    <FadeIn>
-      <div className="border border-[#e2e0dc] flex flex-col h-full">
+    <div className="border border-[#e2e0dc] flex flex-col h-full">
         <div className="flex gap-4 p-5">
           <div className="flex-shrink-0 w-16 h-16 bg-[#f5f4f2] overflow-hidden">
             {imgSrc ? (
@@ -142,7 +140,6 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
           </div>
         )}
       </div>
-    </FadeIn>
   );
 }
 
