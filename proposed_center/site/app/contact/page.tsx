@@ -51,10 +51,10 @@ export default function ContactPage() {
               <p className="flex gap-3">
                 <span className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-0.5 w-12 flex-shrink-0">Email</span>
                 <a
-                  href="mailto:tmdl@northeastern.edu"
+                  href="mailto:[email here]"
                   className="text-[#002868] hover:underline"
                 >
-                  tmdl@northeastern.edu
+                  [email here]
                 </a>
               </p>
               <p className="flex gap-3">
