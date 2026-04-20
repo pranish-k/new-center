@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root {
+  --columbia-blue: #002868;
+  --columbia-light: #4a90d9;
+  --accent: #b9975b;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: Georgia, "Times New Roman", serif;
+}
