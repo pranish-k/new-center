@@ -1,13 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --columbia-blue: #002868;
-  --columbia-light: #4a90d9;
-  --accent: #b9975b;
+  --navy:        #002868;
+  --dark-panel:  #0a1628;
+  --gold:        #b9975b;
+  --off-white:   #f7f6f3;
+  --text-primary:   #111111;
+  --text-secondary: #6b6b6b;
+  --divider:     #e2e0dc;
 }
 
 body {
   background: #ffffff;
-  color: #1a1a1a;
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+}
+
+h1, h2 {
   font-family: Georgia, "Times New Roman", serif;
 }

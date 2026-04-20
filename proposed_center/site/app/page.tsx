@@ -14,21 +14,24 @@ const programs = [
     title: "MS in Strategic Technology Leadership",
     description:
       "A 30-credit hybrid program combining immersive on-ground residencies, one-on-one industry mentoring, and a 6-credit applied capstone project.",
-    href: "/programs",
+    href: "/programs/ms-strategic-technology-leadership",
+    image: "/session-classroom.jpg",
   },
   {
     tag: "Executive Program",
     title: "Digital Leadership Experience",
     description:
       "A flexible 6–12 month program for executives and board members navigating complex digital transformation initiatives.",
-    href: "/programs",
+    href: "/programs/digital-leadership",
+    image: "/program-mentoring.jpg",
   },
   {
     tag: "Workshop",
     title: "AI & Machine Learning Leadership",
     description:
       "A 3.5-day immersive workshop helping senior leaders build practical AI/ML implementation roadmaps for their organizations.",
-    href: "/programs",
+    href: "/programs/ai-ml-workshop",
+    image: "/program-tech.jpg",
   },
   {
     tag: "Certificates",
@@ -36,6 +39,7 @@ const programs = [
     description:
       "Deep-dive programs in Blockchain, Cybersecurity, the Experience Economy, Metaverse, Smart Cities, and more.",
     href: "/programs",
+    image: "/course-cybersecurity.jpg",
   },
 ];
 
@@ -66,24 +70,34 @@ const testimonials = [
   },
 ];
 
+function Eyebrow({ label }: { label: string }) {
+  return (
+    <div className="mb-8">
+      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
+      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-[#002868] text-white relative overflow-hidden">
+      {/* Hero — dark panel, collage bleeds to right edge */}
+      <section className="bg-[#0a1628] text-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 z-10">
-            <p className="text-xs uppercase tracking-widest text-blue-300 mb-4 font-sans">
+            <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
+            <p className="text-[11px] uppercase tracking-[0.15em] text-blue-300/60 mb-6">
               Columbia University · Teachers College
             </p>
-            <h1 className="text-4xl md:text-5xl font-semibold leading-tight max-w-xl">
+            <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-xl">
               Center for Technology Management and Digital Leadership
             </h1>
-            <p className="mt-6 text-lg text-blue-100 max-w-lg leading-relaxed font-sans font-light">
+            <p className="mt-6 text-[15px] text-blue-200/70 max-w-lg leading-[1.7]">
               Preparing experienced leaders to meet disruption with agility,
               drive digital transformation, and shape the future of work.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4 font-sans">
+            <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 href="/programs"
                 className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-blue-50 transition-colors"
@@ -92,20 +106,21 @@ export default function Home() {
               </Link>
               <Link
                 href="/leadership"
-                className="border border-white/50 text-white px-7 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
+                className="border border-white/40 text-white px-7 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
               >
                 Meet Dr. Langer
               </Link>
             </div>
           </div>
-          {/* Art Langer collage */}
-          <div className="flex-shrink-0 w-full md:w-[420px] relative">
+
+          {/* Collage — no border-radius, no shadow box */}
+          <div className="flex-shrink-0 w-full md:w-[460px] md:-mr-6">
             <Image
               src="/art-langer-collage.jpg"
               alt="Dr. Art Langer teaching and presenting"
-              width={420}
-              height={236}
-              className="w-full rounded-sm shadow-2xl"
+              width={460}
+              height={340}
+              className="w-full object-cover"
               priority
             />
           </div>
@@ -113,80 +128,95 @@ export default function Home() {
       </section>
 
       {/* Transition banner */}
-      <section className="bg-[#b9975b]/10 border-b border-[#b9975b]/30">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex items-center gap-3">
-          <span className="text-[#b9975b] font-bold text-lg">→</span>
-          <p className="text-sm text-gray-700 font-sans leading-relaxed">
-            <strong className="text-gray-900">In transition.</strong> The Center is moving from Northeastern University to{" "}
-            <strong className="text-gray-900">Columbia University Teachers College</strong> under
-            the continued leadership of Dr. Art Langer. This site represents the new Columbia department.
+      <section className="border-b border-[#e2e0dc]">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex items-start gap-4">
+          <span className="text-[#b9975b] font-bold text-base mt-0.5 flex-shrink-0">→</span>
+          <p className="text-sm text-[#6b6b6b] leading-relaxed">
+            <strong className="text-[#111111]">In transition.</strong> The Center is moving from Northeastern University to{" "}
+            <strong className="text-[#111111]">Columbia University Teachers College</strong> under the continued leadership of Dr. Art Langer.
           </p>
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Stats — numbers float on white, no borders */}
+      <section className="py-12">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((s) => (
             <div key={s.label} className="text-center">
-              <p className="text-3xl font-semibold text-[#002868]">{s.value}</p>
-              <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mt-1">{s.label}</p>
+              <p className="text-4xl font-serif font-normal text-[#002868]">{s.value}</p>
+              <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Programs */}
+      <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
+
+      {/* Programs — image-first cards */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="flex items-end justify-between mb-10">
+        <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-2">What we offer</p>
-            <h2 className="text-2xl font-semibold text-[#002868]">Programs</h2>
+            <Eyebrow label="What we offer" />
+            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight -mt-4">Programs</h2>
           </div>
-          <Link href="/programs" className="text-sm font-sans text-[#002868] underline hover:no-underline hidden md:block">
+          <Link href="/programs" className="text-sm text-[#002868] underline hover:no-underline hidden md:block">
             View all →
           </Link>
         </div>
+
         <div className="grid md:grid-cols-2 gap-6">
           {programs.map((p) => (
             <Link
               key={p.title}
               href={p.href}
-              className="group border border-gray-200 p-7 hover:border-[#002868] hover:shadow-md transition-all"
+              className="group border border-[#e2e0dc] overflow-hidden flex flex-col hover:border-[#002868] transition-colors"
             >
-              <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">{p.tag}</span>
-              <h3 className="text-base font-semibold text-gray-900 group-hover:text-[#002868] mt-2 mb-3">
-                {p.title}
-              </h3>
-              <p className="text-sm text-gray-500 font-sans leading-relaxed">{p.description}</p>
+              <div className="relative h-44 overflow-hidden">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-7 flex flex-col flex-1">
+                <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
+                <h3 className="text-[18px] font-semibold text-[#111111] leading-snug mb-3 group-hover:text-[#002868] transition-colors">
+                  {p.title}
+                </h3>
+                <p className="text-[15px] text-[#6b6b6b] leading-[1.7] flex-1">{p.description}</p>
+                <p className="text-sm font-semibold text-[#002868] mt-5">Learn more →</p>
+              </div>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* Quote + headshot */}
-      <section className="bg-gray-50 border-y border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center gap-12">
+      {/* Pull quote — floats on white, no gray box */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex flex-col md:flex-row items-start gap-12">
           <div className="flex-shrink-0">
             <Image
               src="/art-langer.jpg"
               alt="Dr. Art Langer"
-              width={200}
-              height={200}
-              className="rounded-full object-cover w-44 h-44 shadow-lg ring-4 ring-white"
+              width={180}
+              height={180}
+              className="object-cover w-36 h-36 md:w-44 md:h-44"
             />
           </div>
           <div>
-            <blockquote className="text-xl text-gray-800 leading-relaxed italic max-w-2xl border-l-4 border-[#b9975b] pl-8">
-              "By harnessing the power of hands-on experience and tailored mentorship,
-              the Center empowers its network of learners to practice agility in a
-              tech-driven world."
+            <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
+              <p className="font-serif italic text-xl md:text-2xl text-[#111111] leading-[1.5] max-w-2xl">
+                "By harnessing the power of hands-on experience and tailored mentorship,
+                the Center empowers its network of learners to practice agility in a
+                tech-driven world."
+              </p>
+              <p className="mt-5 text-[13px] text-[#6b6b6b]">
+                — <strong className="text-[#111111]">Dr. Arthur M. Langer</strong>, Director &amp; Professor of Practice
+              </p>
             </blockquote>
-            <p className="mt-5 text-sm text-gray-500 font-sans pl-8">
-              — <strong className="text-gray-700">Dr. Arthur M. Langer</strong>, Director &amp; Professor of Practice
-            </p>
-            <div className="pl-8 mt-4">
-              <Link href="/leadership" className="text-sm font-sans text-[#002868] underline hover:no-underline">
+            <div className="pl-6 mt-5">
+              <Link href="/leadership" className="text-sm text-[#002868] underline hover:no-underline">
                 About Dr. Langer →
               </Link>
             </div>
@@ -194,30 +224,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
+
+      {/* Testimonials — pull quote treatment, no gray bordered boxes */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-2">Student voices</p>
-        <h2 className="text-2xl font-semibold text-[#002868] mb-10">What our graduates say</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <Eyebrow label="Student voices" />
+        <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-12 -mt-4">What our graduates say</h2>
+        <div className="grid md:grid-cols-2 gap-12">
           {testimonials.map((t) => (
-            <div key={t.name} className="bg-white border border-gray-200 p-8">
-              <p className="text-gray-700 italic leading-relaxed mb-6">"{t.quote}"</p>
-              <p className="text-sm font-semibold text-gray-900 font-sans">{t.name}</p>
-              <p className="text-xs text-gray-400 font-sans">{t.role}</p>
+            <div key={t.name}>
+              <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
+                <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">"{t.quote}"</p>
+                <p className="mt-4 text-[13px] text-[#6b6b6b]">
+                  — <strong className="text-[#111111]">{t.name}</strong>, {t.role}
+                </p>
+              </blockquote>
             </div>
           ))}
         </div>
-        <div className="mt-8">
-          <Link href="/experience" className="text-sm font-sans text-[#002868] underline hover:no-underline">
+        <div className="mt-10">
+          <Link href="/experience" className="text-sm text-[#002868] underline hover:no-underline">
             Read student stories →
           </Link>
         </div>
       </section>
 
-      {/* Partner logos */}
-      <section className="border-t border-gray-100 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6 py-14">
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans text-center mb-10">
+      {/* Partner logos — no gray background section */}
+      <section className="border-t border-[#e2e0dc] py-14">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] text-center mb-10">
             Our students and mentors come from
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8">
@@ -228,7 +263,7 @@ export default function Home() {
                 alt={l.alt}
                 width={110}
                 height={50}
-                className="object-contain grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100 h-10 w-auto"
+                className="object-contain grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100 h-10 w-auto"
               />
             ))}
           </div>
@@ -237,22 +272,21 @@ export default function Home() {
 
       {/* WOS Partnership */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <div className="border border-gray-200 p-10 md:p-14 flex flex-col md:flex-row gap-12 items-center">
+        <div className="border border-[#e2e0dc] p-10 md:p-14 flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
-            <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-3">Strategic Partnership</p>
-            <h2 className="text-2xl font-semibold text-[#002868] mb-4">
+            <Eyebrow label="Strategic Partnership" />
+            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-5 -mt-4">
               Workforce Opportunity Services
             </h2>
-            <p className="text-sm text-gray-600 font-sans leading-relaxed max-w-xl mb-4">
+            <p className="text-[15px] text-[#6b6b6b] leading-[1.7] max-w-xl mb-4">
               Founded by Dr. Langer, WOS is a nonprofit that identifies talent from underserved
               communities — including veterans — and prepares them for high-impact careers in
               technology. WOS acts as an outsourcing partner for major corporations, placing
               trained professionals as software engineers, analysts, and more.
             </p>
-            <p className="text-sm text-gray-600 font-sans leading-relaxed max-w-xl">
+            <p className="text-[15px] text-[#6b6b6b] leading-[1.7] max-w-xl">
               WOS will partner with the new Columbia department, creating a unique pipeline
-              that connects executive education with workforce development. Details of the
-              integration are being finalized.
+              that connects executive education with workforce development.
             </p>
           </div>
           <div className="flex-shrink-0 flex flex-col items-center gap-4">
@@ -263,7 +297,7 @@ export default function Home() {
               height={80}
               className="object-contain"
             />
-            <span className="text-xs font-sans text-gray-400 border border-dashed border-gray-300 px-4 py-2 text-center">
+            <span className="text-xs text-[#6b6b6b] border border-dashed border-[#e2e0dc] px-4 py-2 text-center">
               Partnership details coming soon
             </span>
           </div>

@@ -56,15 +56,27 @@ const residencyHighlights = [
   },
 ];
 
+function Eyebrow({ label }: { label: string }) {
+  return (
+    <div className="mb-8">
+      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
+      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
+    </div>
+  );
+}
+
 export default function ExperiencePage() {
   return (
     <>
-      {/* Header */}
-      <section className="bg-[#002868] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20">
-          <p className="text-xs uppercase tracking-widest text-blue-300 font-sans mb-3">Student Experience</p>
-          <h1 className="text-4xl font-semibold max-w-xl">Real leaders. Real transformation.</h1>
-          <p className="mt-4 text-blue-200 font-sans text-base max-w-xl leading-relaxed">
+      {/* Dark typographic hero */}
+      <section className="bg-[#0a1628] text-white">
+        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
+          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
+          <p className="text-[11px] uppercase tracking-[0.15em] text-blue-300/60 mb-6">Student Experience</p>
+          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
+            Real leaders. Real transformation.
+          </h1>
+          <p className="mt-6 text-[15px] text-blue-200/70 max-w-xl leading-[1.7]">
             Our students are experienced professionals who come to accelerate — not just learn.
             Here's what they found.
           </p>
@@ -73,74 +85,80 @@ export default function ExperiencePage() {
 
       <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
 
-        {/* Testimonials */}
+        {/* Testimonials — pull quote treatment */}
         <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">What graduates say</p>
-          <div className="grid md:grid-cols-2 gap-8">
+          <Eyebrow label="What graduates say" />
+          <div className="grid md:grid-cols-2 gap-12 -mt-4">
             {testimonials.map((t) => (
-              <div key={t.name} className="bg-gray-50 border border-gray-200 p-8 flex flex-col justify-between">
-                <p className="text-gray-800 italic leading-relaxed text-base mb-6">"{t.quote}"</p>
-                <div>
-                  <p className="font-semibold text-gray-900 font-sans text-sm">{t.name}</p>
-                  <p className="text-xs text-gray-400 font-sans">{t.role}</p>
-                  <p className="text-xs text-[#b9975b] font-sans mt-1">{t.context}</p>
-                </div>
+              <div key={t.name}>
+                <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
+                  <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">"{t.quote}"</p>
+                  <p className="mt-4 text-[13px] text-[#6b6b6b]">
+                    — <strong className="text-[#111111]">{t.name}</strong>, {t.role}
+                  </p>
+                  <p className="text-[12px] text-[#b9975b] mt-1">{t.context}</p>
+                </blockquote>
               </div>
             ))}
           </div>
         </section>
 
-        <hr className="border-gray-100" />
+        <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Student stories */}
         <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">Student stories</p>
-          <div className="space-y-8">
-            {stories.map((s) => (
-              <div key={s.name} className="border border-gray-200 p-8 flex flex-col md:flex-row gap-8">
-                <div className="flex-shrink-0 md:w-48">
-                  <p className="font-semibold text-gray-900">{s.name}</p>
-                  <p className="text-xs text-[#b9975b] font-sans mt-1">{s.company}</p>
+          <Eyebrow label="Student Stories" />
+          <div className="space-y-0 -mt-4">
+            {stories.map((s, i) => (
+              <div key={s.name}>
+                <div className="flex flex-col md:flex-row gap-8 py-10">
+                  <div className="flex-shrink-0 md:w-48">
+                    <p className="font-semibold text-[#111111] text-sm">{s.name}</p>
+                    <p className="text-[12px] text-[#b9975b] mt-1">{s.company}</p>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-xl text-[#111111] mb-3">{s.title}</h3>
+                    <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{s.summary}</p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-[#002868] mb-3">{s.title}</h3>
-                  <p className="text-sm text-gray-600 font-sans leading-relaxed">{s.summary}</p>
-                </div>
+                {i < stories.length - 1 && (
+                  <hr className="border-0 border-t border-[#e2e0dc]" />
+                )}
               </div>
             ))}
           </div>
         </section>
 
-        <hr className="border-gray-100" />
+        <hr className="border-0 border-t border-[#e2e0dc]" />
 
-        {/* Residencies */}
+        {/* Residencies — real photos, large panels */}
         <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-3">Experiential learning</p>
-          <h2 className="text-2xl font-semibold text-[#002868] mb-10">Residencies</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <Eyebrow label="Experiential Learning" />
+          <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-10 -mt-4">Residencies</h2>
+          <div className="grid md:grid-cols-2 gap-10">
             {residencyHighlights.map((r) => (
-              <div key={r.location} className="border-t-4 border-[#002868] pt-8">
+              <div key={r.location}>
                 <Image
                   src={r.image}
                   alt={r.location}
                   width={500}
-                  height={280}
-                  className="w-full object-cover h-48 mb-5"
+                  height={300}
+                  className="w-full object-cover h-56 mb-6"
                 />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{r.location}</h3>
-                <p className="text-xs uppercase tracking-widest text-[#b9975b] font-sans mb-4">{r.detail}</p>
-                <p className="text-sm text-gray-600 font-sans leading-relaxed">{r.description}</p>
+                <h3 className="text-xl font-semibold text-[#111111] mb-1">{r.location}</h3>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-4">{r.detail}</p>
+                <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{r.description}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <hr className="border-gray-100" />
+        <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Who should apply */}
         <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">Who this is for</p>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <Eyebrow label="Who this is for" />
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 -mt-4">
             {[
               "C-Level Executives",
               "Senior Directors & VPs",
@@ -151,7 +169,7 @@ export default function ExperiencePage() {
             ].map((role) => (
               <div
                 key={role}
-                className="border border-gray-200 px-6 py-5 text-sm font-semibold text-gray-800 font-sans"
+                className="border border-[#e2e0dc] px-6 py-5 text-sm font-semibold text-[#111111]"
               >
                 {role}
               </div>
@@ -159,26 +177,20 @@ export default function ExperiencePage() {
           </div>
         </section>
 
-        {/* CTA */}
-        <div className="bg-[#002868] text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Ready to take the next step?</h2>
-            <p className="text-blue-200 font-sans text-sm">Learn which program is the right fit for you.</p>
-          </div>
-          <div className="flex gap-4 flex-wrap">
-            <Link
-              href="/programs"
-              className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold font-sans hover:bg-blue-50 transition-colors"
-            >
-              Explore Programs
-            </Link>
-            <Link
-              href="/contact"
-              className="border border-white text-white px-7 py-3 text-sm font-semibold font-sans hover:bg-white/10 transition-colors"
-            >
-              Contact Us
-            </Link>
-          </div>
+        {/* CTA — only where it fits */}
+        <div className="flex gap-4 flex-wrap pt-4">
+          <Link
+            href="/programs"
+            className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
+          >
+            Explore Programs
+          </Link>
+          <Link
+            href="/contact"
+            className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-[#002868]/5 transition-colors"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </>
