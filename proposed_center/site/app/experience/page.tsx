@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Student Experience | Center for Technology Management",
@@ -17,7 +18,7 @@ const testimonials = [
       "I just wanted to say how much I appreciate the experience of completing my master's degree. Everything I learned, the perspectives I gained, and the connections I built have been invaluable.",
     name: "Boris F.",
     role: "MS Graduate, Class of 2025",
-    context: "London Residency cohort",
+    context: "International Residency cohort",
   },
 ];
 
@@ -40,16 +41,18 @@ const stories = [
 
 const residencyHighlights = [
   {
-    location: "Boston",
+    location: "Flagship Residency",
     description:
-      "The flagship residency at Northeastern's Boston campus brings together cohorts of senior executives for four days of immersive learning, case studies, and peer exchange alongside faculty and mentors.",
+      "Our signature residency brings together cohorts of senior executives for four days of immersive learning, case studies, and peer exchange alongside faculty and mentors.",
     detail: "Fall & Spring sessions · 4 days",
+    image: "/session-classroom.jpg",
   },
   {
-    location: "London",
+    location: "International Residency",
     description:
-      "The London residency, based in St. Katharine Docks near the City, provides a European context for digital leadership with mentors from across the UK, Europe, Middle East, and Africa.",
+      "Our international residency provides a global context for digital leadership with mentors drawn from across the UK, Europe, Middle East, and Africa.",
     detail: "Annual session · 4 days",
+    image: "/session-lecture.jpg",
   },
 ];
 
@@ -117,6 +120,13 @@ export default function ExperiencePage() {
           <div className="grid md:grid-cols-2 gap-8">
             {residencyHighlights.map((r) => (
               <div key={r.location} className="border-t-4 border-[#002868] pt-8">
+                <Image
+                  src={r.image}
+                  alt={r.location}
+                  width={500}
+                  height={280}
+                  className="w-full object-cover h-48 mb-5"
+                />
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{r.location}</h3>
                 <p className="text-xs uppercase tracking-widest text-[#b9975b] font-sans mb-4">{r.detail}</p>
                 <p className="text-sm text-gray-600 font-sans leading-relaxed">{r.description}</p>

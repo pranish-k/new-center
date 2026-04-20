@@ -71,7 +71,7 @@ export default function MissionPage() {
             {[
               {
                 title: "Experiential Learning",
-                body: "Residencies in Boston and London, applied capstone projects, and real-world mentorship put theory directly into practice.",
+                body: "Immersive on-ground residencies, applied capstone projects, and real-world mentorship put theory directly into practice.",
               },
               {
                 title: "Industry-Led Mentorship",

@@ -13,7 +13,7 @@ const programs = [
     tag: "Master's Degree",
     title: "MS in Strategic Technology Leadership",
     description:
-      "A 30-credit hybrid program combining residencies in Boston and London, one-on-one industry mentoring, and a 6-credit applied capstone project.",
+      "A 30-credit hybrid program combining immersive on-ground residencies, one-on-one industry mentoring, and a 6-credit applied capstone project.",
     href: "/programs",
   },
   {
