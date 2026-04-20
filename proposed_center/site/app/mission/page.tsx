@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata = {
   title: "Mission & Vision | Center for Technology Management",
@@ -17,7 +18,7 @@ function Eyebrow({ label }: { label: string }) {
 export default function MissionPage() {
   return (
     <>
-      {/* Dark typographic hero */}
+      {/* Dark typographic hero — not wrapped */}
       <section className="bg-[#0a1628] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
@@ -33,8 +34,8 @@ export default function MissionPage() {
 
       <div className="max-w-3xl mx-auto px-6 py-20 space-y-20">
 
-        {/* Mission — pull quote treatment */}
-        <section>
+        {/* Mission */}
+        <FadeIn>
           <Eyebrow label="Mission" />
           <blockquote className="border-l-[3px] border-[#b9975b] pl-6 -mt-4">
             <p className="font-serif italic text-2xl text-[#111111] leading-[1.5]">
@@ -42,12 +43,12 @@ export default function MissionPage() {
               and to advance their knowledge through collaboration with industry leaders, faculty, and students.
             </p>
           </blockquote>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Vision */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Vision" />
           <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px] -mt-4">
             <p>
@@ -73,12 +74,12 @@ export default function MissionPage() {
               generation of transformative leadership.
             </p>
           </div>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Values */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Our Approach" />
           <div className="grid md:grid-cols-3 gap-8 -mt-4">
             {[
@@ -94,19 +95,21 @@ export default function MissionPage() {
                 title: "Inclusive Talent Development",
                 body: "Through our partnership with WOS, we extend leadership development to underserved communities, broadening who gets a seat at the table.",
               },
-            ].map((v) => (
-              <div key={v.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
-                <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
-              </div>
+            ].map((v, i) => (
+              <FadeIn key={v.title} delay={i * 80}>
+                <div className="border-t-2 border-[#b9975b] pt-6">
+                  <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
+                  <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
-        {/* Media — no rounded corners, no shadow */}
-        <section>
+        {/* Media */}
+        <FadeIn>
           <Eyebrow label="In the Media" />
           <div className="relative overflow-hidden -mt-4">
             <Image
@@ -123,10 +126,10 @@ export default function MissionPage() {
               </div>
             </div>
           </div>
-        </section>
+        </FadeIn>
 
         {/* CTAs */}
-        <div className="flex gap-4 flex-wrap">
+        <FadeIn className="flex gap-4 flex-wrap">
           <Link
             href="/leadership"
             className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
@@ -139,7 +142,7 @@ export default function MissionPage() {
           >
             Explore Programs
           </Link>
-        </div>
+        </FadeIn>
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata = {
   title: "Programs | Center for Technology Management",
@@ -96,39 +97,44 @@ function Eyebrow({ label }: { label: string }) {
   );
 }
 
-function ProgramCard({ p }: { p: Program }) {
+function ProgramCard({ p, delay = 0 }: { p: Program; delay?: number }) {
   return (
-    <div className="border border-[#e2e0dc] overflow-hidden flex flex-col hover:border-[#002868] transition-colors">
-      <div className="relative h-48 overflow-hidden">
-        <Image src={p.image} alt={p.title} fill className="object-cover" />
+    <FadeIn delay={delay}>
+      <div className="group border border-[#e2e0dc] overflow-hidden flex flex-col
+        hover:border-[#002868] hover:-translate-y-0.5
+        transition-[border-color,transform] duration-[250ms] ease-out h-full">
+        <div className="relative h-48 overflow-hidden">
+          <Image src={p.image} alt={p.title} fill className="object-cover" />
+        </div>
+        <div className="p-8 flex flex-col flex-1">
+          <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
+          <h3 className="text-[19px] font-semibold text-[#111111] leading-snug mb-3">{p.title}</h3>
+          <p className="text-[15px] text-[#6b6b6b] leading-[1.7] mb-5">{p.description}</p>
+          <ul className="space-y-1.5 mb-6 flex-1">
+            {p.highlights.map((h) => (
+              <li key={h} className="text-[15px] text-[#6b6b6b] flex gap-2">
+                <span className="text-[#b9975b] mt-0.5 flex-shrink-0">—</span>
+                {h}
+              </li>
+            ))}
+          </ul>
+          <Link
+            href={`/programs/${p.slug}`}
+            className="group/link flex items-center gap-1 text-sm font-semibold text-[#002868] hover:underline w-fit"
+          >
+            Learn more
+            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover/link:translate-x-[3px]">→</span>
+          </Link>
+        </div>
       </div>
-      <div className="p-8 flex flex-col flex-1">
-        <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
-        <h3 className="text-[19px] font-semibold text-[#111111] leading-snug mb-3">{p.title}</h3>
-        <p className="text-[15px] text-[#6b6b6b] leading-[1.7] mb-5">{p.description}</p>
-        <ul className="space-y-1.5 mb-6 flex-1">
-          {p.highlights.map((h) => (
-            <li key={h} className="text-[15px] text-[#6b6b6b] flex gap-2">
-              <span className="text-[#b9975b] mt-0.5 flex-shrink-0">—</span>
-              {h}
-            </li>
-          ))}
-        </ul>
-        <Link
-          href={`/programs/${p.slug}`}
-          className="text-sm font-semibold text-[#002868] hover:underline"
-        >
-          Learn more →
-        </Link>
-      </div>
-    </div>
+    </FadeIn>
   );
 }
 
 export default function ProgramsPage() {
   return (
     <>
-      {/* Dark typographic hero — no image */}
+      {/* Dark typographic hero — not wrapped */}
       <section className="bg-[#0a1628] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
@@ -147,10 +153,12 @@ export default function ProgramsPage() {
 
         {/* Degree programs */}
         <section>
-          <Eyebrow label="Degree Programs" />
+          <FadeIn>
+            <Eyebrow label="Degree Programs" />
+          </FadeIn>
           <div className="grid gap-6 -mt-4">
-            {degreePrograms.map((p) => (
-              <ProgramCard key={p.title} p={p} />
+            {degreePrograms.map((p, i) => (
+              <ProgramCard key={p.title} p={p} delay={i * 60} />
             ))}
           </div>
         </section>
@@ -159,10 +167,12 @@ export default function ProgramsPage() {
 
         {/* Executive & professional */}
         <section id="executive">
-          <Eyebrow label="Executive & Professional Programs" />
+          <FadeIn>
+            <Eyebrow label="Executive & Professional Programs" />
+          </FadeIn>
           <div className="grid md:grid-cols-3 gap-6 -mt-4">
-            {executivePrograms.map((p) => (
-              <ProgramCard key={p.title} p={p} />
+            {executivePrograms.map((p, i) => (
+              <ProgramCard key={p.title} p={p} delay={i * 60} />
             ))}
           </div>
         </section>
@@ -171,25 +181,23 @@ export default function ProgramsPage() {
 
         {/* Certificate grid — photo cards */}
         <section>
-          <Eyebrow label="Certificate & Topic Programs" />
+          <FadeIn>
+            <Eyebrow label="Certificate & Topic Programs" />
+          </FadeIn>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 -mt-4">
-            {certificatePrograms.map((c) => (
-              <Link
-                key={c.name}
-                href={`/programs/${c.slug}`}
-                className="group relative overflow-hidden h-44 flex items-end"
-              >
-                <Image
-                  src={c.image}
-                  alt={c.name}
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-[#0a1628]/55 group-hover:bg-[#0a1628]/45 transition-colors" />
-                <p className="relative z-10 text-white text-sm font-semibold px-5 pb-5 leading-snug">
-                  {c.name}
-                </p>
-              </Link>
+            {certificatePrograms.map((c, i) => (
+              <FadeIn key={c.name} delay={i * 40}>
+                <Link
+                  href={`/programs/${c.slug}`}
+                  className="group relative overflow-hidden h-44 flex items-end block"
+                >
+                  <Image src={c.image} alt={c.name} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-[#0a1628]/55 group-hover:bg-[#0a1628]/45 transition-colors" />
+                  <p className="relative z-10 text-white text-sm font-semibold px-5 pb-5 leading-snug">
+                    {c.name}
+                  </p>
+                </Link>
+              </FadeIn>
             ))}
           </div>
         </section>
@@ -197,7 +205,7 @@ export default function ProgramsPage() {
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Residencies */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Experiential Learning" />
           <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-10 -mt-4">Immersive Residencies</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -231,10 +239,10 @@ export default function ProgramsPage() {
               </p>
             </div>
           </div>
-        </section>
+        </FadeIn>
 
-        {/* CTA — only where it fits the page flow */}
-        <div className="text-center pt-4">
+        {/* CTA */}
+        <FadeIn className="text-center pt-4">
           <p className="text-[15px] text-[#6b6b6b] mb-6">
             Interested in a program? Reach out to learn more.
           </p>
@@ -244,7 +252,7 @@ export default function ProgramsPage() {
           >
             Contact Us
           </Link>
-        </div>
+        </FadeIn>
       </div>
     </>
   );

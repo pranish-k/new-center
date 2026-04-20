@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata = {
   title: "MS in Strategic Technology Leadership | Center for Technology Management",
@@ -33,7 +34,7 @@ function Eyebrow({ label }: { label: string }) {
 export default function MSPage() {
   return (
     <>
-      {/* Dark typographic hero — no image in the band */}
+      {/* Dark typographic hero — not wrapped */}
       <section className="bg-[#0a1628] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
@@ -58,23 +59,25 @@ export default function MSPage() {
 
       <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
 
-        {/* Stats bar — numbers float, no borders */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-16 border-b border-[#e2e0dc]">
+        {/* Stats bar */}
+        <FadeIn className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-16 border-b border-[#e2e0dc]">
           {[
             { stat: "30", label: "Credit Hours" },
             { stat: "230+", label: "Industry Mentors" },
             { stat: "3", label: "Immersive Residencies" },
             { stat: "6", label: "Credit Applied Project" },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-4xl font-serif font-normal text-[#002868]">{s.stat}</p>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
-            </div>
+          ].map((s, i) => (
+            <FadeIn key={s.label} delay={i * 80}>
+              <div className="text-center">
+                <p className="text-4xl font-serif font-normal text-[#002868]">{s.stat}</p>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
+              </div>
+            </FadeIn>
           ))}
-        </div>
+        </FadeIn>
 
         {/* Why this program */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Why this program" />
           <div className="grid md:grid-cols-3 gap-8 -mt-4">
             {[
@@ -90,19 +93,21 @@ export default function MSPage() {
                 title: "Hybrid Flexibility",
                 body: "The program blends online coursework with immersive on-ground residencies, designed around the reality of busy executive schedules.",
               },
-            ].map((v) => (
-              <div key={v.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
-                <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
-              </div>
+            ].map((v, i) => (
+              <FadeIn key={v.title} delay={i * 80}>
+                <div className="border-t-2 border-[#b9975b] pt-6">
+                  <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
+                  <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
+                </div>
+              </FadeIn>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Curriculum */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Curriculum" />
           <div className="grid md:grid-cols-2 gap-12 -mt-4">
             <div>
@@ -129,22 +134,20 @@ export default function MSPage() {
               <p className="text-[12px] text-[#6b6b6b] mt-5">New topics proposed in response to market developments.</p>
             </div>
           </div>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
-        {/* Residency — real photo, large panel */}
-        <section>
+        {/* Residency */}
+        <FadeIn>
           <Eyebrow label="Experiential Learning" />
           <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-8 -mt-4">Immersive Residencies</h2>
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div>
-              <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">
-                The program requires participation in three on-ground residencies, each four days in length.
-                Residencies deepen your knowledge of market dynamics, strategic planning, and operations
-                management while building a lasting global peer network alongside faculty and mentors.
-              </p>
-            </div>
+            <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">
+              The program requires participation in three on-ground residencies, each four days in length.
+              Residencies deepen your knowledge of market dynamics, strategic planning, and operations
+              management while building a lasting global peer network alongside faculty and mentors.
+            </p>
             <Image
               src="/session-lecture.jpg"
               alt="Residency session"
@@ -153,12 +156,12 @@ export default function MSPage() {
               className="w-full object-cover h-52"
             />
           </div>
-        </section>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc]" />
 
         {/* Admission */}
-        <section>
+        <FadeIn>
           <Eyebrow label="Admission Requirements" />
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3 -mt-4">
             {[
@@ -170,16 +173,18 @@ export default function MSPage() {
               "Online interview",
               "Optional GMAT/GRE",
               "TOEFL, IELTS, or Duolingo (international students)",
-            ].map((req) => (
-              <div key={req} className="border border-[#e2e0dc] px-4 py-3 text-[15px] text-[#6b6b6b]">
-                {req}
-              </div>
+            ].map((req, i) => (
+              <FadeIn key={req} delay={i * 40}>
+                <div className="border border-[#e2e0dc] px-4 py-3 text-[15px] text-[#6b6b6b]">
+                  {req}
+                </div>
+              </FadeIn>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
         {/* CTA */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-4">
+        <FadeIn className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-4">
           <div>
             <h2 className="text-2xl font-serif font-normal text-[#111111] mb-1">Ready to start your leadership journey?</h2>
             <p className="text-[15px] text-[#6b6b6b]">Contact us to learn more about the MS program.</p>
@@ -190,7 +195,7 @@ export default function MSPage() {
           >
             Contact Us
           </Link>
-        </div>
+        </FadeIn>
       </div>
     </>
   );

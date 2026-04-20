@@ -66,27 +66,29 @@ export default function Nav() {
       </div>
 
       {/* Mobile overlay */}
-      {open && (
-        <div className="md:hidden fixed inset-0 top-16 bg-white z-40 flex flex-col px-8 pt-12 gap-8">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-2xl font-serif text-[#002868]"
-              onClick={() => setOpen(false)}
-            >
-              {l.label}
-            </Link>
-          ))}
+      <div
+        className={`md:hidden fixed inset-0 top-16 bg-white z-40 flex flex-col px-8 pt-12 gap-8
+          transition-[opacity,visibility] duration-[250ms] ease-out
+          ${open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+      >
+        {links.map((l) => (
           <Link
-            href="/contact"
+            key={l.href}
+            href={l.href}
             className="text-2xl font-serif text-[#002868]"
             onClick={() => setOpen(false)}
           >
-            Contact
+            {l.label}
           </Link>
-        </div>
-      )}
+        ))}
+        <Link
+          href="/contact"
+          className="text-2xl font-serif text-[#002868]"
+          onClick={() => setOpen(false)}
+        >
+          Contact
+        </Link>
+      </div>
     </header>
   );
 }

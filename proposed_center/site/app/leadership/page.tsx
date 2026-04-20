@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
 
 export const metadata = {
   title: "Leadership | Center for Technology Management",
@@ -44,7 +45,7 @@ function Eyebrow({ label }: { label: string }) {
 export default function LeadershipPage() {
   return (
     <>
-      {/* Dark typographic hero */}
+      {/* Dark typographic hero — not wrapped */}
       <section className="bg-[#0a1628] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
@@ -61,7 +62,7 @@ export default function LeadershipPage() {
       <div className="max-w-6xl mx-auto px-6 py-20">
 
         {/* Bio section */}
-        <div className="flex flex-col md:flex-row gap-14 mb-20">
+        <FadeIn className="flex flex-col md:flex-row gap-14 mb-20">
           <div className="flex-shrink-0">
             <Image
               src="/art-langer.jpg"
@@ -110,12 +111,12 @@ export default function LeadershipPage() {
               </p>
             </blockquote>
           </div>
-        </div>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
 
         {/* Collage */}
-        <div className="mb-20">
+        <FadeIn className="mb-20">
           <Eyebrow label="In action" />
           <Image
             src="/art-langer-collage.jpg"
@@ -127,31 +128,33 @@ export default function LeadershipPage() {
           <p className="text-[12px] text-[#6b6b6b] mt-3 text-center">
             Dr. Langer in classroom sessions, executive workshops, and at a WOS graduation ceremony
           </p>
-        </div>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
 
         {/* Books */}
-        <div className="mb-20">
+        <FadeIn className="mb-20">
           <Eyebrow label="Selected Publications" />
           <div className="grid md:grid-cols-2 gap-5 -mt-4">
-            {books.map((b) => (
-              <div key={b.title} className="border border-[#e2e0dc] p-6 flex gap-4">
-                <div className="flex-shrink-0 w-0.5 bg-[#b9975b]" />
-                <div>
-                  <p className="font-semibold text-[#111111] text-sm leading-snug">{b.title}</p>
-                  <p className="text-[12px] text-[#6b6b6b] mt-1">{b.subtitle}</p>
-                  <p className="text-[12px] text-[#6b6b6b] mt-2">{b.publisher} · {b.year}</p>
+            {books.map((b, i) => (
+              <FadeIn key={b.title} delay={i * 60}>
+                <div className="border border-[#e2e0dc] p-6 flex gap-4">
+                  <div className="flex-shrink-0 w-0.5 bg-[#b9975b]" />
+                  <div>
+                    <p className="font-semibold text-[#111111] text-sm leading-snug">{b.title}</p>
+                    <p className="text-[12px] text-[#6b6b6b] mt-1">{b.subtitle}</p>
+                    <p className="text-[12px] text-[#6b6b6b] mt-2">{b.publisher} · {b.year}</p>
+                  </div>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
-        </div>
+        </FadeIn>
 
         <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
 
         {/* WOS */}
-        <div className="flex flex-col md:flex-row gap-10 items-center border border-[#e2e0dc] p-10 mb-14">
+        <FadeIn className="flex flex-col md:flex-row gap-10 items-center border border-[#e2e0dc] p-10 mb-14">
           <div className="flex-1">
             <Eyebrow label="Nonprofit Leadership" />
             <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-5 -mt-4">
@@ -175,10 +178,10 @@ export default function LeadershipPage() {
               className="object-contain"
             />
           </div>
-        </div>
+        </FadeIn>
 
         {/* CTAs */}
-        <div className="flex gap-4 flex-wrap">
+        <FadeIn className="flex gap-4 flex-wrap">
           <Link
             href="/programs"
             className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
@@ -191,7 +194,7 @@ export default function LeadershipPage() {
           >
             Get in Touch
           </Link>
-        </div>
+        </FadeIn>
       </div>
     </>
   );

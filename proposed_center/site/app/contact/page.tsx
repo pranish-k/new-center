@@ -1,3 +1,5 @@
+import FadeIn from "@/components/FadeIn";
+
 export const metadata = {
   title: "Contact | Center for Technology Management",
 };
@@ -14,7 +16,7 @@ function Eyebrow({ label }: { label: string }) {
 export default function ContactPage() {
   return (
     <>
-      {/* Dark typographic hero */}
+      {/* Dark typographic hero — not wrapped */}
       <section className="bg-[#0a1628] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
@@ -32,7 +34,7 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-16">
 
           {/* Address */}
-          <div>
+          <FadeIn>
             <Eyebrow label="Address" />
             <address className="not-italic text-[15px] text-[#6b6b6b] leading-[1.7] space-y-1 -mt-4">
               <p className="font-semibold text-[#111111]">
@@ -60,10 +62,10 @@ export default function ContactPage() {
                 617.373.2000
               </p>
             </div>
-          </div>
+          </FadeIn>
 
           {/* Note */}
-          <div>
+          <FadeIn delay={80}>
             <Eyebrow label="Note" />
             <div className="text-[15px] text-[#6b6b6b] leading-[1.7] space-y-4 -mt-4">
               <p className="font-semibold text-[#111111]">
@@ -87,7 +89,7 @@ export default function ContactPage() {
                 for current information.
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </>

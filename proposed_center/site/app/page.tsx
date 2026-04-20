@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import FadeIn from "@/components/FadeIn";
 
 const stats = [
   { value: "230+", label: "Industry Mentors" },
@@ -82,7 +83,7 @@ function Eyebrow({ label }: { label: string }) {
 export default function Home() {
   return (
     <>
-      {/* Hero — dark panel, collage bleeds to right edge */}
+      {/* Hero — not wrapped in FadeIn (above the fold) */}
       <section className="bg-[#0a1628] text-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 z-10">
@@ -113,7 +114,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Collage — no border-radius, no shadow box */}
           <div className="flex-shrink-0 w-full md:w-[460px] md:-mr-6">
             <Image
               src="/art-langer-collage.jpg"
@@ -127,7 +127,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transition banner */}
+      {/* Transition banner — not wrapped (just below hero, visible immediately) */}
       <section className="border-b border-[#e2e0dc]">
         <div className="max-w-6xl mx-auto px-6 py-5 flex items-start gap-4">
           <span className="text-[#b9975b] font-bold text-base mt-0.5 flex-shrink-0">→</span>
@@ -138,62 +138,66 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats — numbers float on white, no borders */}
-      <section className="py-12">
+      {/* Stats — staggered FadeIn per item */}
+      <FadeIn className="py-12">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-4xl font-serif font-normal text-[#002868]">{s.value}</p>
-              <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
-            </div>
+          {stats.map((s, i) => (
+            <FadeIn key={s.label} delay={i * 80}>
+              <div className="text-center">
+                <p className="text-4xl font-serif font-normal text-[#002868]">{s.value}</p>
+                <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
-      </section>
+      </FadeIn>
 
       <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
 
-      {/* Programs — image-first cards */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      {/* Programs — image-first cards with hover translate */}
+      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
         <div className="flex items-end justify-between mb-12">
           <div>
             <Eyebrow label="What we offer" />
             <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight -mt-4">Programs</h2>
           </div>
-          <Link href="/programs" className="text-sm text-[#002868] underline hover:no-underline hidden md:block">
-            View all →
+          <Link href="/programs" className="group hidden md:flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline">
+            View all
+            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
           </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {programs.map((p) => (
-            <Link
-              key={p.title}
-              href={p.href}
-              className="group border border-[#e2e0dc] overflow-hidden flex flex-col hover:border-[#002868] transition-colors"
-            >
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={p.image}
-                  alt={p.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-7 flex flex-col flex-1">
-                <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
-                <h3 className="text-[18px] font-semibold text-[#111111] leading-snug mb-3 group-hover:text-[#002868] transition-colors">
-                  {p.title}
-                </h3>
-                <p className="text-[15px] text-[#6b6b6b] leading-[1.7] flex-1">{p.description}</p>
-                <p className="text-sm font-semibold text-[#002868] mt-5">Learn more →</p>
-              </div>
-            </Link>
+          {programs.map((p, i) => (
+            <FadeIn key={p.title} delay={i * 60}>
+              <Link
+                href={p.href}
+                className="group border border-[#e2e0dc] overflow-hidden flex flex-col
+                  hover:border-[#002868] hover:-translate-y-0.5
+                  transition-[border-color,transform] duration-[250ms] ease-out"
+              >
+                <div className="relative h-44 overflow-hidden">
+                  <Image src={p.image} alt={p.title} fill className="object-cover" />
+                </div>
+                <div className="p-7 flex flex-col flex-1">
+                  <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
+                  <h3 className="text-[18px] font-semibold text-[#111111] leading-snug mb-3 group-hover:text-[#002868] transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="text-[15px] text-[#6b6b6b] leading-[1.7] flex-1">{p.description}</p>
+                  <p className="text-sm font-semibold text-[#002868] mt-5 flex items-center gap-1">
+                    Learn more
+                    <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
+                  </p>
+                </div>
+              </Link>
+            </FadeIn>
           ))}
         </div>
-      </section>
+      </FadeIn>
 
-      {/* Pull quote — floats on white, no gray box */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
+      {/* Pull quote */}
+      <FadeIn className="max-w-6xl mx-auto px-6 py-24">
         <div className="flex flex-col md:flex-row items-start gap-12">
           <div className="flex-shrink-0">
             <Image
@@ -216,41 +220,43 @@ export default function Home() {
               </p>
             </blockquote>
             <div className="pl-6 mt-5">
-              <Link href="/leadership" className="text-sm text-[#002868] underline hover:no-underline">
-                About Dr. Langer →
+              <Link href="/leadership" className="group flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline w-fit">
+                About Dr. Langer
+                <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
               </Link>
             </div>
           </div>
         </div>
-      </section>
+      </FadeIn>
 
       <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
 
-      {/* Testimonials — pull quote treatment, no gray bordered boxes */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      {/* Testimonials */}
+      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
         <Eyebrow label="Student voices" />
         <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-12 -mt-4">What our graduates say</h2>
         <div className="grid md:grid-cols-2 gap-12">
-          {testimonials.map((t) => (
-            <div key={t.name}>
+          {testimonials.map((t, i) => (
+            <FadeIn key={t.name} delay={i * 80}>
               <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
                 <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">"{t.quote}"</p>
                 <p className="mt-4 text-[13px] text-[#6b6b6b]">
                   — <strong className="text-[#111111]">{t.name}</strong>, {t.role}
                 </p>
               </blockquote>
-            </div>
+            </FadeIn>
           ))}
         </div>
         <div className="mt-10">
-          <Link href="/experience" className="text-sm text-[#002868] underline hover:no-underline">
-            Read student stories →
+          <Link href="/experience" className="group flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline w-fit">
+            Read student stories
+            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
           </Link>
         </div>
-      </section>
+      </FadeIn>
 
-      {/* Partner logos — no gray background section */}
-      <section className="border-t border-[#e2e0dc] py-14">
+      {/* Partner logos */}
+      <FadeIn className="border-t border-[#e2e0dc] py-14">
         <div className="max-w-6xl mx-auto px-6">
           <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] text-center mb-10">
             Our students and mentors come from
@@ -268,10 +274,10 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </FadeIn>
 
       {/* WOS Partnership */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
         <div className="border border-[#e2e0dc] p-10 md:p-14 flex flex-col md:flex-row gap-12 items-center">
           <div className="flex-1">
             <Eyebrow label="Strategic Partnership" />
@@ -302,7 +308,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-      </section>
+      </FadeIn>
     </>
   );
 }
