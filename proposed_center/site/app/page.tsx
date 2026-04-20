@@ -84,17 +84,17 @@ export default function Home() {
   return (
     <>
       {/* Hero — not wrapped in FadeIn (above the fold) */}
-      <section className="bg-[#0a1628] text-white overflow-hidden">
+      <section className="bg-[#1D4F91] text-white overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-16">
           <div className="flex-1 z-10">
             <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-            <p className="text-[11px] uppercase tracking-[0.15em] text-blue-300/60 mb-6">
+            <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">
               Columbia University · Teachers College
             </p>
             <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-xl">
               Center for Technology Management and Digital Leadership
             </h1>
-            <p className="mt-6 text-[15px] text-blue-200/70 max-w-lg leading-[1.7]">
+            <p className="mt-6 text-[15px] text-white/75 max-w-lg leading-[1.7]">
               Preparing experienced leaders to meet disruption with agility,
               drive digital transformation, and shape the future of work.
             </p>
@@ -107,7 +107,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/leadership"
-                className="border border-white/40 text-white px-7 py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
+                className="border border-white/60 text-white px-7 py-3 text-sm font-semibold hover:bg-white/15 transition-colors"
               >
                 Meet Dr. Langer
               </Link>

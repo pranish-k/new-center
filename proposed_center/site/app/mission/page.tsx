@@ -19,14 +19,14 @@ export default function MissionPage() {
   return (
     <>
       {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#0a1628] text-white">
+      <section className="bg-[#1D4F91] text-white">
         <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
           <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-blue-300/60 mb-6">About the Center</p>
+          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">About the Center</p>
           <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
             Mission &amp; Vision
           </h1>
-          <p className="mt-6 text-[15px] text-blue-200/70 max-w-xl leading-[1.7]">
+          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
             We believe that talent, technology, and leadership — aligned — can transform any organization.
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function MissionPage() {
             <div className="absolute inset-0 bg-[#0a1628]/60 flex items-end p-8">
               <div>
                 <p className="text-white font-serif text-xl">"The Art of Digital Leadership"</p>
-                <p className="text-blue-200/70 text-[13px] mt-1">Podcast with Dr. Art Langer — on AI, leadership, and the future of work</p>
+                <p className="text-white/75 text-[13px] mt-1">Podcast with Dr. Art Langer — on AI, leadership, and the future of work</p>
               </div>
             </div>
           </div>
