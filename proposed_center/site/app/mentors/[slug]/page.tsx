@@ -147,7 +147,7 @@ export default async function MentorProfilePage({
                   ))}
               </dl>
 
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
                   className="inline-block bg-[#002868] px-7 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-[#001a4d]"
@@ -159,9 +159,19 @@ export default async function MentorProfilePage({
                     href={mentor.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block border border-[#002868] bg-[#f7f6f3] px-7 py-3 text-[13px] font-semibold text-[#002868] transition-colors hover:bg-[#002868] hover:text-white"
+                    aria-label={`${mentor.name} on LinkedIn`}
+                    title="View LinkedIn profile"
+                    className="inline-flex h-[46px] w-[46px] items-center justify-center bg-[#0A66C2] text-white transition-colors hover:bg-[#004182]"
                   >
-                    LinkedIn &rarr;
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                      className="h-5 w-5"
+                    >
+                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.37V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.26 2.37 4.26 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+                    </svg>
                   </a>
                 )}
               </div>

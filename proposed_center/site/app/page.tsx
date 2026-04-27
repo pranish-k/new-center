@@ -113,18 +113,16 @@ export default function Home() {
 
           <div className="relative h-[420px] md:-mr-8 md:h-[520px]">
             <Image
-              src="/art-langer-collage.jpg"
-              alt="Dr. Art Langer teaching, presenting, and at WOS graduation"
+              src="/hero-teachers-college.jpg"
+              alt="Columbia University Teachers College"
               fill
               priority
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute bottom-6 left-6 right-6 border-l-[3px] border-[#b9975b] bg-[#0a1628]/85 px-5 py-4 text-white">
-              <p className="m-0 mb-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/70">
-                Director
-              </p>
-              <p className="m-0 font-serif text-lg">Dr. Arthur M. Langer</p>
+              <p className="m-0 mb-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/70">              </p>
+              <p className="m-0 font-serif text-lg">Columbia University Teachers College</p>
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import path from "path";
+import { Suspense } from "react";
 import MentorsGrid from "./MentorsGrid";
 import { InteriorHero } from "@/components/Brand";
 
@@ -19,7 +20,9 @@ export default function MentorsPage() {
       />
 
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <MentorsGrid mentors={mentorsData} />
+        <Suspense fallback={null}>
+          <MentorsGrid mentors={mentorsData} />
+        </Suspense>
       </div>
     </>
   );

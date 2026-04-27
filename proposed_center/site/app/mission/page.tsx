@@ -86,7 +86,7 @@ export default function MissionPage() {
               },
             ].map((v, i) => (
               <FadeIn key={v.title} delay={i * 80}>
-                <div className="border-t-2 border-[#b9975b] pt-6">
+                <div className="group h-full border-t-2 border-[#b9975b] bg-[#f7f6f3] p-6 transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]">
                   <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
                   <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
                 </div>

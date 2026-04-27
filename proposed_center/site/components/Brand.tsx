@@ -302,7 +302,7 @@ export function TintedCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-white text-[#111111] no-underline transition-[transform,border-color] duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
+      className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-white text-[#111111] no-underline transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
     >
       {image ? (
         <div className="relative w-full overflow-hidden bg-[#1D4F91]" style={{ paddingTop: "62%" }}>
