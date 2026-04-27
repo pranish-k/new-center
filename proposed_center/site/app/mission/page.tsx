@@ -115,6 +115,51 @@ export default function MissionPage() {
               </div>
             </div>
           </div>
+
+          <p className="mt-8 mb-4 text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">
+            Listen on
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            {[
+              {
+                name: "Apple Podcasts",
+                src: "/podcasts/apple-podcasts.png",
+                href: "https://podcasts.apple.com/us/podcast/the-art-of-digital-leadership/id1716402093",
+              },
+              {
+                name: "Spotify",
+                src: "/podcasts/spotify.png",
+                href: "https://open.spotify.com/show/39ScayETE3a6HOUyUoQOTL",
+              },
+              {
+                name: "Amazon Music",
+                src: "/podcasts/amazon-music.png",
+                href: "https://www.amazon.com/dp/B0CJZHK753",
+              },
+              {
+                name: "Google Podcasts",
+                src: "/podcasts/google-podcasts.png",
+                href: "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5wb2RldGl6ZS5jb20vcnNzLzBzejJSQlUxaA==",
+              },
+            ].map((p) => (
+              <a
+                key={p.name}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Listen on ${p.name}`}
+                className="block transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
+              >
+                <Image
+                  src={p.src}
+                  alt={`Listen on ${p.name}`}
+                  width={600}
+                  height={300}
+                  className="h-auto w-full object-contain"
+                />
+              </a>
+            ))}
+          </div>
         </FadeIn>
 
         <FadeIn className="flex flex-wrap gap-4">
