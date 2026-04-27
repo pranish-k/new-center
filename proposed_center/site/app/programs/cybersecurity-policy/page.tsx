@@ -1,5 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Cybersecurity: Policy and Practice | Center for Technology Management",
@@ -8,71 +14,87 @@ export const metadata = {
 export default function CybersecurityPolicyPage() {
   return (
     <>
-      <section className="relative h-64 flex items-end">
-        <Image src="/course-cybersecurity.jpg" alt="Cybersecurity Policy" fill className="object-cover" />
-        <div className="absolute inset-0 bg-[#002868]/70" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-10 w-full">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Certificate Program</span>
-          <h1 className="text-3xl font-semibold text-white mt-2">Cybersecurity: Policy and Practice</h1>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Certificate Program"
+        title="Cybersecurity: Policy and Practice"
+        subtitle="Build and implement cybersecurity strategy, secure executive alignment, and develop a practical response playbook for real incidents."
+      />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-        <section>
-          <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#b9975b] pl-6 italic font-serif">
-            Equip leaders with the tools and strategies needed to build and implement a cybersecurity
-            strategy, secure executive buy-in, and develop a cyber playbook for responding to
-            real-world security incidents.
-          </p>
-        </section>
-
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Course overview</p>
-          <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-base">
+      <div className="mx-auto max-w-4xl space-y-20 px-6 py-20">
+        <FadeIn>
+          <blockquote className="pull-quote">
             <p>
-              This course examines the real-world challenges that CISOs and executive leaders face in
-              establishing cyber-resilient organizations. You'll begin with foundational elements of a
-              cybersecurity strategy — covering risk models, control frameworks, incident response
-              approaches, and navigating complex threats that often have no clear solution.
+              Equip leadership teams with the tools to make high-stakes cybersecurity
+              decisions under pressure.
+            </p>
+          </blockquote>
+        </FadeIn>
+
+        <FadeIn>
+          <Eyebrow label="Course overview" />
+          <div className="-mt-4 space-y-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
+            <p>
+              This course examines the practical challenges CISOs and executive leaders
+              face while building cyber-resilient organizations. Participants cover risk
+              models, control frameworks, and incident response strategy.
             </p>
             <p>
-              The course also emphasizes the role of executive leadership and corporate governance in
-              aligning security goals with broader organizational resilience. An immersive simulation
-              places you in the shoes of leaders like CEO, CFO, and COO during a cyber crisis, helping
-              you understand the urgency and decision-making required.
-            </p>
-            <p>
-              You'll walk away with a tangible playbook and a strategic lens for managing cybersecurity
-              at the leadership level.
+              An immersive leadership simulation places you in CEO, CFO, and COO roles
+              during a cyber crisis, sharpening your ability to coordinate decisions,
+              communication, and governance in real time.
             </p>
           </div>
-        </section>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">What you'll build</p>
-          <div className="grid md:grid-cols-2 gap-5">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="What you'll build" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2">
             {[
               "A real-world cybersecurity response playbook",
               "Risk model and control framework for your organization",
-              "Executive communication strategy for cyber events",
-              "Crisis simulation experience as C-suite decision-maker",
+              "Executive communication plan for cyber events",
+              "Leadership simulation experience for crisis response",
             ].map((item) => (
-              <div key={item} className="border border-gray-200 px-5 py-4 flex gap-3 text-sm text-gray-700 font-sans">
-                <span className="text-[#b9975b] flex-shrink-0">—</span>
+              <div key={item} className="border border-[#e2e0dc] px-5 py-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
                 {item}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/contact" className="bg-[#002868] text-white px-7 py-3 text-sm font-sans font-semibold hover:bg-[#001a4d] transition-colors">
-            Enroll / Learn More
-          </Link>
-          <Link href="/programs" className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-sans font-semibold hover:bg-[#002868]/5 transition-colors">
-            All Programs
-          </Link>
-        </div>
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why this course" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Executive-level focus",
+                body: "Understand how CISOs, CEOs, CFOs, and boards coordinate during high-risk events.",
+              },
+              {
+                title: "Strategy to execution",
+                body: "Move from framework design to response playbook development with implementation discipline.",
+              },
+              {
+                title: "Real-world relevance",
+                body: "Apply proven operating patterns used by organizations managing modern cyber risk.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/contact">Enroll / Learn More</PrimaryButton>
+          <SecondaryButton href="/programs">All Programs</SecondaryButton>
+        </FadeIn>
       </div>
     </>
   );

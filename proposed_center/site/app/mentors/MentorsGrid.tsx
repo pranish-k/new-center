@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useMemo } from "react";
 
 type Mentor = {
@@ -61,85 +62,63 @@ function FilterSelect({
 }
 
 function MentorCard({ mentor }: { mentor: Mentor }) {
-  const [expanded, setExpanded] = useState(false);
   const hasPhoto = Boolean(mentor.image);
   const imgSrc = hasPhoto ? `/mentors/${mentor.image.replace("images/", "")}` : null;
 
   return (
-    <div className="border border-[#e2e0dc] flex flex-col h-full">
-        <div className="flex gap-4 p-5">
-          <div className="flex-shrink-0 w-16 h-16 bg-[#f5f4f2] overflow-hidden">
-            {imgSrc ? (
-              <Image
-                src={imgSrc}
-                alt={mentor.name}
-                width={64}
-                height={64}
-                className="w-full h-full object-cover object-top"
-              />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-[#b9975b] text-lg font-serif">
-                {mentor.name.charAt(0)}
-              </div>
-            )}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-semibold text-[#111111] text-sm leading-snug">{mentor.name}</p>
-            {mentor.title && (
-              <p className="text-[12px] text-[#6b6b6b] mt-0.5 leading-snug">{mentor.title}</p>
-            )}
-            {mentor.company && (
-              <p className="text-[12px] text-[#b9975b] mt-0.5">{mentor.company}</p>
-            )}
-          </div>
+    <Link
+      href={`/mentors/${mentor.slug}`}
+      className="group flex h-full flex-col border border-[#e2e0dc] bg-white text-[#111111] no-underline transition-[transform,border-color] duration-[250ms] ease-out hover:-translate-y-0.5 hover:border-[#002868]"
+    >
+      <div className="flex gap-4 p-5">
+        <div className="flex-shrink-0 w-16 h-16 bg-[#f5f4f2] overflow-hidden">
+          {imgSrc ? (
+            <Image
+              src={imgSrc}
+              alt={mentor.name}
+              width={64}
+              height={64}
+              className="w-full h-full object-cover object-top"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-[#b9975b] text-lg font-serif">
+              {mentor.name.charAt(0)}
+            </div>
+          )}
         </div>
-
-        <div className="px-5 pb-2 flex flex-wrap gap-1.5">
-          {splitValues(mentor.industry).map((ind) => (
-            <span
-              key={ind}
-              className="text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] border border-[#e2e0dc] px-2 py-0.5"
-            >
-              {ind}
-            </span>
-          ))}
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-[#111111] text-sm leading-snug">{mentor.name}</p>
+          {mentor.title && (
+            <p className="text-[12px] text-[#6b6b6b] mt-0.5 leading-snug">{mentor.title}</p>
+          )}
+          {mentor.company && (
+            <p className="text-[12px] text-[#b9975b] mt-0.5">{mentor.company}</p>
+          )}
         </div>
-
-        {mentor.location && (
-          <p className="px-5 pb-3 text-[11px] text-[#6b6b6b]">{mentor.location}</p>
-        )}
-
-        {mentor.bio && (
-          <div className="px-5 pb-4 mt-auto border-t border-[#e2e0dc] pt-3">
-            <p
-              className={`text-[13px] text-[#6b6b6b] leading-[1.65] ${
-                expanded ? "" : "line-clamp-3"
-              }`}
-            >
-              {mentor.bio}
-            </p>
-            <button
-              onClick={() => setExpanded((v) => !v)}
-              className="text-[11px] uppercase tracking-[0.1em] text-[#002868] mt-2 hover:text-[#b9975b] transition-colors"
-            >
-              {expanded ? "Show less" : "Read more"}
-            </button>
-          </div>
-        )}
-
-        {mentor.linkedin && (
-          <div className="px-5 pb-4">
-            <a
-              href={mentor.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] uppercase tracking-[0.1em] text-[#6b6b6b] hover:text-[#002868] transition-colors"
-            >
-              LinkedIn →
-            </a>
-          </div>
-        )}
       </div>
+
+      <div className="px-5 pb-2 flex flex-wrap gap-1.5">
+        {splitValues(mentor.industry).map((ind) => (
+          <span
+            key={ind}
+            className="text-[10px] uppercase tracking-[0.1em] text-[#6b6b6b] border border-[#e2e0dc] px-2 py-0.5"
+          >
+            {ind}
+          </span>
+        ))}
+      </div>
+
+      {mentor.location && (
+        <p className="px-5 pb-3 text-[11px] text-[#6b6b6b]">{mentor.location}</p>
+      )}
+
+      <div className="mt-auto flex items-center justify-between border-t border-[#e2e0dc] px-5 py-3 text-[11px] uppercase tracking-[0.1em] text-[#6b6b6b]">
+        <span>View profile</span>
+        <span className="inline-block text-[#002868] transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
+          &rarr;
+        </span>
+      </div>
+    </Link>
   );
 }
 

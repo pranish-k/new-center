@@ -1,5 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "How to Lead in the Experience Economy | Center for Technology Management",
@@ -8,66 +14,87 @@ export const metadata = {
 export default function ExperienceEconomyPage() {
   return (
     <>
-      <section className="relative h-64 flex items-end">
-        <Image src="/program-leadership.jpg" alt="Experience Economy" fill className="object-cover" />
-        <div className="absolute inset-0 bg-[#002868]/65" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-10 w-full">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Certificate Program</span>
-          <h1 className="text-3xl font-semibold text-white mt-2">How to Lead in the Experience Economy</h1>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Certificate Program"
+        title="How to Lead in the Experience Economy"
+        subtitle="Master the design of meaningful customer experiences that build loyalty, deepen engagement, and generate sustainable value."
+      />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-        <section>
-          <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#b9975b] pl-6 italic font-serif">
-            Master the art of staging meaningful, memorable experiences that deepen customer engagement,
-            build brand loyalty, and unlock new sources of economic value in today's experience-driven marketplace.
-          </p>
-        </section>
-
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Course overview</p>
-          <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-base">
+      <div className="mx-auto max-w-4xl space-y-20 px-6 py-20">
+        <FadeIn>
+          <blockquote className="pull-quote">
             <p>
-              This course empowers you to drive business growth by designing customer experiences that
-              go beyond traditional offerings. You'll learn how organizations can engage customers
-              emotionally and economically by staging experiences that resonate deeply and deliver
-              lasting value.
+              Move beyond products and services to design experiences that customers
+              remember, value, and return to.
+            </p>
+          </blockquote>
+        </FadeIn>
+
+        <FadeIn>
+          <Eyebrow label="Course overview" />
+          <div className="-mt-4 space-y-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
+            <p>
+              This course develops practical frameworks for staging customer
+              experiences that create emotional and economic value in both B2C and B2B
+              settings.
             </p>
             <p>
-              Through real-world strategies and frameworks, you'll explore how to enhance customer
-              journeys, strengthen brand identity, and create transformative interactions. The course
-              also delves into how digital technologies can be leveraged to blur the line between real
-              and virtual, elevating experiences in innovative ways.
+              Participants learn how to strengthen customer journeys, sharpen brand
+              differentiation, and combine digital and physical touchpoints to create
+              more compelling experiences.
             </p>
           </div>
-        </section>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">What you'll learn</p>
-          <div className="grid md:grid-cols-2 gap-5">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="What you'll learn" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2">
             {[
               "Design customer experiences that deliver economic value",
               "Strengthen brand identity through transformative interactions",
-              "Leverage digital technologies to blur real and virtual experiences",
-              "Apply experience economy frameworks to B2C and B2B contexts",
+              "Leverage digital technologies to blend real and virtual experience",
+              "Apply experience-economy frameworks across business contexts",
             ].map((item) => (
-              <div key={item} className="border border-gray-200 px-5 py-4 flex gap-3 text-sm text-gray-700 font-sans">
-                <span className="text-[#b9975b] flex-shrink-0">—</span>
+              <div key={item} className="border border-[#e2e0dc] px-5 py-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
                 {item}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/contact" className="bg-[#002868] text-white px-7 py-3 text-sm font-sans font-semibold hover:bg-[#001a4d] transition-colors">
-            Enroll / Learn More
-          </Link>
-          <Link href="/programs" className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-sans font-semibold hover:bg-[#002868]/5 transition-colors">
-            All Programs
-          </Link>
-        </div>
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why this course" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Strategic experience design",
+                body: "Develop immersive, coherent experiences that generate measurable customer and business value.",
+              },
+              {
+                title: "Authenticity and differentiation",
+                body: "Learn to shape brand perception and outperform conventional campaign-led engagement.",
+              },
+              {
+                title: "Digital-physical fusion",
+                body: "Use technology to create hybrid interactions that feel seamless and memorable.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/contact">Enroll / Learn More</PrimaryButton>
+          <SecondaryButton href="/programs">All Programs</SecondaryButton>
+        </FadeIn>
       </div>
     </>
   );

@@ -1,36 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Mission & Vision | Center for Technology Management",
 };
 
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function MissionPage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">About the Center</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            Mission &amp; Vision
-          </h1>
-          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            We believe that talent, technology, and leadership — aligned — can transform any organization.
-          </p>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="About the Center"
+        title="Mission & Vision"
+        subtitle="We believe that talent, technology, and leadership — aligned — can transform any organization."
+      />
 
       <div className="max-w-3xl mx-auto px-6 py-20 space-y-20">
 
@@ -45,7 +34,7 @@ export default function MissionPage() {
           </blockquote>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Vision */}
         <FadeIn>
@@ -76,7 +65,7 @@ export default function MissionPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Values */}
         <FadeIn>
@@ -106,7 +95,7 @@ export default function MissionPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Media */}
         <FadeIn>
@@ -121,27 +110,16 @@ export default function MissionPage() {
             />
             <div className="absolute inset-0 bg-[#0a1628]/60 flex items-end p-8">
               <div>
-                <p className="text-white font-serif text-xl">"The Art of Digital Leadership"</p>
+                <p className="text-white font-serif text-xl">&ldquo;The Art of Digital Leadership&rdquo;</p>
                 <p className="text-white/75 text-[13px] mt-1">Podcast with Dr. Art Langer — on AI, leadership, and the future of work</p>
               </div>
             </div>
           </div>
         </FadeIn>
 
-        {/* CTAs */}
-        <FadeIn className="flex gap-4 flex-wrap">
-          <Link
-            href="/leadership"
-            className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
-          >
-            Meet Dr. Langer
-          </Link>
-          <Link
-            href="/programs"
-            className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-[#002868]/5 transition-colors"
-          >
-            Explore Programs
-          </Link>
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/leadership">Meet Dr. Langer</PrimaryButton>
+          <SecondaryButton href="/programs">Explore Programs</SecondaryButton>
         </FadeIn>
       </div>
     </>

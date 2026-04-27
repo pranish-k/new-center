@@ -1,34 +1,18 @@
 import FadeIn from "@/components/FadeIn";
+import { Eyebrow, InteriorHero } from "@/components/Brand";
 
 export const metadata = {
   title: "Contact | Center for Technology Management",
 };
 
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function ContactPage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">Get in touch</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            Contact Us
-          </h1>
-          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            We welcome inquiries about programs, partnerships, and the Center's transition to Columbia.
-          </p>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Get in touch"
+        title="Contact Us"
+        subtitle="We welcome inquiries about programs, partnerships, and the Center's transition to Columbia."
+      />
 
       <div className="max-w-3xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-16">

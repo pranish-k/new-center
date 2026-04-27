@@ -1,23 +1,38 @@
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import {
+  ArrowLink,
+  Eyebrow,
+  GoldButton,
+  NavyFeatureCard,
+  PhotoLedCard,
+  PullQuote,
+  StatsBar,
+  TintedCard,
+} from "@/components/Brand";
 
 const stats = [
   { value: "230+", label: "Industry Mentors" },
   { value: "15+", label: "Countries Represented" },
-  { value: "300+", label: "Student Projects Mentored" },
+  { value: "300+", label: "Student Projects" },
   { value: "25+", label: "Years of Leadership" },
 ];
 
-const programs = [
-  {
-    tag: "Master's Degree",
-    title: "MS in Strategic Technology Leadership",
-    description:
-      "A 30-credit hybrid program combining immersive on-ground residencies, one-on-one industry mentoring, and a 6-credit applied capstone project.",
-    href: "/programs/ms-strategic-technology-leadership",
-    image: "/session-classroom.jpg",
-  },
+const flagship = {
+  tag: "Master's Degree",
+  title: "MS in Strategic Technology Leadership",
+  body: "A 30-credit hybrid program combining immersive on-ground residencies, one-on-one industry mentoring, and a 6-credit applied capstone project drawn from the student's own organization.",
+  href: "/programs/ms-strategic-technology-leadership",
+  image: "/session-classroom.jpg",
+  meta: [
+    { label: "Format", value: "Hybrid" },
+    { label: "Credits", value: "30" },
+    { label: "Mentors", value: "230+" },
+  ],
+};
+
+const executivePrograms = [
   {
     tag: "Executive Program",
     title: "Digital Leadership Experience",
@@ -30,18 +45,25 @@ const programs = [
     tag: "Workshop",
     title: "AI & Machine Learning Leadership",
     description:
-      "A 3.5-day immersive workshop helping senior leaders build practical AI/ML implementation roadmaps for their organizations.",
+      "A 3.5-day immersive workshop helping senior leaders build practical AI/ML implementation roadmaps.",
     href: "/programs/ai-ml-workshop",
     image: "/program-tech.jpg",
   },
   {
-    tag: "Certificates",
-    title: "Topic-Focused Certificates",
+    tag: "Workshop",
+    title: "Break the Frame",
     description:
-      "Deep-dive programs in Blockchain, Cybersecurity, the Experience Economy, Metaverse, Smart Cities, and more.",
-    href: "/programs",
-    image: "/course-cybersecurity.jpg",
+      "A creative playshop for leaders ready to question assumptions, reframe challenges, and translate ideas into testable experiments.",
+    href: "/programs/break-the-frame",
+    image: "/program-leadership.jpg",
   },
+];
+
+const certificates = [
+  { name: "Blockchain", slug: "blockchain", image: "/course-blockchain.jpg", line: "Strategic frameworks for enterprise adoption." },
+  { name: "Cybersecurity: Policy & Practice", slug: "cybersecurity-policy", image: "/course-cybersecurity.jpg", line: "Build incident response playbooks for the C-suite." },
+  { name: "Managing AR, VR & the Metaverse", slug: "metaverse", image: "/program-metaverse.jpg", line: "Lead the next layer of customer experience." },
+  { name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure." },
 ];
 
 const partnerLogos = [
@@ -56,212 +78,213 @@ const partnerLogos = [
   { src: "/logo-xerox.png", alt: "Xerox" },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "I got really lucky when I found this program. I realized that I actually had stronger ambitions to move up the ladder.",
-    name: "Lee D.",
-    role: "MS Graduate, Class of 2025",
-  },
-  {
-    quote:
-      "I just wanted to say how much I appreciate the experience. Everything I learned, the perspectives I gained, and the connections I built have been invaluable.",
-    name: "Boris F.",
-    role: "MS Graduate, Class of 2025",
-  },
-];
-
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
-      {/* Hero — not wrapped in FadeIn (above the fold) */}
-      <section className="bg-[#1D4F91] text-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-16">
-          <div className="flex-1 z-10">
-            <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-            <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">
+      {/* Homepage hero — bold marketing, gold italic emphasis, gold CTA, director caption overlay. */}
+      <section className="relative overflow-hidden bg-[#002868] text-white">
+        <span className="absolute left-0 top-0 h-1 w-1/3 bg-[#b9975b]" />
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-8 py-24 md:grid-cols-[1.05fr_1fr] md:py-32">
+          <div>
+            <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
+            <p className="wordmark mb-7 text-[11px] tracking-[0.18em] text-white/70">
               Columbia University · Teachers College
             </p>
-            <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-xl">
-              Center for Technology Management and Digital Leadership
+            <h1 className="m-0 font-serif text-[52px] font-normal leading-[1.02] tracking-[-0.02em] md:text-[76px]">
+              Lead the next era of{" "}
+              <em className="not-italic font-serif italic text-[#b9975b]">technology</em>{" "}
+              &amp;
+              <br className="hidden md:block" /> digital transformation.
             </h1>
-            <p className="mt-6 text-[15px] text-white/75 max-w-lg leading-[1.7]">
-              Preparing experienced leaders to meet disruption with agility,
-              drive digital transformation, and shape the future of work.
+            <p className="mt-7 max-w-md text-[17px] leading-[1.6] text-white/85">
+              A graduate department for executives navigating disruption — with a master&rsquo;s degree,
+              executive programs, and topic certificates taught by faculty and 230+ industry mentors.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
+              <GoldButton href="/programs">Explore Programs &rarr;</GoldButton>
               <Link
-                href="/programs"
-                className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-blue-50 transition-colors"
+                href="/contact"
+                className="inline-block border border-white/50 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
               >
-                Explore Programs
-              </Link>
-              <Link
-                href="/leadership"
-                className="border border-white/60 text-white px-7 py-3 text-sm font-semibold hover:bg-white/15 transition-colors"
-              >
-                Meet Dr. Langer
+                Request Information
               </Link>
             </div>
           </div>
 
-          <div className="flex-shrink-0 w-full md:w-[460px] md:-mr-6">
+          <div className="relative h-[420px] md:-mr-8 md:h-[520px]">
             <Image
               src="/art-langer-collage.jpg"
-              alt="Dr. Art Langer teaching and presenting"
-              width={460}
-              height={340}
-              className="w-full object-cover"
+              alt="Dr. Art Langer teaching, presenting, and at WOS graduation"
+              fill
               priority
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
+            <div className="absolute bottom-6 left-6 right-6 border-l-[3px] border-[#b9975b] bg-[#0a1628]/85 px-5 py-4 text-white">
+              <p className="m-0 mb-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/70">
+                Director
+              </p>
+              <p className="m-0 font-serif text-lg">Dr. Arthur M. Langer</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Transition banner — not wrapped (just below hero, visible immediately) */}
-      <section className="border-b border-[#e2e0dc]">
-        <div className="max-w-6xl mx-auto px-6 py-5 flex items-start gap-4">
-          <span className="text-[#b9975b] font-bold text-base mt-0.5 flex-shrink-0">→</span>
-          <p className="text-sm text-[#6b6b6b] leading-relaxed">
+      {/* Transition banner — tight rhythm */}
+      <section className="border-b border-[#e2e0dc] bg-[#f7f6f3]">
+        <div className="mx-auto flex max-w-7xl items-start gap-4 px-8 py-5">
+          <span className="mt-0.5 flex-shrink-0 text-base font-bold text-[#b9975b]">&rarr;</span>
+          <p className="text-sm leading-relaxed text-[#6b6b6b]">
             <strong className="text-[#111111]">In transition.</strong> The Center is moving from Northeastern University to{" "}
             <strong className="text-[#111111]">Columbia University Teachers College</strong> under the continued leadership of Dr. Art Langer.
           </p>
         </div>
       </section>
 
-      {/* Stats — staggered FadeIn per item */}
-      <FadeIn className="py-12">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s, i) => (
-            <FadeIn key={s.label} delay={i * 80}>
-              <div className="text-center">
-                <p className="text-4xl font-serif font-normal text-[#002868]">{s.value}</p>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-2">{s.label}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+      {/* Stats — navy band, dark variant per reference */}
+      <FadeIn>
+        <StatsBar stats={stats} dark />
       </FadeIn>
 
-      <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
-
-      {/* Programs — image-first cards with hover translate */}
-      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
-        <div className="flex items-end justify-between mb-12">
-          <div>
-            <Eyebrow label="What we offer" />
-            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight -mt-4">Programs</h2>
+      {/* Programs — flagship feature card + 3 supporting */}
+      <FadeIn className="bg-white">
+        <div className="mx-auto max-w-7xl px-8 pb-10 pt-32">
+          <div className="mb-14 flex items-end justify-between">
+            <div>
+              <Eyebrow label="What we offer" />
+              <h2 className="-mt-2 m-0 font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
+                Programs for every stage of leadership.
+              </h2>
+            </div>
+            <div className="hidden md:block">
+              <ArrowLink href="/programs">View all programs</ArrowLink>
+            </div>
           </div>
-          <Link href="/programs" className="group hidden md:flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline">
-            View all
-            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
-          </Link>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {programs.map((p, i) => (
-            <FadeIn key={p.title} delay={i * 60}>
-              <Link
-                href={p.href}
-                className="group border border-[#e2e0dc] overflow-hidden flex flex-col
-                  hover:border-[#002868] hover:-translate-y-0.5
-                  transition-[border-color,transform] duration-[250ms] ease-out"
-              >
-                <div className="relative h-44 overflow-hidden">
-                  <Image src={p.image} alt={p.title} fill className="object-cover" />
-                </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
-                  <h3 className="text-[18px] font-semibold text-[#111111] leading-snug mb-3 group-hover:text-[#002868] transition-colors">
-                    {p.title}
-                  </h3>
-                  <p className="text-[15px] text-[#6b6b6b] leading-[1.7] flex-1">{p.description}</p>
-                  <p className="text-sm font-semibold text-[#002868] mt-5 flex items-center gap-1">
-                    Learn more
-                    <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
-                  </p>
-                </div>
-              </Link>
-            </FadeIn>
-          ))}
-        </div>
-      </FadeIn>
-
-      {/* Pull quote */}
-      <FadeIn className="max-w-6xl mx-auto px-6 py-24">
-        <div className="flex flex-col md:flex-row items-start gap-12">
-          <div className="flex-shrink-0">
-            <Image
-              src="/art-langer.jpg"
-              alt="Dr. Art Langer"
-              width={180}
-              height={180}
-              className="object-cover w-36 h-36 md:w-44 md:h-44"
+          <div className="mb-8">
+            <NavyFeatureCard
+              eyebrow={flagship.tag}
+              title={flagship.title}
+              body={flagship.body}
+              ctaLabel="Explore the MS"
+              href={flagship.href}
+              image={flagship.image}
+              imageAlt="Flagship master's program classroom"
+              meta={flagship.meta}
             />
           </div>
-          <div>
-            <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
-              <p className="font-serif italic text-xl md:text-2xl text-[#111111] leading-[1.5] max-w-2xl">
-                "By harnessing the power of hands-on experience and tailored mentorship,
-                the Center empowers its network of learners to practice agility in a
-                tech-driven world."
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {executivePrograms.map((p, i) => (
+              <FadeIn key={p.title} delay={i * 60}>
+                <PhotoLedCard
+                  href={p.href}
+                  image={p.image}
+                  imageAlt={p.title}
+                  tag={p.tag}
+                  title={p.title}
+                  description={p.description}
+                />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Topic certificates strip on cream */}
+      <FadeIn className="bg-[#f7f6f3]">
+        <div className="mx-auto max-w-7xl px-8 py-24">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <Eyebrow label="Topic certificates" />
+              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
+                Deep-dive certificates, taught by faculty who built the field.
+              </h2>
+            </div>
+            <div className="hidden md:block">
+              <ArrowLink href="/programs">All certificates</ArrowLink>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            {certificates.map((c, i) => (
+              <FadeIn key={c.slug} delay={i * 40}>
+                <TintedCard
+                  href={`/programs/${c.slug}`}
+                  image={c.image}
+                  imageAlt={c.name}
+                  name={c.name}
+                  line={c.line}
+                />
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Director quote on full-bleed photo band — feature rhythm */}
+      <FadeIn>
+        <section
+          className="relative bg-cover bg-center px-8 py-32 md:py-36"
+          style={{ backgroundImage: "url(/session-classroom.jpg)" }}
+        >
+          <div className="absolute inset-0 bg-[#002868]/85" />
+          <div className="relative mx-auto max-w-3xl text-white">
+            <span className="mb-6 block h-0.5 w-8 bg-[#b9975b]" />
+            <blockquote className="m-0">
+              <p className="m-0 font-serif text-[28px] font-normal italic leading-[1.3] md:text-[36px]">
+                &ldquo;By harnessing hands-on experience and tailored mentorship, the Center empowers
+                learners to practice agility in a tech-driven world.&rdquo;
               </p>
-              <p className="mt-5 text-[13px] text-[#6b6b6b]">
-                — <strong className="text-[#111111]">Dr. Arthur M. Langer</strong>, Director &amp; Professor of Practice
+              <p className="mt-7 text-[13px] text-white/80">
+                &mdash; <strong className="font-semibold text-white">Dr. Arthur M. Langer</strong>, Director
               </p>
             </blockquote>
-            <div className="pl-6 mt-5">
-              <Link href="/leadership" className="group flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline w-fit">
+            <div className="mt-7">
+              <Link
+                href="/leadership"
+                className="inline-block border border-white/50 px-7 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-white/15"
+              >
                 About Dr. Langer
-                <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
               </Link>
             </div>
           </div>
-        </div>
+        </section>
       </FadeIn>
 
-      <hr className="border-0 border-t border-[#e2e0dc] max-w-6xl mx-auto" />
-
-      {/* Testimonials */}
-      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
+      {/* Student voices — pull quote treatment */}
+      <FadeIn className="mx-auto max-w-6xl px-6 py-20">
         <Eyebrow label="Student voices" />
-        <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-12 -mt-4">What our graduates say</h2>
-        <div className="grid md:grid-cols-2 gap-12">
-          {testimonials.map((t, i) => (
-            <FadeIn key={t.name} delay={i * 80}>
-              <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
-                <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">"{t.quote}"</p>
-                <p className="mt-4 text-[13px] text-[#6b6b6b]">
-                  — <strong className="text-[#111111]">{t.name}</strong>, {t.role}
-                </p>
-              </blockquote>
-            </FadeIn>
-          ))}
+        <h2 className="-mt-2 mb-12 m-0 font-serif text-3xl font-normal leading-tight text-[#111111]">
+          What our graduates say
+        </h2>
+        <div className="grid gap-12 md:grid-cols-2">
+          <FadeIn>
+            <PullQuote
+              quote="I got really lucky when I found this program. I realized that I actually had stronger ambitions to move up the ladder."
+              name="Lee D."
+              role="MS Graduate, Class of 2025"
+            />
+          </FadeIn>
+          <FadeIn delay={80}>
+            <PullQuote
+              quote="Everything I learned, the perspectives I gained, and the connections I built have been invaluable."
+              name="Boris F."
+              role="MS Graduate, Class of 2025"
+            />
+          </FadeIn>
         </div>
         <div className="mt-10">
-          <Link href="/experience" className="group flex items-center gap-1 text-sm text-[#002868] underline hover:no-underline w-fit">
-            Read student stories
-            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover:translate-x-[3px]">→</span>
-          </Link>
+          <ArrowLink href="/experience">Read student stories</ArrowLink>
         </div>
       </FadeIn>
 
       {/* Partner logos */}
       <FadeIn className="border-t border-[#e2e0dc] py-14">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] text-center mb-10">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
             Our students and mentors come from
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-8">
             {partnerLogos.map((l) => (
               <Image
                 key={l.alt}
@@ -269,33 +292,33 @@ export default function Home() {
                 alt={l.alt}
                 width={110}
                 height={50}
-                className="object-contain grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100 h-10 w-auto"
+                className="h-10 w-auto object-contain opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
               />
             ))}
           </div>
         </div>
       </FadeIn>
 
-      {/* WOS Partnership */}
-      <FadeIn className="max-w-6xl mx-auto px-6 py-20">
-        <div className="border border-[#e2e0dc] p-10 md:p-14 flex flex-col md:flex-row gap-12 items-center">
+      {/* WOS partnership */}
+      <FadeIn className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex flex-col items-center gap-12 border border-[#e2e0dc] p-10 md:flex-row md:p-14">
           <div className="flex-1">
             <Eyebrow label="Strategic Partnership" />
-            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-5 -mt-4">
+            <h2 className="-mt-2 mb-5 m-0 font-serif text-3xl font-normal leading-tight text-[#111111]">
               Workforce Opportunity Services
             </h2>
-            <p className="text-[15px] text-[#6b6b6b] leading-[1.7] max-w-xl mb-4">
+            <p className="mb-4 max-w-xl text-[15px] leading-[1.7] text-[#6b6b6b]">
               Founded by Dr. Langer, WOS is a nonprofit that identifies talent from underserved
               communities — including veterans — and prepares them for high-impact careers in
               technology. WOS acts as an outsourcing partner for major corporations, placing
               trained professionals as software engineers, analysts, and more.
             </p>
-            <p className="text-[15px] text-[#6b6b6b] leading-[1.7] max-w-xl">
-              WOS will partner with the new Columbia department, creating a unique pipeline
-              that connects executive education with workforce development.
+            <p className="max-w-xl text-[15px] leading-[1.7] text-[#6b6b6b]">
+              WOS will partner with the new Columbia department, creating a unique pipeline that
+              connects executive education with workforce development.
             </p>
           </div>
-          <div className="flex-shrink-0 flex flex-col items-center gap-4">
+          <div className="flex flex-shrink-0 flex-col items-center gap-4">
             <Image
               src="/wos-logo.png"
               alt="Workforce Opportunity Services"
@@ -303,7 +326,7 @@ export default function Home() {
               height={80}
               className="object-contain"
             />
-            <span className="text-xs text-[#6b6b6b] border border-dashed border-[#e2e0dc] px-4 py-2 text-center">
+            <span className="border border-dashed border-[#e2e0dc] px-4 py-2 text-center text-xs text-[#6b6b6b]">
               Partnership details coming soon
             </span>
           </div>

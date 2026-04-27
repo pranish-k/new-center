@@ -1,259 +1,157 @@
-import Link from "next/link";
-import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import {
+  Eyebrow,
+  GoldButton,
+  InteriorHero,
+  NavyFeatureCard,
+  PhotoLedCard,
+  TintedCard,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Programs | Center for Technology Management",
 };
 
-const degreePrograms = [
-  {
-    title: "MS in Strategic Technology Leadership",
-    tag: "Master's Degree",
-    slug: "ms-strategic-technology-leadership",
-    description:
-      "A 30-credit MS in Management with Concentration in Strategic Technology Leadership. Combines 5 core courses, 9 elective credits, immersive on-ground residencies, and a 6-credit applied master's project.",
-    highlights: [
-      "For-credit immersive residencies",
-      "One-on-one industry mentoring",
-      "Online and in-person hybrid format",
-      "Core areas: AI/ML, Digital Strategy, Cybersecurity, Analytics",
-    ],
-    image: "/session-classroom.jpg",
-  },
-];
+const flagship = {
+  tag: "Master's Degree",
+  title: "MS in Strategic Technology Leadership",
+  body: "A 30-credit MS in Management with Concentration in Strategic Technology Leadership. Five core courses, nine elective credits, immersive on-ground residencies, and a 6-credit applied master's project drawn from the student's own organization.",
+  href: "/programs/ms-strategic-technology-leadership",
+  image: "/session-classroom.jpg",
+  meta: [
+    { label: "Format", value: "Hybrid" },
+    { label: "Credits", value: "30" },
+    { label: "Residencies", value: "3" },
+    { label: "Mentors", value: "230+" },
+  ],
+};
 
 const executivePrograms = [
   {
-    title: "Digital Leadership Experience",
     tag: "Executive Program",
-    slug: "digital-leadership",
+    title: "Digital Leadership Experience",
     description:
-      "A flexible 6–12 month program for executives, board members, entrepreneurs, and post-career professionals. Combines a customized learning plan, expert-led faculty sessions, one-on-one mentoring from 230+ industry leaders, and an applied capstone project.",
-    highlights: [
-      "Flexible 6, 9, or 12 month formats",
-      "Personalized curriculum designed with academic directors",
-      "Access to 230+ accomplished industry mentors",
-      "Outcome-focused: digital business plans, social initiatives",
-    ],
+      "A flexible 6–12 month program for executives, board members, entrepreneurs, and post-career professionals. Combines a customized learning plan, expert-led faculty sessions, and an applied capstone.",
+    href: "/programs/digital-leadership",
     image: "/program-mentoring.jpg",
   },
   {
-    title: "AI & Machine Learning Leadership Workshop",
     tag: "Workshop",
-    slug: "ai-ml-workshop",
+    title: "AI & Machine Learning Leadership",
     description:
-      "A 3.5-day immersive workshop for executives and senior leaders exploring the strategic application of AI and ML. Participants leave with actionable plans for both their business unit and enterprise-wide strategy.",
-    highlights: [
-      "Understand primary AI/ML methodologies and best use cases",
-      "Apply AI/ML thinking to critical business problems",
-      "Develop an implementation roadmap with change management plan",
-      "Small cohort, hands-on format",
-    ],
+      "A 3.5-day immersive workshop for executives exploring the strategic application of AI and ML. Participants leave with implementation roadmaps and change management plans.",
+    href: "/programs/ai-ml-workshop",
     image: "/program-tech.jpg",
   },
   {
-    title: "Break the Frame",
     tag: "Workshop",
-    slug: "break-the-frame",
+    title: "Break the Frame",
     description:
-      "A creative 'playshop' for leaders ready to question assumptions, reframe challenges as opportunities, and translate ideas into testable experiments. Facilitated by innovation practitioners.",
-    highlights: [
-      "Unlearn conventional problem-solving frames",
-      "Build creative confidence and ideation skills",
-      "Translate insights into actionable experiments",
-    ],
+      "A creative playshop for leaders ready to question assumptions, reframe challenges, and translate ideas into testable experiments.",
+    href: "/programs/break-the-frame",
     image: "/program-leadership.jpg",
   },
 ];
 
-const certificatePrograms = [
-  { name: "Blockchain", slug: "blockchain", image: "/course-blockchain.jpg" },
-  { name: "Cybersecurity: Policy and Practice", slug: "cybersecurity-policy", image: "/course-cybersecurity.jpg" },
-  { name: "Cybersecurity: Threats and Defenses", slug: "cybersecurity-threats", image: "/course-threats.jpg" },
-  { name: "Database Platform Design and Innovation", slug: "database-platform", image: "/program-tech.jpg" },
-  { name: "How to Lead in the Experience Economy", slug: "experience-economy", image: "/program-leadership.jpg" },
-  { name: "Managing AR, VR & the Metaverse", slug: "metaverse", image: "/program-metaverse.jpg" },
-  { name: "Raising Capital", slug: "raising-capital", image: "/program-mentoring.jpg" },
-  { name: "Smart City Initiatives & Business Opportunities", slug: "smart-city", image: "/hero-city.jpg" },
-  { name: "Quantitative Derivatives Pricing & Risk Modeling", slug: "quant-derivatives", image: "/program-tech.jpg" },
+const certificates = [
+  { name: "Blockchain", slug: "blockchain", image: "/course-blockchain.jpg", line: "Strategic frameworks for enterprise adoption." },
+  { name: "Cybersecurity: Policy & Practice", slug: "cybersecurity-policy", image: "/course-cybersecurity.jpg", line: "Build incident response playbooks for the C-suite." },
+  { name: "Cybersecurity: Threats & Defenses", slug: "cybersecurity-threats", image: "/course-threats.jpg", line: "Examine modern threats and defense architectures." },
+  { name: "Database Platform Design", slug: "database-platform", image: "/program-tech.jpg", line: "Architect platforms for analytics and scale." },
+  { name: "Lead in the Experience Economy", slug: "experience-economy", image: "/program-leadership.jpg", line: "Design for human experience as a business asset." },
+  { name: "Managing AR, VR & the Metaverse", slug: "metaverse", image: "/program-metaverse.jpg", line: "Lead the next layer of customer experience." },
+  { name: "Raising Capital", slug: "raising-capital", image: "/program-mentoring.jpg", line: "Capital strategy for technology-driven ventures." },
+  { name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure." },
+  { name: "Quantitative Derivatives Pricing", slug: "quant-derivatives", image: "/program-tech.jpg", line: "Pricing and risk modeling for senior decision-makers." },
 ];
-
-type Program = {
-  title: string;
-  tag: string;
-  slug: string;
-  description: string;
-  highlights: string[];
-  image: string;
-};
-
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
-function ProgramCard({ p, delay = 0 }: { p: Program; delay?: number }) {
-  return (
-    <FadeIn delay={delay}>
-      <div className="group border border-[#e2e0dc] overflow-hidden flex flex-col
-        hover:border-[#002868] hover:-translate-y-0.5
-        transition-[border-color,transform] duration-[250ms] ease-out h-full">
-        <div className="relative h-48 overflow-hidden">
-          <Image src={p.image} alt={p.title} fill className="object-cover" />
-        </div>
-        <div className="p-8 flex flex-col flex-1">
-          <p className="text-[11px] uppercase tracking-[0.15em] text-[#b9975b] mb-2">{p.tag}</p>
-          <h3 className="text-[19px] font-semibold text-[#111111] leading-snug mb-3">{p.title}</h3>
-          <p className="text-[15px] text-[#6b6b6b] leading-[1.7] mb-5">{p.description}</p>
-          <ul className="space-y-1.5 mb-6 flex-1">
-            {p.highlights.map((h) => (
-              <li key={h} className="text-[15px] text-[#6b6b6b] flex gap-2">
-                <span className="text-[#b9975b] mt-0.5 flex-shrink-0">—</span>
-                {h}
-              </li>
-            ))}
-          </ul>
-          <Link
-            href={`/programs/${p.slug}`}
-            className="group/link flex items-center gap-1 text-sm font-semibold text-[#002868] hover:underline w-fit"
-          >
-            Learn more
-            <span className="inline-block transition-transform duration-[200ms] ease-out group-hover/link:translate-x-[3px]">→</span>
-          </Link>
-        </div>
-      </div>
-    </FadeIn>
-  );
-}
 
 export default function ProgramsPage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">What we offer</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            Programs for every stage of leadership
-          </h1>
-          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            Designed for experienced professionals — from emerging managers to C-suite executives —
-            who need to lead effectively in a technology-driven world.
-          </p>
+      <InteriorHero
+        eyebrow="What we offer"
+        title="Programs for every stage of leadership"
+        subtitle="From the flagship master's degree to short executive workshops and topic certificates — designed for professionals leading in technology-driven environments."
+      />
+
+      {/* Flagship — NavyFeatureCard, the one feature CTA per page */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-8 pb-12 pt-20">
+          <FadeIn>
+            <Eyebrow label="The flagship" />
+          </FadeIn>
+          <FadeIn>
+            <NavyFeatureCard
+              eyebrow={flagship.tag}
+              title={flagship.title}
+              body={flagship.body}
+              ctaLabel="Explore the MS"
+              href={flagship.href}
+              image={flagship.image}
+              imageAlt="Flagship master's program classroom"
+              meta={flagship.meta}
+            />
+          </FadeIn>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
-
-        {/* Degree programs */}
-        <section>
+      {/* Executive & Professional — PhotoLedCard grid on cream */}
+      <section className="bg-[#f7f6f3]">
+        <div className="mx-auto max-w-7xl px-8 py-20" id="executive">
           <FadeIn>
-            <Eyebrow label="Degree Programs" />
+            <Eyebrow label="Executive & Professional" />
           </FadeIn>
-          <div className="grid gap-6 -mt-4">
-            {degreePrograms.map((p, i) => (
-              <ProgramCard key={p.title} p={p} delay={i * 60} />
-            ))}
-          </div>
-        </section>
-
-        <hr className="border-0 border-t border-[#e2e0dc]" />
-
-        {/* Executive & professional */}
-        <section id="executive">
-          <FadeIn>
-            <Eyebrow label="Executive & Professional Programs" />
-          </FadeIn>
-          <div className="grid md:grid-cols-3 gap-6 -mt-4">
+          <div className="grid gap-6 md:grid-cols-3">
             {executivePrograms.map((p, i) => (
-              <ProgramCard key={p.title} p={p} delay={i * 60} />
-            ))}
-          </div>
-        </section>
-
-        <hr className="border-0 border-t border-[#e2e0dc]" />
-
-        {/* Certificate grid — photo cards */}
-        <section>
-          <FadeIn>
-            <Eyebrow label="Certificate & Topic Programs" />
-          </FadeIn>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 -mt-4">
-            {certificatePrograms.map((c, i) => (
-              <FadeIn key={c.name} delay={i * 40}>
-                <Link
-                  href={`/programs/${c.slug}`}
-                  className="group relative overflow-hidden h-44 flex items-end block"
-                >
-                  <Image src={c.image} alt={c.name} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-[#0a1628]/55 group-hover:bg-[#0a1628]/45 transition-colors" />
-                  <p className="relative z-10 text-white text-sm font-semibold px-5 pb-5 leading-snug">
-                    {c.name}
-                  </p>
-                </Link>
+              <FadeIn key={p.title} delay={i * 60}>
+                <PhotoLedCard
+                  href={p.href}
+                  image={p.image}
+                  imageAlt={p.title}
+                  tag={p.tag}
+                  title={p.title}
+                  description={p.description}
+                />
               </FadeIn>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
-
-        {/* Residencies */}
-        <FadeIn>
-          <Eyebrow label="Experiential Learning" />
-          <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-10 -mt-4">Immersive Residencies</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <Image
-                src="/session-classroom.jpg"
-                alt="Residency classroom session"
-                width={500}
-                height={300}
-                className="w-full object-cover h-52 mb-6"
-              />
-              <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">
-                Four-day immersive residencies bring cohorts of senior executives together for
-                intensive learning, case studies, and peer exchange alongside faculty and mentors.
-                Residencies serve as living case studies — students test ideas, practice leadership,
-                and build a global peer network.
-              </p>
-            </div>
-            <div>
-              <Image
-                src="/session-dinner.jpg"
-                alt="Residency cohort dinner"
-                width={500}
-                height={300}
-                className="w-full object-cover h-52 mb-6"
-              />
-              <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">
-                Beyond the classroom, residencies include structured networking events, guest
-                speakers from local industry, and cohort dinners that build the lasting
-                professional relationships our graduates return to again and again.
-              </p>
-            </div>
+      {/* Topic Certificates — TintedCard grid on white */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-8 py-20">
+          <FadeIn>
+            <Eyebrow label="Topic Certificates" />
+          </FadeIn>
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {certificates.map((c, i) => (
+              <FadeIn key={c.slug} delay={i * 40}>
+                <TintedCard
+                  href={`/programs/${c.slug}`}
+                  image={c.image}
+                  imageAlt={c.name}
+                  name={c.name}
+                  line={c.line}
+                />
+              </FadeIn>
+            ))}
           </div>
-        </FadeIn>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <FadeIn className="text-center pt-4">
-          <p className="text-[15px] text-[#6b6b6b] mb-6">
-            Interested in a program? Reach out to learn more.
+      {/* Closing prompt — feature spacing */}
+      <section className="bg-[#002868] text-white">
+        <div className="mx-auto max-w-3xl px-8 py-24 text-center">
+          <span className="mx-auto mb-6 block h-0.5 w-8 bg-[#b9975b]" />
+          <p className="m-0 font-serif text-2xl leading-[1.4] md:text-[28px]">
+            Not sure which program fits? We&rsquo;ll match you to the right one.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block bg-[#002868] text-white px-8 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
-          >
-            Contact Us
-          </Link>
-        </FadeIn>
-      </div>
+          <div className="mt-9 flex justify-center">
+            <GoldButton href="/contact">Request Information &rarr;</GoldButton>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

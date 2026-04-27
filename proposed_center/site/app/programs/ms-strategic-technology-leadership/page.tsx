@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { Divider, Eyebrow, PrimaryButton, ProgramHero } from "@/components/Brand";
 
 export const metadata = {
   title: "MS in Strategic Technology Leadership | Center for Technology Management",
@@ -22,42 +23,34 @@ const electives = [
   "Entrepreneurship",
 ];
 
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function MSPage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">Master's Degree</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            MS in Strategic Technology Leadership
-          </h1>
-          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            A 30-credit graduate degree for directors and senior managers with C-suite aspirations
-            — combining academic rigor, real-world mentorship, and immersive residency experiences.
-          </p>
-          <div className="flex gap-4 mt-10 flex-wrap">
-            <Link href="/contact" className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-blue-50 transition-colors">
+      <ProgramHero
+        eyebrow="Master's Degree"
+        title="MS in Strategic Technology Leadership"
+        subtitle="A 30-credit graduate degree for directors and senior managers with C-suite aspirations — combining academic rigor, real-world mentorship, and immersive residencies."
+        image="/session-classroom.jpg"
+        imageAlt="MS program classroom session"
+        meta={[
+          { label: "Format", value: "Hybrid" },
+          { label: "Credits", value: "30" },
+          { label: "Residencies", value: "3" },
+          { label: "Capstone", value: "6 credits" },
+        ]}
+        actions={
+          <>
+            <Link href="/contact" className="bg-white px-7 py-3 text-sm font-semibold text-[#002868] transition-colors hover:bg-blue-50">
               Request Information
             </Link>
-            <Link href="/programs" className="border border-white/60 text-white px-7 py-3 text-sm font-semibold hover:bg-white/15 transition-colors">
+            <Link href="/programs" className="border border-white/60 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15">
               All Programs
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
+      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20 mt-24">
 
         {/* Stats bar */}
         <FadeIn className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-16 border-b border-[#e2e0dc]">
@@ -104,7 +97,7 @@ export default function MSPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Curriculum */}
         <FadeIn>
@@ -136,7 +129,7 @@ export default function MSPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Residency */}
         <FadeIn>
@@ -158,7 +151,7 @@ export default function MSPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Admission */}
         <FadeIn>
@@ -183,18 +176,14 @@ export default function MSPage() {
           </div>
         </FadeIn>
 
-        {/* CTA */}
         <FadeIn className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pt-4">
           <div>
             <h2 className="text-2xl font-serif font-normal text-[#111111] mb-1">Ready to start your leadership journey?</h2>
             <p className="text-[15px] text-[#6b6b6b]">Contact us to learn more about the MS program.</p>
           </div>
-          <Link
-            href="/contact"
-            className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors flex-shrink-0"
-          >
-            Contact Us
-          </Link>
+          <div className="flex-shrink-0">
+            <PrimaryButton href="/contact">Contact Us</PrimaryButton>
+          </div>
         </FadeIn>
       </div>
     </>

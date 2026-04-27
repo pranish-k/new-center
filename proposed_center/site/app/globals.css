@@ -1,13 +1,30 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("/fonts/TrajanPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("/fonts/TrajanPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --navy:        #002868;
-  --dark-panel:  #1D4F91;
-  --gold:        #b9975b;
-  --off-white:   #f7f6f3;
-  --text-primary:   #111111;
+  --navy: #002868;
+  --navy-deep: #001a4d;
+  --dark-panel: #0a1628;
+  --gold: #b9975b;
+  --off-white: #f7f6f3;
+  --text-primary: #111111;
   --text-secondary: #6b6b6b;
-  --divider:     #e2e0dc;
+  --divider: #e2e0dc;
+  --font-wordmark: "Trajan Pro", "Trajan", "Cinzel", Georgia, serif;
   --duration-fade: 600ms;
   --ease-fade: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -20,12 +37,62 @@
   }
 }
 
-body {
-  background: #ffffff;
-  color: var(--text-primary);
-  font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+@layer base {
+  body {
+    background: #ffffff;
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  h1, h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: 400;
+  }
+
+  h1 {
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-family: system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    line-height: 1.35;
+  }
+
+  a {
+    color: var(--navy);
+  }
+
+  a:hover {
+    color: var(--navy-deep);
+  }
 }
 
-h1, h2 {
+.wordmark {
+  font-family: var(--font-wordmark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-feature-settings: "liga" 1;
+}
+.wordmark--bold {
+  font-weight: 700;
+}
+
+.pull-quote {
+  border-left: 3px solid var(--gold);
+  padding-left: 1.5rem;
+}
+
+.pull-quote p {
+  color: var(--text-primary);
   font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.5;
 }

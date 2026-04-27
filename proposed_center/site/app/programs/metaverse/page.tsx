@@ -1,5 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Managing AR, VR & the Metaverse | Center for Technology Management",
@@ -8,68 +14,88 @@ export const metadata = {
 export default function MetaversePage() {
   return (
     <>
-      <section className="relative h-64 flex items-end">
-        <Image src="/program-metaverse.jpg" alt="AR VR Metaverse" fill className="object-cover" />
-        <div className="absolute inset-0 bg-[#002868]/65" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-10 w-full">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Certificate Program</span>
-          <h1 className="text-3xl font-semibold text-white mt-2">Managing AR, VR & the Metaverse</h1>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Certificate Program"
+        title="Managing AR, VR & the Metaverse"
+        subtitle="Explore metaverse foundations, industry applications, and practical design challenges shaping immersive digital experiences."
+      />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-        <section>
-          <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#b9975b] pl-6 italic font-serif">
-            Step into the evolving world of the metaverse — explore its origins, current applications,
-            and future potential across industries from marketing and retail to product design and gaming.
-          </p>
-        </section>
-
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Course overview</p>
-          <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-base">
+      <div className="mx-auto max-w-4xl space-y-20 px-6 py-20">
+        <FadeIn>
+          <blockquote className="pull-quote">
             <p>
-              This course explores the foundations of the metaverse and its growing influence on
-              technology, society, and business. It examines the historical evolution and convergence
-              of augmented reality (AR), virtual reality (VR), and alternate digital realities, as well
-              as their potential to shape immersive, connected experiences.
+              Understand where immersive technologies are today and where they are
+              heading across business, culture, and product innovation.
+            </p>
+          </blockquote>
+        </FadeIn>
+
+        <FadeIn>
+          <Eyebrow label="Course overview" />
+          <div className="-mt-4 space-y-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
+            <p>
+              The course traces the evolution of AR, VR, and alternate digital
+              realities while connecting their technical foundations to strategic
+              leadership decisions.
             </p>
             <p>
-              Using transmedia storytelling as a guiding framework, participants will investigate how
-              these technologies influence human interaction and open up new creative and commercial
-              opportunities. Through guided exercises, you'll conceptualize metaverse experiences
-              tailored to a specific industry of your choice.
+              Participants use transmedia storytelling and guided concept work to
+              design metaverse opportunities tailored to a chosen industry context.
             </p>
           </div>
-        </section>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Topics covered</p>
-          <div className="grid md:grid-cols-2 gap-5">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Topics covered" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2">
             {[
               "Origins and evolution of the metaverse",
               "Current AR/VR technologies and projected advancements",
               "Metaverse applications across industries",
               "Design and infrastructure challenges",
-              "Transmedia storytelling and human interaction",
-              "Conceptualizing and pitching metaverse experiences",
+              "Transmedia storytelling and user behavior",
+              "Concepting and pitching immersive experiences",
             ].map((item) => (
-              <div key={item} className="border border-gray-200 px-5 py-4 flex gap-3 text-sm text-gray-700 font-sans">
-                <span className="text-[#b9975b] flex-shrink-0">—</span>
+              <div key={item} className="border border-[#e2e0dc] px-5 py-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
                 {item}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/contact" className="bg-[#002868] text-white px-7 py-3 text-sm font-sans font-semibold hover:bg-[#001a4d] transition-colors">
-            Enroll / Learn More
-          </Link>
-          <Link href="/programs" className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-sans font-semibold hover:bg-[#002868]/5 transition-colors">
-            All Programs
-          </Link>
-        </div>
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why this course" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "End-to-end exploration",
+                body: "Follow the metaverse from early foundations to current and emerging applications.",
+              },
+              {
+                title: "Cross-industry relevance",
+                body: "Evaluate practical use cases across retail, gaming, design, media, and more.",
+              },
+              {
+                title: "Hands-on concept development",
+                body: "Apply course methods to build and present industry-specific immersive ideas.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/contact">Enroll / Learn More</PrimaryButton>
+          <SecondaryButton href="/programs">All Programs</SecondaryButton>
+        </FadeIn>
       </div>
     </>
   );

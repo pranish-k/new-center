@@ -1,5 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Blockchain | Center for Technology Management",
@@ -8,63 +15,88 @@ export const metadata = {
 export default function BlockchainPage() {
   return (
     <>
-      <section className="relative h-64 flex items-end">
-        <Image src="/course-blockchain.jpg" alt="Blockchain" fill className="object-cover" />
-        <div className="absolute inset-0 bg-[#002868]/70" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-10 w-full">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Certificate Program</span>
-          <h1 className="text-3xl font-semibold text-white mt-2">Blockchain</h1>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Certificate Program"
+        title="Blockchain"
+        subtitle="Gain actionable insights into how blockchain is reshaping industries and connect core mechanics to real-world business transformation."
+      />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-        <section>
-          <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#b9975b] pl-6 italic font-serif">
-            Gain actionable insights into how blockchain is revolutionizing industries — from healthcare
-            and finance to media, cybersecurity, and enterprise systems — while learning to connect its
-            core mechanics to real-world business transformation.
-          </p>
-        </section>
+      <div className="mx-auto max-w-4xl space-y-20 px-6 py-20">
+        <FadeIn>
+          <blockquote className="pull-quote">
+            <p>
+              Explore how blockchain is revolutionizing healthcare, finance, media,
+              cybersecurity, logistics, and enterprise systems.
+            </p>
+          </blockquote>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Course overview</p>
-          <p className="text-gray-700 font-sans leading-relaxed text-base">
-            Explore how blockchain is reshaping global industries in this comprehensive course. You'll
-            build a strong foundation in blockchain fundamentals before diving into its strategic use
-            across healthcare, finance, media, cybersecurity, logistics, and enterprise systems.
-          </p>
-          <p className="text-gray-700 font-sans leading-relaxed text-base mt-4">
-            Through a practical lens, the course bridges core blockchain mechanics with real-world impact,
-            offering insight into IT infrastructure, analytics, and business workflows. Whether you're
-            examining technical architectures or discovering groundbreaking applications, you'll learn
-            how to drive transformation using blockchain technology.
-          </p>
-        </section>
+        <FadeIn>
+          <Eyebrow label="Course overview" />
+          <div className="-mt-4 space-y-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
+            <p>
+              This course builds a strong foundation in blockchain fundamentals and
+              progresses into strategic business applications that create measurable
+              impact.
+            </p>
+            <p>
+              Through practical frameworks and case-based analysis, participants learn
+              how blockchain decisions affect IT infrastructure, analytics, governance,
+              and cross-functional operations.
+            </p>
+          </div>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Why this course</p>
-          <div className="grid md:grid-cols-3 gap-6">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why this course" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
             {[
-              { title: "Industry-Relevant Content", body: "Real-world applications across multiple sectors — not just crypto." },
-              { title: "Strategic Focus", body: "Connect blockchain mechanics to leadership decisions and business transformation." },
-              { title: "Expert Instruction", body: "Taught alongside industry mentors with direct blockchain deployment experience." },
-            ].map((v) => (
-              <div key={v.title} className="border-t-2 border-[#b9975b] pt-5">
-                <h3 className="font-semibold text-gray-900 mb-2 text-sm">{v.title}</h3>
-                <p className="text-sm text-gray-600 font-sans leading-relaxed">{v.body}</p>
+              {
+                title: "Industry-relevant content",
+                body: "Apply blockchain principles to healthcare, finance, media, information security, and enterprise systems.",
+              },
+              {
+                title: "From fundamentals to strategy",
+                body: "Move from technical basics to leadership-level decisions that drive transformation.",
+              },
+              {
+                title: "Expert-led instruction",
+                body: "Learn from experienced academic and industry leaders with real implementation experience.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/contact" className="bg-[#002868] text-white px-7 py-3 text-sm font-sans font-semibold hover:bg-[#001a4d] transition-colors">
-            Enroll / Learn More
+        <FadeIn>
+          <Eyebrow label="Meet the course creator" />
+          <div className="-mt-4 border border-[#e2e0dc] p-8">
+            <h2 className="mb-1 text-2xl font-serif text-[#111111]">Tej Anand</h2>
+            <p className="mb-4 text-[11px] uppercase tracking-[0.15em] text-[#b9975b]">
+              Clinical Professor · University of Maryland
+            </p>
+            <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">
+              Tej Anand is a clinical professor and academic director for MS in
+              Information Systems programs at the Robert H. Smith School of Business.
+              He brings deep executive and product leadership experience across AI,
+              analytics, and enterprise technology.
+            </p>
+          </div>
+        </FadeIn>
+
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/contact">Enroll / Learn More</PrimaryButton>
+          <SecondaryButton href="/programs">All Programs</SecondaryButton>
+          <Link href="/mentors" className="inline-flex items-center text-sm text-[#002868] underline hover:no-underline">
+            Meet our mentors
           </Link>
-          <Link href="/programs" className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-sans font-semibold hover:bg-[#002868]/5 transition-colors">
-            All Programs
-          </Link>
-        </div>
+        </FadeIn>
       </div>
     </>
   );

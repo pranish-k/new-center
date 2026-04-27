@@ -1,5 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Break the Frame | Center for Technology Management",
@@ -8,30 +15,31 @@ export const metadata = {
 export default function BreakTheFramePage() {
   return (
     <>
-      <section className="bg-[#002868] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Workshop</span>
-          <h1 className="text-4xl font-semibold mt-3 mb-4">Break the Frame</h1>
-          <p className="text-blue-200 font-sans text-xl leading-relaxed max-w-2xl italic">
-            "Designing What Doesn't Yet Exist"
-          </p>
-          <p className="text-blue-200 font-sans text-base leading-relaxed max-w-xl mt-4">
-            A creative playshop for curious minds ready to unlearn, rethink, and rebuild.
-            Not a workshop filled with slides and theory — a space where design, strategy,
-            and storytelling collide.
-          </p>
-          <Link href="/contact" className="inline-block mt-8 bg-white text-[#002868] px-7 py-3 text-sm font-semibold font-sans hover:bg-blue-50 transition-colors">
-            Register Interest
-          </Link>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Workshop"
+        title="Break the Frame"
+        subtitle="Designing what doesn't yet exist: a creative playshop for leaders ready to unlearn, rethink, and rebuild."
+      />
 
       <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
+        <FadeIn className="grid items-start gap-10 md:grid-cols-2">
+          <blockquote className="pull-quote -mt-1">
+            <p className="font-serif text-2xl italic leading-[1.5] text-[#111111]">
+              In a world obsessed with efficiency, Break the Frame is a creative pause button.
+            </p>
+          </blockquote>
+          <Image
+            src="/program-leadership.jpg"
+            alt="Break the Frame workshop session"
+            width={560}
+            height={360}
+            className="h-64 w-full object-cover"
+          />
+        </FadeIn>
 
-        {/* What happens */}
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">What happens in the playshop</p>
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+        <FadeIn>
+          <Eyebrow label="What happens in the playshop" />
+          <div className="-mt-4 grid items-center gap-10 md:grid-cols-2">
             <div className="space-y-5">
               {[
                 "Question the assumptions that hold your team back",
@@ -39,26 +47,24 @@ export default function BreakTheFramePage() {
                 "Translate ideas into small, testable experiments",
                 "Leave with real prototypes, clear next steps, and new energy for what's ahead",
               ].map((item) => (
-                <div key={item} className="flex gap-4 text-gray-700 font-sans text-base">
+                <div key={item} className="flex gap-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
                   <span className="text-[#b9975b] text-xl mt-0.5 flex-shrink-0">→</span>
                   {item}
                 </div>
               ))}
             </div>
-            <Image
-              src="/program-leadership.jpg"
-              alt="Break the Frame workshop"
-              width={500}
-              height={340}
-              className="w-full object-cover h-64 rounded-sm shadow-md"
-            />
+            <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">
+              Through hands-on exercises, storytelling, and rapid prototyping, participants move from
+              &ldquo;what is&rdquo; to &ldquo;what if&rdquo; and leave with practical momentum to build immediately.
+            </p>
           </div>
-        </section>
+        </FadeIn>
 
-        {/* Why it's different */}
-        <section className="bg-gray-50 border border-gray-200 p-10">
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Why it's different</p>
-          <div className="grid md:grid-cols-3 gap-8">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why it&apos;s different" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
             {[
               {
                 title: "Creative Sprint",
@@ -74,59 +80,62 @@ export default function BreakTheFramePage() {
               },
             ].map((v) => (
               <div key={v.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="font-semibold text-gray-900 mb-3">{v.title}</h3>
-                <p className="text-sm text-gray-600 font-sans leading-relaxed">{v.body}</p>
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{v.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{v.body}</p>
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        {/* Instructor */}
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">Meet the instructor</p>
-          <div className="border border-gray-200 p-8 flex flex-col md:flex-row gap-8">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Meet the instructor" />
+          <div className="-mt-4 flex flex-col gap-8 border border-[#e2e0dc] p-8 md:flex-row">
             <div className="flex-1">
-              <h3 className="text-xl font-semibold text-[#002868] mb-1">Lyle H. Sandler</h3>
-              <p className="text-sm text-[#b9975b] font-sans mb-4">Designer · Storyteller · Anthropologist</p>
-              <p className="text-sm text-gray-600 font-sans leading-relaxed mb-3">
+              <h3 className="mb-1 text-2xl font-serif text-[#111111]">Lyle H. Sandler</h3>
+              <p className="mb-4 text-[11px] uppercase tracking-[0.15em] text-[#b9975b]">Designer · Storyteller · Anthropologist</p>
+              <p className="mb-3 text-[15px] leading-[1.7] text-[#6b6b6b]">
                 Lyle helps organizations reimagine how people connect with ideas, data, and environments.
                 With a background in theatre, film, and design from Hofstra University and the American
                 Film Institute, he has led creative transformation at global firms including Aon Corporation
                 and NCR, weaving narrative thinking into strategic design.
               </p>
-              <p className="text-sm text-gray-600 font-sans leading-relaxed">
+              <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">
                 Author of <em>Universal Principles of Storytelling for Designers</em> (Rockport, 2025),
-                Lyle's practice blurs the lines between art, business, and human behavior.
+                Lyle&apos;s practice blurs the lines between art, business, and human behavior.
               </p>
             </div>
           </div>
-        </section>
+        </FadeIn>
 
-        {/* Who */}
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Who should join</p>
-          <div className="grid sm:grid-cols-3 gap-4">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Who should join" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-3">
             {[
               "Leaders who want to spark innovation within their teams",
               "Designers and strategists seeking fresh perspectives",
               "Professionals ready to explore what could be",
             ].map((r) => (
-              <div key={r} className="border border-gray-200 px-6 py-5 text-sm text-gray-700 font-sans leading-relaxed">
+              <div key={r} className="border border-[#e2e0dc] px-6 py-5 text-sm leading-relaxed text-[#6b6b6b]">
                 {r}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="bg-[#002868] text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-xl font-semibold mb-2">"Imagination isn't a luxury — it's your next advantage."</h2>
-            <p className="text-blue-200 font-sans text-sm">Contact us for workshop dates and registration.</p>
+        <FadeIn className="flex flex-wrap items-center justify-between gap-6 border border-[#e2e0dc] bg-[#f7f6f3] p-10 md:p-12">
+          <div className="max-w-xl">
+            <h2 className="mb-2 text-2xl font-serif">&ldquo;Imagination isn&apos;t a luxury — it&apos;s your next advantage.&rdquo;</h2>
+            <p className="text-[15px] text-[#6b6b6b]">Contact us for workshop dates and registration.</p>
           </div>
-          <Link href="/contact" className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold font-sans hover:bg-blue-50 transition-colors flex-shrink-0">
-            Contact Us
-          </Link>
-        </div>
+          <div className="flex flex-wrap gap-4">
+            <PrimaryButton href="/contact">Contact Us</PrimaryButton>
+            <SecondaryButton href="/programs">All Programs</SecondaryButton>
+          </div>
+        </FadeIn>
       </div>
     </>
   );

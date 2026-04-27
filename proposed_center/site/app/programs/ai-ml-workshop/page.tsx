@@ -1,5 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "AI & ML Leadership Workshop | Center for Technology Management",
@@ -39,60 +46,55 @@ const agenda = [
 export default function AIMLWorkshopPage() {
   return (
     <>
-      <section className="bg-[#002868] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-12 items-center">
-          <div className="flex-1">
-            <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Workshop · 3.5 Days</span>
-            <h1 className="text-4xl font-semibold mt-3 mb-4">AI & Machine Learning Leadership Workshop</h1>
-            <p className="text-blue-200 font-sans text-base leading-relaxed max-w-lg">
-              An immersive workshop for executives and senior leaders exploring the strategic application
-              of AI and ML — leave with actionable plans for your business unit and your enterprise.
-            </p>
-            <Link href="/contact" className="inline-block mt-8 bg-white text-[#002868] px-7 py-3 text-sm font-semibold font-sans hover:bg-blue-50 transition-colors">
-              Register Interest
-            </Link>
-          </div>
-          <div className="flex-shrink-0 md:w-80">
-            <Image
-              src="/program-tech.jpg"
-              alt="AI workshop"
-              width={400}
-              height={280}
-              className="w-full object-cover rounded-sm shadow-xl"
-            />
-          </div>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Workshop · 3.5 days"
+        title="AI & Machine Learning Leadership Workshop"
+        subtitle="An immersive workshop for executives and senior leaders exploring strategic AI/ML application, with actionable plans for both business units and enterprise strategy."
+      />
 
       <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
+        <FadeIn className="grid items-start gap-10 md:grid-cols-2">
+          <blockquote className="pull-quote -mt-1">
+            <p className="font-serif text-2xl italic leading-[1.5] text-[#111111]">
+              Understand the methods, apply them to real business challenges, and leave with an implementation roadmap.
+            </p>
+          </blockquote>
+          <Image
+            src="/program-tech.jpg"
+            alt="AI workshop cohort"
+            width={560}
+            height={360}
+            className="h-64 w-full object-cover"
+          />
+        </FadeIn>
 
-        {/* Objectives */}
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">Workshop objectives</p>
-          <div className="grid md:grid-cols-3 gap-8">
+        <FadeIn>
+          <Eyebrow label="Workshop objectives" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
             {[
               { title: "Understand AI/ML", body: "Learn the primary AI/ML methodologies and their best use cases across industries." },
               { title: "Apply Strategically", body: "Apply AI/ML thinking to solve critical issues within a business unit and enterprise context." },
               { title: "Build a Roadmap", body: "Develop an implementation roadmap including leadership and change management considerations." },
             ].map((o) => (
               <div key={o.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="font-semibold text-gray-900 mb-3">{o.title}</h3>
-                <p className="text-sm text-gray-600 font-sans leading-relaxed">{o.body}</p>
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{o.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{o.body}</p>
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        {/* Agenda */}
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-8">Agenda</p>
-          <div className="grid md:grid-cols-2 gap-6">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Agenda" />
+          <div className="-mt-4 grid gap-6 md:grid-cols-2">
             {agenda.map((d) => (
-              <div key={d.day} className="border border-gray-200 p-6">
-                <p className="text-xs uppercase tracking-widest text-[#b9975b] font-sans mb-4">{d.day}</p>
+              <div key={d.day} className="border border-[#e2e0dc] p-6">
+                <p className="mb-4 text-[11px] uppercase tracking-[0.15em] text-[#b9975b]">{d.day}</p>
                 <ul className="space-y-3">
                   {d.sessions.map((s) => (
-                    <li key={s} className="flex gap-3 text-sm text-gray-700 font-sans">
+                    <li key={s} className="flex gap-3 text-[15px] leading-[1.7] text-[#6b6b6b]">
                       <span className="text-[#b9975b] mt-0.5 flex-shrink-0">—</span>
                       {s}
                     </li>
@@ -101,29 +103,31 @@ export default function AIMLWorkshopPage() {
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        {/* Who */}
-        <section className="bg-gray-50 border border-gray-200 p-10">
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Who should attend</p>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Who should attend" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
             {["C-Suite Executives", "Senior Directors & VPs", "Chief Information Officers", "Chief Digital Officers", "Strategy Leaders", "Innovation Teams"].map((r) => (
-              <div key={r} className="bg-white border border-gray-200 px-5 py-4 text-sm font-semibold text-gray-800 font-sans">
+              <div key={r} className="border border-[#e2e0dc] px-5 py-4 text-sm font-semibold text-[#111111]">
                 {r}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="bg-[#002868] text-white p-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Bring AI strategy into your organization</h2>
-            <p className="text-blue-200 font-sans text-sm">Contact us for workshop dates and registration.</p>
+        <FadeIn className="flex flex-wrap items-center justify-between gap-6 border border-[#e2e0dc] bg-[#f7f6f3] p-10 md:p-12">
+          <div className="max-w-xl">
+            <h2 className="mb-2 text-2xl font-serif">Bring AI strategy into your organization</h2>
+            <p className="text-[15px] text-[#6b6b6b]">Contact us for workshop dates and registration.</p>
           </div>
-          <Link href="/contact" className="bg-white text-[#002868] px-7 py-3 text-sm font-semibold font-sans hover:bg-blue-50 transition-colors flex-shrink-0">
-            Contact Us
-          </Link>
-        </div>
+          <div className="flex flex-wrap gap-4">
+            <PrimaryButton href="/contact">Contact Us</PrimaryButton>
+            <SecondaryButton href="/programs">All Programs</SecondaryButton>
+          </div>
+        </FadeIn>
       </div>
     </>
   );

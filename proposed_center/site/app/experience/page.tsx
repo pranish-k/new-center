@@ -1,6 +1,12 @@
-import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Student Experience | Center for Technology Management",
@@ -57,32 +63,14 @@ const residencyHighlights = [
   },
 ];
 
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function ExperiencePage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">Student Experience</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            Real leaders. Real transformation.
-          </h1>
-          <p className="mt-6 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            Our students are experienced professionals who come to accelerate — not just learn.
-            Here's what they found.
-          </p>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Student Experience"
+        title="Real leaders. Real transformation."
+        subtitle="Our students are experienced professionals who come to accelerate — not just learn. Here's what they found."
+      />
 
       <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
 
@@ -95,7 +83,7 @@ export default function ExperiencePage() {
             {testimonials.map((t, i) => (
               <FadeIn key={t.name} delay={i * 80}>
                 <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
-                  <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">"{t.quote}"</p>
+                  <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">&ldquo;{t.quote}&rdquo;</p>
                   <p className="mt-4 text-[13px] text-[#6b6b6b]">
                     — <strong className="text-[#111111]">{t.name}</strong>, {t.role}
                   </p>
@@ -106,7 +94,7 @@ export default function ExperiencePage() {
           </div>
         </section>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Student stories */}
         <section>
@@ -136,7 +124,7 @@ export default function ExperiencePage() {
           </div>
         </section>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Residencies */}
         <section>
@@ -164,7 +152,7 @@ export default function ExperiencePage() {
           </div>
         </section>
 
-        <hr className="border-0 border-t border-[#e2e0dc]" />
+        <Divider />
 
         {/* Who should apply */}
         <section>
@@ -189,20 +177,9 @@ export default function ExperiencePage() {
           </div>
         </section>
 
-        {/* CTAs */}
-        <FadeIn className="flex gap-4 flex-wrap pt-4">
-          <Link
-            href="/programs"
-            className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
-          >
-            Explore Programs
-          </Link>
-          <Link
-            href="/contact"
-            className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-[#002868]/5 transition-colors"
-          >
-            Contact Us
-          </Link>
+        <FadeIn className="flex flex-wrap gap-4 pt-4">
+          <PrimaryButton href="/programs">Explore Programs</PrimaryButton>
+          <SecondaryButton href="/contact">Contact Us</SecondaryButton>
         </FadeIn>
       </div>
     </>

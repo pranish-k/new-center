@@ -1,6 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Leadership | Center for Technology Management",
@@ -33,31 +39,14 @@ const books = [
   },
 ];
 
-function Eyebrow({ label }: { label: string }) {
-  return (
-    <div className="mb-8">
-      <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-      <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] font-medium">{label}</p>
-    </div>
-  );
-}
-
 export default function LeadershipPage() {
   return (
     <>
-      {/* Dark typographic hero — not wrapped */}
-      <section className="bg-[#1D4F91] text-white">
-        <div className="max-w-6xl mx-auto px-6 py-24 md:py-28">
-          <span className="block w-6 h-0.5 bg-[#b9975b] mb-3" />
-          <p className="text-[11px] uppercase tracking-[0.15em] text-white/70 mb-6">Leadership</p>
-          <h1 className="text-5xl md:text-6xl font-serif font-normal leading-[1.1] tracking-tight max-w-2xl">
-            Dr. Arthur M. Langer
-          </h1>
-          <p className="mt-4 text-[15px] text-white/75 max-w-xl leading-[1.7]">
-            Director · Professor of Practice · Columbia University Teachers College
-          </p>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Leadership"
+        title="Dr. Arthur M. Langer"
+        subtitle="Director · Professor of Practice · Columbia University Teachers College"
+      />
 
       <div className="max-w-6xl mx-auto px-6 py-20">
 
@@ -80,7 +69,7 @@ export default function LeadershipPage() {
 
           <div className="flex-1 space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px]">
             <p>
-              Dr. Arthur M. Langer is a world-renowned authority on technology management,
+              Dr. Arthur M. Langer is a leading academic authority on technology management,
               digital transformation, and organizational learning. He leads the Center for
               Technology Management and Digital Leadership, currently in transition from
               Northeastern University to Columbia University Teachers College.
@@ -105,15 +94,15 @@ export default function LeadershipPage() {
             </p>
             <blockquote className="border-l-[3px] border-[#b9975b] pl-6 mt-8">
               <p className="font-serif italic text-xl text-[#111111] leading-[1.5]">
-                "By harnessing the power of hands-on experience and tailored mentorship,
+                &ldquo;By harnessing the power of hands-on experience and tailored mentorship,
                 the Center empowers its network of learners to practice agility in a
-                tech-driven world."
+                tech-driven world.&rdquo;
               </p>
             </blockquote>
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
+        <Divider className="mb-20" />
 
         {/* Collage */}
         <FadeIn className="mb-20">
@@ -130,7 +119,7 @@ export default function LeadershipPage() {
           </p>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
+        <Divider className="mb-20" />
 
         {/* Books */}
         <FadeIn className="mb-20">
@@ -151,7 +140,7 @@ export default function LeadershipPage() {
           </div>
         </FadeIn>
 
-        <hr className="border-0 border-t border-[#e2e0dc] mb-20" />
+        <Divider className="mb-20" />
 
         {/* WOS */}
         <FadeIn className="flex flex-col md:flex-row gap-10 items-center border border-[#e2e0dc] p-10 mb-14">
@@ -180,20 +169,9 @@ export default function LeadershipPage() {
           </div>
         </FadeIn>
 
-        {/* CTAs */}
-        <FadeIn className="flex gap-4 flex-wrap">
-          <Link
-            href="/programs"
-            className="bg-[#002868] text-white px-7 py-3 text-sm font-semibold hover:bg-[#001a4d] transition-colors"
-          >
-            Explore Programs
-          </Link>
-          <Link
-            href="/contact"
-            className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-semibold hover:bg-[#002868]/5 transition-colors"
-          >
-            Get in Touch
-          </Link>
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/programs">Explore Programs</PrimaryButton>
+          <SecondaryButton href="/contact">Get in Touch</SecondaryButton>
         </FadeIn>
       </div>
     </>

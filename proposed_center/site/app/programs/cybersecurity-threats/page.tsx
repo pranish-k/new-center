@@ -1,5 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import FadeIn from "@/components/FadeIn";
+import {
+  Divider,
+  Eyebrow,
+  InteriorHero,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/components/Brand";
 
 export const metadata = {
   title: "Cybersecurity: Threats and Defenses | Center for Technology Management",
@@ -8,60 +14,88 @@ export const metadata = {
 export default function CybersecurityThreatsPage() {
   return (
     <>
-      <section className="relative h-64 flex items-end">
-        <Image src="/course-threats.jpg" alt="Cybersecurity Threats" fill className="object-cover" />
-        <div className="absolute inset-0 bg-[#002868]/75" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pb-10 w-full">
-          <span className="text-xs uppercase tracking-widest text-[#b9975b] font-sans">Certificate Program</span>
-          <h1 className="text-3xl font-semibold text-white mt-2">Cybersecurity: Threats and Defenses</h1>
-        </div>
-      </section>
+      <InteriorHero
+        eyebrow="Certificate Program"
+        title="Cybersecurity: Threats and Defenses"
+        subtitle="Understand modern attack vectors and design defense-in-depth strategies that improve enterprise resilience."
+      />
 
-      <div className="max-w-4xl mx-auto px-6 py-20 space-y-16">
-        <section>
-          <p className="text-xl text-gray-800 leading-relaxed border-l-4 border-[#b9975b] pl-6 italic font-serif">
-            Understand how today's most critical cyber threats — from ransomware to APTs — are reshaping
-            the digital battlefield, and learn how to design resilient defense strategies that safeguard
-            your organization at every level.
-          </p>
-        </section>
-
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Course overview</p>
-          <div className="space-y-4 text-gray-700 font-sans leading-relaxed text-base">
+      <div className="mx-auto max-w-4xl space-y-20 px-6 py-20">
+        <FadeIn>
+          <blockquote className="pull-quote">
             <p>
-              In a world where digital conflicts mirror traditional ones, organizations face sophisticated
-              threats targeting critical infrastructure, operations, and data. This course focuses on
-              defending against modern attack vectors such as advanced persistent threats (APT),
-              ransomware, and social engineering.
+              From ransomware to advanced persistent threats, learn how leadership,
+              architecture, and operational readiness work together under pressure.
+            </p>
+          </blockquote>
+        </FadeIn>
+
+        <FadeIn>
+          <Eyebrow label="Course overview" />
+          <div className="-mt-4 space-y-4 text-[15px] leading-[1.7] text-[#6b6b6b]">
+            <p>
+              The course focuses on modern attack vectors including APTs, ransomware,
+              and social engineering. Participants examine both tactical controls and
+              long-term security architecture planning.
             </p>
             <p>
-              Built around a defense-in-depth framework, the course blends hands-on tactics with
-              long-term planning for secure system architectures. You'll learn how real-world incidents,
-              business models, and leadership decisions affect organizational readiness and security posture.
+              You&apos;ll analyze how organizational structure, governance, and executive
+              decision-making influence threat response and overall security maturity.
             </p>
           </div>
-        </section>
+        </FadeIn>
 
-        <section>
-          <p className="text-xs uppercase tracking-widest text-gray-400 font-sans mb-6">Designed for</p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {["Chief Information Officers", "Chief Information Security Officers", "Chief Risk Officers", "Senior Security Professionals", "IT Directors", "Aspiring Security Leaders"].map((r) => (
-              <div key={r} className="border border-gray-200 px-5 py-4 text-sm font-semibold text-gray-800 font-sans">
-                {r}
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Designed for" />
+          <div className="-mt-4 grid gap-4 sm:grid-cols-3">
+            {[
+              "Chief Information Officers",
+              "Chief Information Security Officers",
+              "Chief Risk Officers",
+              "Senior Security Professionals",
+              "IT Directors",
+              "Aspiring Security Leaders",
+            ].map((item) => (
+              <div key={item} className="border border-[#e2e0dc] px-5 py-4 text-sm font-semibold text-[#111111]">
+                {item}
               </div>
             ))}
           </div>
-        </section>
+        </FadeIn>
 
-        <div className="flex gap-4 flex-wrap">
-          <Link href="/contact" className="bg-[#002868] text-white px-7 py-3 text-sm font-sans font-semibold hover:bg-[#001a4d] transition-colors">
-            Enroll / Learn More
-          </Link>
-          <Link href="/programs" className="border border-[#002868] text-[#002868] px-7 py-3 text-sm font-sans font-semibold hover:bg-[#002868]/5 transition-colors">
-            All Programs
-          </Link>
-        </div>
+        <Divider />
+
+        <FadeIn>
+          <Eyebrow label="Why this course" />
+          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+            {[
+              {
+                title: "Real-world threat focus",
+                body: "Study contemporary attack patterns and practical defensive responses used in critical environments.",
+              },
+              {
+                title: "Defense-in-depth planning",
+                body: "Apply layered strategy and architecture principles that reduce risk across systems.",
+              },
+              {
+                title: "Career advancement",
+                body: "Build strategic and technical fluency valued across security leadership roles.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
+                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
+
+        <FadeIn className="flex flex-wrap gap-4">
+          <PrimaryButton href="/contact">Enroll / Learn More</PrimaryButton>
+          <SecondaryButton href="/programs">All Programs</SecondaryButton>
+        </FadeIn>
       </div>
     </>
   );

@@ -7,6 +7,7 @@ const links = [
   { href: "/mission", label: "About" },
   { href: "/programs", label: "Programs" },
   { href: "/mentors", label: "Mentors" },
+  { href: "/leadership", label: "Leadership" },
 ];
 
 export default function Nav() {
@@ -14,28 +15,26 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white h-16 border-b border-[#e2e0dc] flex items-center">
+    <header className="sticky top-0 z-50 flex h-16 items-center border-b border-[#e2e0dc] bg-white">
       <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between">
-        {/* Wordmark */}
         <Link href="/" className="flex flex-col leading-tight">
-          <span className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b]">
-            Columbia University Teachers College
+          <span className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b]">
+            Columbia University · Teachers College
           </span>
-          <span className="text-[15px] font-semibold text-[#002868]">
+          <span className="wordmark wordmark--bold mt-0.5 text-[15px] text-[#002868]">
             Center for Technology Management
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
           {links.map((l) => {
-            const active = pathname === l.href || (l.href !== "/" && pathname.startsWith(l.href));
+            const active = pathname === l.href || pathname.startsWith(`${l.href}/`);
             return (
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm font-sans text-[#111111] hover:text-[#002868] transition-colors pb-0.5 ${
-                  active ? "border-b-2 border-[#b9975b]" : ""
+                className={`border-b-2 border-transparent pb-0.5 text-sm text-[#111111] transition-colors hover:text-[#002868] ${
+                  active ? "border-[#b9975b]" : ""
                 }`}
               >
                 {l.label}
@@ -44,17 +43,17 @@ export default function Nav() {
           })}
           <Link
             href="/contact"
-            className="text-sm font-sans font-medium text-[#002868] border border-[#002868] px-4 py-1.5 hover:bg-[#002868] hover:text-white transition-colors"
+            className="border border-[#002868] bg-[#002868] px-4 py-1.5 text-sm font-medium text-white transition-colors hover:border-[#001a4d] hover:bg-[#001a4d]"
           >
             Contact
           </Link>
         </nav>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-[#111111]"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
@@ -66,9 +65,8 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile overlay */}
       <div
-        className={`md:hidden fixed inset-0 top-16 bg-white z-40 flex flex-col px-8 pt-12 gap-8
+        className={`fixed inset-0 top-16 z-40 flex flex-col gap-8 bg-white px-8 pt-12 md:hidden
           transition-[opacity,visibility] duration-[250ms] ease-out
           ${open ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
       >
@@ -76,7 +74,7 @@ export default function Nav() {
           <Link
             key={l.href}
             href={l.href}
-            className="text-2xl font-serif text-[#002868]"
+            className="text-3xl font-serif text-[#111111]"
             onClick={() => setOpen(false)}
           >
             {l.label}
@@ -84,7 +82,7 @@ export default function Nav() {
         ))}
         <Link
           href="/contact"
-          className="text-2xl font-serif text-[#002868]"
+          className="w-fit border border-[#002868] bg-[#002868] px-5 py-2 text-xl font-semibold text-white"
           onClick={() => setOpen(false)}
         >
           Contact
