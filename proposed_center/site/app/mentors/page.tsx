@@ -5,7 +5,7 @@ import MentorsGrid from "./MentorsGrid";
 import { InteriorHero } from "@/components/Brand";
 
 export const metadata = {
-  title: "Mentors | Center for Technology Management",
+  title: "Mentors | Teachers College",
 };
 
 export default function MentorsPage() {

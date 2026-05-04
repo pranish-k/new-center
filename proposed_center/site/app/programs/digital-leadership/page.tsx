@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Digital Leadership Experience | Center for Technology Management",
+  title: "Digital Leadership Experience | Teachers College",
 };
 
 export default function DigitalLeadershipPage() {

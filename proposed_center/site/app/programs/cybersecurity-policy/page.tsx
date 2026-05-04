@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Cybersecurity: Policy and Practice | Center for Technology Management",
+  title: "Cybersecurity: Policy and Practice | Teachers College",
 };
 
 export default function CybersecurityPolicyPage() {

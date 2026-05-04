@@ -4,7 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Center for Technology Management | Columbia Teachers College",
+  title: "Center for Strategic Learning, Leadership, Reflective Practice in Digital Era | Teachers College",
   description:
     "Preparing experienced leaders to navigate and drive digital transformation — at Columbia University Teachers College.",
 };

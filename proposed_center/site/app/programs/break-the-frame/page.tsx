@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Break the Frame | Center for Technology Management",
+  title: "Break the Frame | Teachers College",
 };
 
 export default function BreakTheFramePage() {

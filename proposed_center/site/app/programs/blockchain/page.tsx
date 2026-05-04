@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Blockchain | Center for Technology Management",
+  title: "Blockchain | Teachers College",
 };
 
 export default function BlockchainPage() {

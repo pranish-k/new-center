@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Programs | Center for Technology Management",
+  title: "Programs | Teachers College",
 };
 
 const flagship = {

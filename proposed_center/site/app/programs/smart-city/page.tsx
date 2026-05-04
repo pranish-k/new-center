@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Smart City Initiatives & Business Opportunities | Center for Technology Management",
+  title: "Smart City Initiatives & Business Opportunities | Teachers College",
 };
 
 export default function SmartCityPage() {

@@ -32,10 +32,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const m = loadMentors().find((x) => x.slug === slug);
-  if (!m) return { title: "Mentor | Center for Technology Management" };
+  if (!m) return { title: "Mentor | Teachers College" };
   return {
-    title: `${m.name} | Mentor | Center for Technology Management`,
-    description: `${m.title}${m.company ? `, ${m.company}` : ""} — Industry mentor at the Center for Technology Management.`,
+    title: `${m.name} | Mentor | Teachers College`,
+    description: `${m.title}${m.company ? `, ${m.company}` : ""} — Industry mentor at the Center for Strategic Learning, Leadership, Reflective Practice in Digital Era.`,
   };
 }
 

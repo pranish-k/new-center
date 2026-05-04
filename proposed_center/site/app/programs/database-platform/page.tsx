@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Database Platform Design and Innovation | Center for Technology Management",
+  title: "Database Platform Design and Innovation | Teachers College",
 };
 
 export default function DatabasePlatformPage() {

@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Student Experience | Center for Technology Management",
+  title: "Student Experience | Teachers College",
 };
 
 const testimonials = [

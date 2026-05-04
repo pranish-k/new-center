@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Leadership | Center for Technology Management",
+  title: "Leadership | Teachers College",
 };
 
 const books = [

@@ -7,7 +7,10 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="md:col-span-1">
           <p className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b] mb-1">Columbia University · Teachers College</p>
-          <p className="wordmark wordmark--bold text-[15px] text-[#002868]">Center for Technology Management</p>
+          <p className="text-[14px] leading-[1.35] text-[#002868] font-medium max-w-xs">
+            <span className="block text-[10px] tracking-[0.18em] uppercase text-[#6b6b6b] font-medium mb-1">Center for</span>
+            Strategic Learning, Leadership, Reflective Practice in Digital Era
+          </p>
           <p className="text-xs text-[#6b6b6b] mt-4 leading-relaxed">
             Transitioning from Northeastern University.<br />
             Established by Dr. Art Langer.
@@ -42,7 +45,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#e2e0dc] py-4 text-center text-xs text-[#6b6b6b]">
-        &copy; {new Date().getFullYear()} Center for Technology Management, Columbia University Teachers College.
+        &copy; {new Date().getFullYear()} Center for Strategic Learning, Leadership, Reflective Practice in Digital Era — Columbia University Teachers College.
       </div>
     </footer>
   );

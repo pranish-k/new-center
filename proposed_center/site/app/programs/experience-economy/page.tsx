@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "How to Lead in the Experience Economy | Center for Technology Management",
+  title: "How to Lead in the Experience Economy | Teachers College",
 };
 
 export default function ExperienceEconomyPage() {

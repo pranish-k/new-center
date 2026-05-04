@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Managing AR, VR & the Metaverse | Center for Technology Management",
+  title: "Managing AR, VR & the Metaverse | Teachers College",
 };
 
 export default function MetaversePage() {

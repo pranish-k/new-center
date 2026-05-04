@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Raising Capital | Center for Technology Management",
+  title: "Raising Capital | Teachers College",
 };
 
 export default function RaisingCapitalPage() {

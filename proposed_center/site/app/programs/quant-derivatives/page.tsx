@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Quantitative Derivatives Pricing & Risk Modeling | Center for Technology Management",
+  title: "Quantitative Derivatives Pricing & Risk Modeling | Teachers College",
 };
 
 export default function QuantDerivativesPage() {

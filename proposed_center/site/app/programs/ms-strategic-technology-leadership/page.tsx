@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 import { Divider, Eyebrow, PrimaryButton, ProgramHero } from "@/components/Brand";
 
 export const metadata = {
-  title: "MS in Strategic Technology Leadership | Center for Technology Management",
+  title: "MS in Strategic Technology Leadership | Teachers College",
 };
 
 const coreCourses = [

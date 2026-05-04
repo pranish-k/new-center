@@ -8,7 +8,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Cybersecurity: Threats and Defenses | Center for Technology Management",
+  title: "Cybersecurity: Threats and Defenses | Teachers College",
 };
 
 export default function CybersecurityThreatsPage() {

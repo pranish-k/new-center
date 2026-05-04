@@ -2,7 +2,7 @@ import FadeIn from "@/components/FadeIn";
 import { Eyebrow, InteriorHero } from "@/components/Brand";
 
 export const metadata = {
-  title: "Contact | Center for Technology Management",
+  title: "Contact | Teachers College",
 };
 
 export default function ContactPage() {
@@ -22,7 +22,7 @@ export default function ContactPage() {
             <Eyebrow label="Address" />
             <address className="not-italic text-[15px] text-[#6b6b6b] leading-[1.7] space-y-1 -mt-4">
               <p className="font-semibold text-[#111111]">
-                Center for Technology Management and Digital Leadership
+                Center for Strategic Learning, Leadership, Reflective Practice in Digital Era
               </p>
               <p>Columbia University Teachers College</p>
               <p className="mt-4 text-[13px] italic">

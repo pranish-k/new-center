@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "AI & ML Leadership Workshop | Center for Technology Management",
+  title: "AI & ML Leadership Workshop | Teachers College",
 };
 
 const agenda = [

@@ -9,7 +9,7 @@ import {
 } from "@/components/Brand";
 
 export const metadata = {
-  title: "Mission & Vision | Center for Technology Management",
+  title: "Mission & Vision | Teachers College",
 };
 
 export default function MissionPage() {
@@ -100,19 +100,19 @@ export default function MissionPage() {
         {/* Media */}
         <FadeIn>
           <Eyebrow label="In the Media" />
-          <div className="relative overflow-hidden -mt-4">
+          <div className="-mt-4 flex flex-col gap-6 sm:flex-row sm:items-center">
             <Image
-              src="/media-center.jpg"
-              alt="Dr. Langer in media appearances and podcasts"
-              width={768}
-              height={400}
-              className="w-full object-cover max-h-64"
+              src="/podcasts/art-of-digital-leadership.png"
+              alt="The Art of Digital Leadership podcast cover"
+              width={536}
+              height={536}
+              className="h-40 w-40 flex-shrink-0 object-cover sm:h-48 sm:w-48"
             />
-            <div className="absolute inset-0 bg-[#0a1628]/60 flex items-end p-8">
-              <div>
-                <p className="text-white font-serif text-xl">&ldquo;The Art of Digital Leadership&rdquo;</p>
-                <p className="text-white/75 text-[13px] mt-1">Podcast with Dr. Art Langer — on AI, leadership, and the future of work</p>
-              </div>
+            <div>
+              <p className="font-serif text-2xl text-[#111111]">&ldquo;The Art of Digital Leadership&rdquo;</p>
+              <p className="mt-2 text-[14px] text-[#6b6b6b] leading-[1.6]">
+                Podcast with Dr. Art Langer &mdash; on AI, leadership, and the future of work.
+              </p>
             </div>
           </div>
 
