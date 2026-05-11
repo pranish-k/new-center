@@ -113,21 +113,20 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
       href={`/mentors/${mentor.slug}`}
       className="group flex h-full flex-col border border-[#e2e0dc] border-t-2 border-t-[#b9975b] bg-white text-[#111111] no-underline transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
     >
-      <div className="relative w-full aspect-[4/5] bg-[#f5f4f2] overflow-hidden">
+      <div className="relative w-full aspect-[1/1] bg-[#f5f4f2] overflow-hidden">
         {imgSrc ? (
           <Image
             src={imgSrc}
             alt={mentor.name}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover object-top transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
+            className="object-contain transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-[#b9975b] text-5xl font-serif">
             {mentor.name.charAt(0)}
           </div>
         )}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/35 to-transparent" />
       </div>
 
       <div className="flex flex-1 flex-col p-5">
