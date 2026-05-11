@@ -7,6 +7,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/Brand";
+import { INSTITUTION } from "@/lib/brand";
 
 export const metadata = {
   title: "Leadership | Teachers College",
@@ -45,7 +46,7 @@ export default function LeadershipPage() {
       <InteriorHero
         eyebrow="Leadership"
         title="Dr. Arthur M. Langer"
-        subtitle="Director · Professor of Practice · Columbia University Teachers College"
+        subtitle={`Director · Professor of Practice · ${INSTITUTION}`}
       />
 
       <div className="max-w-6xl mx-auto px-6 py-20">
@@ -72,7 +73,7 @@ export default function LeadershipPage() {
               Dr. Arthur M. Langer is a leading academic authority on technology management,
               digital transformation, and organizational learning. He leads the Center for
               Technology Management and Digital Leadership, currently in transition from
-              Northeastern University to Columbia University Teachers College.
+              Northeastern University to {INSTITUTION}.
             </p>
             <p>
               Prior to Northeastern, Dr. Langer served as Director of the Center for Technology

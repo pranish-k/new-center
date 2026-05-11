@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .sw{display:flex;flex-direction:column;gap:0}
+  .chip{height:80px;display:flex;align-items:flex-end;padding:10px 12px;color:#fff;font-size:11px;letter-spacing:.05em}
+  .chip.dark{color:#fff}
+  .chip.light{color:#111}
+  .meta{padding:8px 0 0;font-size:11px;color:#6b6b6b;display:flex;justify-content:space-between}
+  .meta b{color:#111;font-weight:500;letter-spacing:.05em}
+  .row{display:flex;gap:8px;align-items:center}
+</style></head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip dark" style="background:#002868">#002868</div><div class="meta"><b>Navy</b><span>--c-navy</span></div></div>
+  <div class="sw"><div class="chip dark" style="background:#001a4d">#001a4d</div><div class="meta"><b>Navy Deep</b><span>hover</span></div></div>
+  <div class="sw"><div class="chip dark" style="background:#1D4F91">#1D4F91</div><div class="meta"><b>Dark Panel</b><span>--c-dark-panel</span></div></div>
+  <div class="sw"><div class="chip dark" style="background:#0a1628">#0a1628</div><div class="meta"><b>Dark Rich</b><span>overlays</span></div></div>
+  <div class="sw"><div class="chip light" style="background:#b9975b">#b9975b</div><div class="meta"><b>Gold</b><span>accent only</span></div></div>
+  <div class="sw"><div class="chip light" style="background:#f7f6f3;border:1px solid #e2e0dc">#f7f6f3</div><div class="meta"><b>Off-white</b><span>section bg</span></div></div>
+</div>
+</body></html>

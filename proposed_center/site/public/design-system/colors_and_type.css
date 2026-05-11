@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Center for Technology Management & Digital Leadership — Design Tokens
+   Columbia University Teachers College
+   ========================================================================== */
+
+/* ---------- Webfonts ---------- */
+/* Trajan Pro — inscriptional Roman capital. UPPERCASE-ONLY (no lowercase glyphs).
+   Use exclusively for the institutional wordmark and rare ceremonial display use.
+   Never use for body, sentence-case headings, or UI labels. */
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Trajan Pro";
+  src: url("fonts/TrajanPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Color: Brand ---------- */
+  --c-navy:        #002868;   /* Columbia Blue — primary structural anchor */
+  --c-navy-deep:   #001a4d;   /* Hover/pressed for primary buttons */
+  --c-dark-panel:  #1D4F91;   /* Hero band / dark panel background (used in code) */
+  --c-dark-rich:   #0a1628;   /* Per DESIGN.md — richer dark for hero/full-bleed (overlays) */
+  --c-gold:        #b9975b;   /* Accent: thin rules, eyebrow underline, blockquote bar */
+
+  /* ---------- Color: Neutrals ---------- */
+  --c-off-white:   #f7f6f3;   /* Section backgrounds — warmer than gray-50 */
+  --c-divider:     #e2e0dc;   /* Borders + rules — warm, never gray-200 */
+  --c-text:        #111111;   /* Primary text */
+  --c-text-muted:  #6b6b6b;   /* Captions, metadata, body on light */
+  --c-white:       #ffffff;
+
+  /* ---------- Color: Semantic (mapped) ---------- */
+  --fg-primary:    var(--c-text);
+  --fg-secondary:  var(--c-text-muted);
+  --fg-on-dark:    var(--c-white);
+  --fg-on-dark-muted: rgba(255,255,255,0.75);
+  --fg-on-dark-eyebrow: rgba(255,255,255,0.70);
+  --bg-page:       var(--c-white);
+  --bg-section:    var(--c-off-white);
+  --bg-dark:       var(--c-dark-panel);
+  --link:          var(--c-navy);
+  --link-hover:    var(--c-navy-deep);
+
+  /* ---------- Type: Families ---------- */
+  --font-wordmark: "Trajan Pro", "Trajan", "Cinzel", Georgia, serif;  /* UPPERCASE ONLY */
+  --font-display:  Georgia, "Times New Roman", serif;                  /* Editorial body display */
+  --font-sans:     system-ui, -apple-system, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+
+  /* ---------- Type: Scale ---------- */
+  --fs-display:    clamp(2.75rem, 4.5vw, 4rem);  /* 44–64 — H1 hero */
+  --fs-h1:         clamp(2rem, 3vw, 2.5rem);     /* 32–40 — page H1 */
+  --fs-h2:         clamp(1.75rem, 2.4vw, 2.25rem);/* 28–36 — section H2 */
+  --fs-h3:         1.1875rem;                    /* 19 — card title */
+  --fs-body:       0.9375rem;                    /* 15 */
+  --fs-body-lg:    1rem;                         /* 16 */
+  --fs-quote:      1.25rem;                      /* 20 */
+  --fs-quote-lg:   1.5rem;                       /* 24 */
+  --fs-meta:       0.8125rem;                    /* 13 */
+  --fs-caption:    0.75rem;                      /* 12 */
+  --fs-eyebrow:    0.6875rem;                    /* 11 */
+
+  /* ---------- Type: Weight + Tracking + Leading ---------- */
+  --tracking-eyebrow: 0.15em;
+  --tracking-tight:   -0.01em;
+  --leading-display:  1.1;
+  --leading-h2:       1.2;
+  --leading-snug:     1.35;
+  --leading-body:     1.7;
+  --leading-quote:    1.5;
+
+  /* ---------- Spacing rhythm (per DESIGN.md §5) ---------- */
+  --space-tight:     2rem;    /* py-8  banners / stats */
+  --space-standard:  5rem;    /* py-20 standard section */
+  --space-feature:   8rem;    /* py-32 hero / quote / big visual */
+
+  --container:       72rem;   /* max-w-6xl  1152 */
+  --container-text:  48rem;   /* max-w-3xl   768 */
+
+  /* ---------- Borders & rules ---------- */
+  --rule:            1px solid var(--c-divider);
+  --rule-eyebrow:    2px;
+  --rule-quote:      3px solid var(--c-gold);
+  --radius:          0;       /* No rounded corners on photos/cards (editorial) */
+
+  /* ---------- Motion ---------- */
+  --dur-fade:        600ms;
+  --dur-ui:          200ms;
+  --dur-card:        250ms;
+  --ease-fade:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-ui:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Elevation (used sparingly) ---------- */
+  --shadow-floating: 0 10px 25px -10px rgba(10, 22, 40, 0.18);
+}
+
+/* ==========================================================================
+   Semantic element styles — drop these in to inherit the system
+   ========================================================================== */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 { font-family: var(--font-display); font-weight: 400; }
+h1 { font-size: var(--fs-h1); line-height: var(--leading-display); letter-spacing: var(--tracking-tight); }
+h2 { font-size: var(--fs-h2); line-height: var(--leading-h2); }
+h3 { font-family: var(--font-sans); font-size: var(--fs-h3); font-weight: 600; line-height: var(--leading-snug); }
+
+/* Wordmark utility — institutional Trajan Pro, uppercase only.
+   Use for the Center wordmark in nav and footer. Tracked +0.06em for inscription feel. */
+.wordmark {
+  font-family: var(--font-wordmark);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-feature-settings: "liga" 1;
+}
+.wordmark--bold { font-weight: 700; }
+
+p { line-height: var(--leading-body); }
+
+a { color: var(--link); text-decoration: underline; }
+a:hover { color: var(--link-hover); text-decoration: none; }
+
+hr { border: 0; border-top: var(--rule); margin: 4rem 0; }
+
+/* Eyebrow label utility — never a floating uppercase string */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--fs-eyebrow);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-secondary);
+  font-weight: 500;
+}
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: var(--rule-eyebrow);
+  background: var(--c-gold);
+  margin-bottom: 0.75rem;
+}
+
+/* Pull quote */
+blockquote.pull {
+  border-left: var(--rule-quote);
+  padding-left: 1.5rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-quote);
+  color: var(--fg-primary);
+  line-height: var(--leading-quote);
+}
+blockquote.pull cite {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-size: var(--fs-meta);
+  color: var(--fg-secondary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

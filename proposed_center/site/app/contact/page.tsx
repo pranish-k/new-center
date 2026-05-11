@@ -1,5 +1,6 @@
 import FadeIn from "@/components/FadeIn";
 import { Eyebrow, InteriorHero } from "@/components/Brand";
+import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 export const metadata = {
   title: "Contact | Teachers College",
@@ -22,9 +23,9 @@ export default function ContactPage() {
             <Eyebrow label="Address" />
             <address className="not-italic text-[15px] text-[#6b6b6b] leading-[1.7] space-y-1 -mt-4">
               <p className="font-semibold text-[#111111]">
-                Center for Strategic Learning, Leadership, Reflective Practice in Digital Era
+                {CENTER_FULL}
               </p>
-              <p>Columbia University Teachers College</p>
+              <p>{INSTITUTION}</p>
               <p className="mt-4 text-[13px] italic">
                 Previously at: Northeastern University, 360 Huntington Avenue,
                 Boston, MA 02115
@@ -57,8 +58,8 @@ export default function ContactPage() {
               </p>
               <p>
                 The Center is currently in transition from Northeastern University
-                to Columbia University Teachers College. Contact details for the new
-                Columbia department will be updated once the transition is complete.
+                to {INSTITUTION}. Contact details for the new Columbia department
+                will be updated once the transition is complete.
               </p>
               <p>
                 In the meantime, reach out via the email above or visit the{" "}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans);display:flex;flex-direction:column;gap:18px}
+  .row{display:flex;gap:14px;align-items:center}
+  .lab{width:160px;font-size:11px;color:#6b6b6b;text-transform:uppercase;letter-spacing:.15em}
+  .demo{flex:1;display:flex;align-items:center}
+  .hr{flex:1;border-top:1px solid #e2e0dc}
+  .br{height:36px;width:120px;border:1px solid #e2e0dc}
+  .br-active{border-color:#002868}
+  .gold{height:2px;width:24px;background:#b9975b}
+  .quote{height:36px;width:3px;background:#b9975b}
+  .spec{font-size:11px;color:#6b6b6b}
+</style></head>
+<body>
+<div class="row"><span class="lab">Section divider</span><div class="demo"><div class="hr"></div></div><span class="spec">1px #e2e0dc</span></div>
+<div class="row"><span class="lab">Eyebrow rule</span><div class="demo"><div class="gold"></div></div><span class="spec">2px × 24w gold</span></div>
+<div class="row"><span class="lab">Quote bar</span><div class="demo"><div class="quote"></div></div><span class="spec">3px gold</span></div>
+<div class="row"><span class="lab">Card border</span><div class="demo"><div class="br"></div></div><span class="spec">1px warm</span></div>
+<div class="row"><span class="lab">Card border (hover)</span><div class="demo"><div class="br br-active"></div></div><span class="spec">→ navy</span></div>
+</body></html>

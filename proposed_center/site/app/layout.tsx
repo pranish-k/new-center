@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 export const metadata: Metadata = {
-  title: "Center for Strategic Learning, Leadership, Reflective Practice in Digital Era | Teachers College",
-  description:
-    "Preparing experienced leaders to navigate and drive digital transformation — at Columbia University Teachers College.",
+  title: `${CENTER_FULL} | ${INSTITUTION}`,
+  description: `Preparing experienced leaders to navigate and drive digital transformation — at ${INSTITUTION}.`,
 };
 
 export default function RootLayout({

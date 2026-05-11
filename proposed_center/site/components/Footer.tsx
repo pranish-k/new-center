@@ -1,15 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { CENTER_NAME, CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 export default function Footer() {
   return (
     <footer className="border-t border-[#e2e0dc] bg-[#f7f6f3] mt-20">
       <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="md:col-span-1">
-          <p className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b] mb-1">Columbia University · Teachers College</p>
+          <p className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b] mb-1">Teachers College · Columbia University</p>
           <p className="text-[14px] leading-[1.35] text-[#002868] font-medium max-w-xs">
             <span className="block text-[10px] tracking-[0.18em] uppercase text-[#6b6b6b] font-medium mb-1">Center for</span>
-            Strategic Learning, Leadership, Reflective Practice in Digital Era
+            {CENTER_NAME}
           </p>
           <p className="text-xs text-[#6b6b6b] mt-4 leading-relaxed">
             Transitioning from Northeastern University.<br />
@@ -45,7 +46,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-[#e2e0dc] py-4 text-center text-xs text-[#6b6b6b]">
-        &copy; {new Date().getFullYear()} Center for Strategic Learning, Leadership, Reflective Practice in Digital Era — Columbia University Teachers College.
+        &copy; {new Date().getFullYear()} {CENTER_FULL} — {INSTITUTION}.
       </div>
     </footer>
   );

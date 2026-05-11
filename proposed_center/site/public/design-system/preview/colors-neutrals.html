@@ -1,0 +1,20 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .sw{display:flex;flex-direction:column;gap:0}
+  .chip{height:80px;display:flex;align-items:flex-end;padding:10px 12px;font-size:11px;letter-spacing:.05em;border:1px solid transparent}
+  .meta{padding:8px 0 0;font-size:11px;color:#6b6b6b;display:flex;justify-content:space-between}
+  .meta b{color:#111;font-weight:500;letter-spacing:.05em}
+</style></head>
+<body>
+<div class="grid">
+  <div class="sw"><div class="chip" style="background:#111111;color:#fff">#111111</div><div class="meta"><b>Text</b><span>--c-text</span></div></div>
+  <div class="sw"><div class="chip" style="background:#6b6b6b;color:#fff">#6b6b6b</div><div class="meta"><b>Text Muted</b><span>--c-text-muted</span></div></div>
+  <div class="sw"><div class="chip" style="background:#e2e0dc;color:#111">#e2e0dc</div><div class="meta"><b>Divider (warm)</b><span>borders + hr</span></div></div>
+  <div class="sw"><div class="chip" style="background:#f7f6f3;color:#111;border-color:#e2e0dc">#f7f6f3</div><div class="meta"><b>Off-white</b><span>section bg</span></div></div>
+  <div class="sw"><div class="chip" style="background:#ffffff;color:#111;border-color:#e2e0dc">#ffffff</div><div class="meta"><b>White</b><span>page bg</span></div></div>
+  <div class="sw"><div class="chip" style="background:repeating-linear-gradient(45deg,#e2e0dc,#e2e0dc 6px,#fff 6px,#fff 12px);color:#111;border-color:#e2e0dc">No grays</div><div class="meta"><b>NOT gray-200</b><span>too cold</span></div></div>
+</div>
+</body></html>

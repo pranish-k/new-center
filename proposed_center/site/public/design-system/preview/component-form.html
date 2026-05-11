@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;background:#fff;font-family:var(--font-sans);padding:24px}
+  .field{display:flex;flex-direction:column;gap:6px;max-width:280px;margin-bottom:18px}
+  .field label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#6b6b6b;font-weight:500}
+  .field input,.field select{border:1px solid #e2e0dc;background:#fff;font-size:14px;color:#111;padding:10px 12px;font-family:inherit}
+  .field input:focus,.field select:focus{outline:none;border-color:#002868}
+  .field input::placeholder{color:#bbb}
+  .row{display:flex;gap:14px}
+  .pill{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#6b6b6b;border:1px solid #e2e0dc;padding:4px 10px;display:inline-block;margin-right:6px}
+</style></head>
+<body>
+<div class="row">
+  <div class="field">
+    <label>Search</label>
+    <input placeholder="Name, company, or title">
+  </div>
+  <div class="field">
+    <label>Industry</label>
+    <select><option>All</option><option>Cybersecurity</option></select>
+  </div>
+</div>
+<div style="margin-top:8px">
+  <span class="pill">Cybersecurity</span>
+  <span class="pill">C-Level Management</span>
+  <span class="pill">Data &amp; Analytics</span>
+</div>
+</body></html>

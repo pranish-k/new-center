@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans);display:flex;flex-direction:column;gap:18px}
+  .row{display:flex;align-items:center;gap:18px}
+  .bar{height:18px;background:#1D4F91}
+  .lab{width:120px;font-size:11px;color:#6b6b6b;text-transform:uppercase;letter-spacing:.15em}
+  .num{font-size:11px;color:#6b6b6b;font-variant-numeric:tabular-nums}
+  .legend{display:flex;gap:24px;font-size:11px;color:#6b6b6b}
+</style></head>
+<body>
+<div class="row"><span class="lab">Tight</span><div class="bar" style="width:64px"></div><span class="num">py-8 / 32px</span></div>
+<div class="row"><span class="lab">Standard</span><div class="bar" style="width:160px"></div><span class="num">py-20 / 80px</span></div>
+<div class="row"><span class="lab">Feature</span><div class="bar" style="width:256px"></div><span class="num">py-32 / 128px</span></div>
+<div class="legend"><span>3-tier rhythm — uniform py-20 is an anti-pattern</span></div>
+</body></html>

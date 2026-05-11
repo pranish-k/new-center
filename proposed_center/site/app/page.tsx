@@ -11,6 +11,7 @@ import {
   StatsBar,
   TintedCard,
 } from "@/components/Brand";
+import { INSTITUTION } from "@/lib/brand";
 
 const stats = [
   { value: "230+", label: "Industry Mentors" },
@@ -88,7 +89,7 @@ export default function Home() {
           <div>
             <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
             <p className="wordmark mb-7 text-[11px] tracking-[0.18em] text-white/70">
-              Columbia University · Teachers College
+              Teachers College · Columbia University
             </p>
             <h1 className="m-0 font-serif text-[52px] font-normal leading-[1.02] tracking-[-0.02em] md:text-[76px]">
               Lead the next era of{" "}
@@ -114,7 +115,7 @@ export default function Home() {
           <div className="relative h-[420px] md:-mr-8 md:h-[520px]">
             <Image
               src="/hero-teachers-college.jpg"
-              alt="Columbia University Teachers College"
+              alt={INSTITUTION}
               fill
               priority
               className="object-cover"
@@ -122,7 +123,7 @@ export default function Home() {
             />
             <div className="absolute bottom-6 left-6 right-6 border-l-[3px] border-[#b9975b] bg-[#0a1628]/85 px-5 py-4 text-white">
               <p className="m-0 mb-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/70">              </p>
-              <p className="m-0 font-serif text-lg">Columbia University Teachers College</p>
+              <p className="m-0 font-serif text-lg">{INSTITUTION}</p>
             </div>
           </div>
         </div>
@@ -134,7 +135,7 @@ export default function Home() {
           <span className="mt-0.5 flex-shrink-0 text-base font-bold text-[#b9975b]">&rarr;</span>
           <p className="text-sm leading-relaxed text-[#6b6b6b]">
             <strong className="text-[#111111]">In transition.</strong> The Center is moving from Northeastern University to{" "}
-            <strong className="text-[#111111]">Columbia University Teachers College</strong> under the continued leadership of Dr. Art Langer.
+            <strong className="text-[#111111]">{INSTITUTION}</strong> under the continued leadership of Dr. Art Langer.
           </p>
         </div>
       </section>

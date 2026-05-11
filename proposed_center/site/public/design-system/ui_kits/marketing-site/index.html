@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Center for Technology Management — UI Kit</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>html,body{margin:0;background:#fff}</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel" src="Atoms.jsx"></script>
+<script type="text/babel" src="Nav.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Cards.jsx"></script>
+<script type="text/babel" src="Data.jsx"></script>
+<script type="text/babel" src="Pages.jsx"></script>
+<script type="text/babel">
+  function App() {
+    const [route, setRoute] = React.useState({ page: "home", arg: null });
+    const go = (page, arg = null) => { setRoute({ page, arg }); window.scrollTo(0, 0); };
+    const openProgram = (slug) => go("programDetail", slug);
+    const openMentor  = (slug) => go("mentorProfile", slug);
+    const openFaculty = (slug) => go("facultyDetail", slug);
+
+    let body;
+    switch (route.page) {
+      case "home":           body = <Home go={go} openProgram={openProgram} />; break;
+      case "mission":        body = <Mission />; break;
+      case "programs":       body = <Programs go={go} openProgram={openProgram} />; break;
+      case "programDetail":  body = <ProgramDetail slug={route.arg} go={go} openProgram={openProgram} />; break;
+      case "certDetail":     body = <CertificateDetail slug={route.arg} go={go} />; break;
+      case "leadership":     body = <Leadership go={go} openFaculty={openFaculty} />; break;
+      case "facultyDetail":  body = <FacultyDetail slug={route.arg} go={go} />; break;
+      case "mentors":        body = <Mentors openMentor={openMentor} />; break;
+      case "mentorProfile":  body = <MentorProfile slug={route.arg} go={go} openMentor={openMentor} />; break;
+      case "contact":        body = <Contact />; break;
+      default:               body = <Home go={go} openProgram={openProgram} />;
+    }
+
+    // Map detail pages to their parent for nav highlighting
+    const navCurrent = ({
+      programDetail: "programs", certDetail: "programs",
+      facultyDetail: "leadership", mentorProfile: "mentors",
+    })[route.page] || route.page;
+
+    return (
+      <>
+        <Nav current={navCurrent} go={go} />
+        <main>{body}</main>
+        <Footer />
+      </>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

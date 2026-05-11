@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{margin:0;padding:24px;background:#fff;font-family:var(--font-sans);display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .row{display:flex;gap:12px;align-items:center}
+  .lab{width:120px;font-size:11px;color:#6b6b6b;text-transform:uppercase;letter-spacing:.15em}
+  .spec{font-size:11px;color:#6b6b6b;margin-left:8px}
+
+  .btn-primary{background:#002868;color:#fff;padding:11px 26px;font-size:13px;font-weight:600;border:0;cursor:pointer;font-family:inherit}
+  .btn-primary:hover{background:#001a4d}
+
+  /* Secondary — warm off-white fill (system token --c-off-white) with navy stroke + label.
+     Solves the "empty white box" problem without inventing a color. */
+  .btn-secondary{background:#f7f6f3;color:#002868;border:1px solid #002868;padding:10px 25px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+  .btn-secondary:hover{background:#002868;color:#fff}
+
+  /* Gold — accent CTA. Use sparingly; gold is normally a 14px-or-smaller token. Here we cap at 13px so it stays AA. */
+  .btn-gold{background:#b9975b;color:#0a1628;border:0;padding:11px 26px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background .2s}
+  .btn-gold:hover{background:#a78649}
+
+  .btn-pill{background:#002868;color:#fff;border:1px solid #002868;padding:6px 16px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .2s,border-color .2s}
+  .btn-pill:hover{background:#001a4d;border-color:#001a4d}
+
+  .arrow{color:#002868;font-size:13px;font-weight:600;text-decoration:underline}
+</style></head>
+<body>
+  <div class="row"><span class="lab">Primary</span><button class="btn-primary">Explore Programs</button><span class="spec">navy fill · main CTA</span></div>
+  <div class="row"><span class="lab">Secondary</span><button class="btn-secondary">Meet Dr. Langer</button><span class="spec">off-white fill · navy stroke (replaces hollow outline)</span></div>
+  <div class="row"><span class="lab">Gold accent</span><button class="btn-gold">Apply for Fall 2026</button><span class="spec">use sparingly · 1 per page max</span></div>
+  <div class="row"><span class="lab">Nav pill</span><button class="btn-pill">Contact</button><span class="spec">solid navy in nav header</span></div>
+  <div class="row"><span class="lab">Arrow link</span><span class="arrow">Learn more →</span><span class="spec">tertiary · in-flow</span></div>
+</body></html>

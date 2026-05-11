@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 const links = [
   { href: "/mission", label: "About" },
@@ -10,8 +11,7 @@ const links = [
   { href: "/leadership", label: "Leadership" },
 ];
 
-const CENTER_NAME = "Strategic Learning, Leadership, Reflective Practice in Digital Era";
-const HOME_ARIA = `Teachers College Columbia University — Center for ${CENTER_NAME} — home`;
+const HOME_ARIA = `${INSTITUTION} — ${CENTER_FULL} — home`;
 
 function TCLogo({ className = "" }: { className?: string }) {
   return (
@@ -69,20 +69,17 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#e2e0dc] bg-white">
-      <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4 min-h-16 py-3 md:min-h-[72px] md:py-0">
+      <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4 min-h-[90px] py-3 md:min-h-[100px] md:py-0">
         <Link
           href="/"
           aria-label={HOME_ARIA}
           className="group flex items-center gap-3 md:gap-4 min-w-0"
         >
-          <TCLogo className="h-10 w-auto md:h-12 flex-shrink-0" />
+          <TCLogo className="h-[60px] w-auto md:h-[70px] flex-shrink-0" />
           <span className="hidden sm:block w-px self-stretch bg-[#e2e0dc] my-1" />
           <span className="flex flex-col leading-tight min-w-0">
-            <span className="text-[10px] md:text-[11px] tracking-[0.18em] uppercase text-[#6b6b6b] font-medium">
-              Center for
-            </span>
-            <span className="text-[11px] md:text-[13px] leading-[1.3] text-[#002868] font-medium md:max-w-[360px] break-words mt-0.5 transition-colors group-hover:text-[#001a4d]">
-              {CENTER_NAME}
+            <span className="text-[15px] md:text-[18px] leading-[1.3] text-[#002868] font-medium md:max-w-[290px] break-words transition-colors group-hover:text-[#001a4d]">
+              {CENTER_FULL}
             </span>
           </span>
         </Link>
@@ -94,7 +91,7 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`border-b-2 border-transparent pb-0.5 text-sm text-[#111111] transition-colors hover:text-[#002868] ${
+                className={`border-b-2 border-transparent pb-0.5 text-[18px] text-[#111111] transition-colors hover:text-[#002868] ${
                   active ? "border-[#b9975b]" : ""
                 }`}
               >
@@ -104,7 +101,7 @@ export default function Nav() {
           })}
           <Link
             href="/contact"
-            className="border border-[#002868] bg-[#002868] px-4 py-1.5 text-sm font-medium text-white transition-colors hover:border-[#001a4d] hover:bg-[#001a4d]"
+            className="border border-[#002868] bg-[#002868] px-5 py-2 text-[18px] font-medium text-white transition-colors hover:border-[#001a4d] hover:bg-[#001a4d]"
           >
             Contact
           </Link>
@@ -116,7 +113,7 @@ export default function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-[30px] h-[30px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {open ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -135,7 +132,7 @@ export default function Nav() {
           <Link
             key={l.href}
             href={l.href}
-            className="text-3xl font-serif text-[#111111]"
+            className="text-[38px] font-serif text-[#111111]"
             onClick={() => setOpen(false)}
           >
             {l.label}
@@ -143,7 +140,7 @@ export default function Nav() {
         ))}
         <Link
           href="/contact"
-          className="w-fit border border-[#002868] bg-[#002868] px-5 py-2 text-xl font-semibold text-white"
+          className="w-fit border border-[#002868] bg-[#002868] px-6 py-2.5 text-[25px] font-semibold text-white"
           onClick={() => setOpen(false)}
         >
           Contact

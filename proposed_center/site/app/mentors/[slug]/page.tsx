@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeIn from "@/components/FadeIn";
 import { Eyebrow } from "@/components/Brand";
+import { CENTER_FULL } from "@/lib/brand";
 
 type Mentor = {
   id: number;
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!m) return { title: "Mentor | Teachers College" };
   return {
     title: `${m.name} | Mentor | Teachers College`,
-    description: `${m.title}${m.company ? `, ${m.company}` : ""} — Industry mentor at the Center for Strategic Learning, Leadership, Reflective Practice in Digital Era.`,
+    description: `${m.title}${m.company ? `, ${m.company}` : ""} — Industry mentor at the ${CENTER_FULL}.`,
   };
 }
 
