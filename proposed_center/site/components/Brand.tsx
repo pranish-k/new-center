@@ -165,7 +165,7 @@ export function ProgramHero({
   );
 }
 
-// NavyFeatureCard — the ONE bold feature CTA per page (flagship MS, etc.).
+// NavyFeatureCard — the ONE bold feature CTA per page.
 export function NavyFeatureCard({
   eyebrow,
   title,

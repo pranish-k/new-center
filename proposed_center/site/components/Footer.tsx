@@ -39,7 +39,6 @@ export default function Footer() {
         <nav className="flex flex-col gap-2.5 text-sm text-[#6b6b6b]">
           <p className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mb-1">Programs</p>
           <Link href="/programs" className="hover:text-[#002868] transition-colors">All Programs</Link>
-          <Link href="/programs/ms-strategic-technology-leadership" className="hover:text-[#002868] transition-colors">MS Degree</Link>
           <Link href="/programs#executive" className="hover:text-[#002868] transition-colors">Executive Programs</Link>
           <Link href="/contact" className="hover:text-[#002868] transition-colors">Contact Us</Link>
         </nav>

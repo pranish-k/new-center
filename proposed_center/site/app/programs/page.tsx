@@ -3,27 +3,12 @@ import {
   Eyebrow,
   GoldButton,
   InteriorHero,
-  NavyFeatureCard,
   PhotoLedCard,
   TintedCard,
 } from "@/components/Brand";
 
 export const metadata = {
   title: "Programs | Teachers College",
-};
-
-const flagship = {
-  tag: "Master's Degree",
-  title: "MS in Strategic Technology Leadership",
-  body: "A 30-credit MS in Management with Concentration in Strategic Technology Leadership. Five core courses, nine elective credits, immersive on-ground residencies, and a 6-credit applied master's project drawn from the student's own organization.",
-  href: "/programs/ms-strategic-technology-leadership",
-  image: "/session-classroom.jpg",
-  meta: [
-    { label: "Format", value: "Hybrid" },
-    { label: "Credits", value: "30" },
-    { label: "Residencies", value: "3" },
-    { label: "Mentors", value: "230+" },
-  ],
 };
 
 const executivePrograms = [
@@ -71,29 +56,8 @@ export default function ProgramsPage() {
       <InteriorHero
         eyebrow="What we offer"
         title="Programs for every stage of leadership"
-        subtitle="From the flagship master's degree to short executive workshops and topic certificates — designed for professionals leading in technology-driven environments."
+        subtitle="Executive workshops and topic certificates — designed for professionals leading in technology-driven environments."
       />
-
-      {/* Flagship — NavyFeatureCard, the one feature CTA per page */}
-      <section className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 pb-12 pt-20">
-          <FadeIn>
-            <Eyebrow label="The flagship" />
-          </FadeIn>
-          <FadeIn>
-            <NavyFeatureCard
-              eyebrow={flagship.tag}
-              title={flagship.title}
-              body={flagship.body}
-              ctaLabel="Explore the MS"
-              href={flagship.href}
-              image={flagship.image}
-              imageAlt="Flagship master's program classroom"
-              meta={flagship.meta}
-            />
-          </FadeIn>
-        </div>
-      </section>
 
       {/* Executive & Professional — PhotoLedCard grid on cream */}
       <section className="bg-[#f7f6f3]">

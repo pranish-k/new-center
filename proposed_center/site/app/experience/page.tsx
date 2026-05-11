@@ -17,14 +17,14 @@ const testimonials = [
     quote:
       "I got really lucky when I found this program. I realized that I actually had stronger ambitions to move up the ladder.",
     name: "Lee D.",
-    role: "MS Graduate, Class of 2025",
+    role: "Program Graduate, Class of 2025",
     context: "Transitioned from individual contributor to leadership track at Vaisala",
   },
   {
     quote:
-      "I just wanted to say how much I appreciate the experience of completing my master's degree. Everything I learned, the perspectives I gained, and the connections I built have been invaluable.",
+      "I just wanted to say how much I appreciate the experience of completing this program. Everything I learned, the perspectives I gained, and the connections I built have been invaluable.",
     name: "Boris F.",
-    role: "MS Graduate, Class of 2025",
+    role: "Program Graduate, Class of 2025",
     context: "International Residency cohort",
   },
 ];

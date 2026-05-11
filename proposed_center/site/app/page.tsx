@@ -5,7 +5,6 @@ import {
   ArrowLink,
   Eyebrow,
   GoldButton,
-  NavyFeatureCard,
   PhotoLedCard,
   PullQuote,
   StatsBar,
@@ -19,19 +18,6 @@ const stats = [
   { value: "300+", label: "Student Projects" },
   { value: "25+", label: "Years of Leadership" },
 ];
-
-const flagship = {
-  tag: "Master's Degree",
-  title: "MS in Strategic Technology Leadership",
-  body: "A 30-credit hybrid program combining immersive on-ground residencies, one-on-one industry mentoring, and a 6-credit applied capstone project drawn from the student's own organization.",
-  href: "/programs/ms-strategic-technology-leadership",
-  image: "/session-classroom.jpg",
-  meta: [
-    { label: "Format", value: "Hybrid" },
-    { label: "Credits", value: "30" },
-    { label: "Mentors", value: "230+" },
-  ],
-};
 
 const executivePrograms = [
   {
@@ -98,8 +84,8 @@ export default function Home() {
               <br className="hidden md:block" /> digital transformation.
             </h1>
             <p className="mt-7 max-w-md text-[17px] leading-[1.6] text-white/85">
-              A graduate department for executives navigating disruption — with a master&rsquo;s degree,
-              executive programs, and topic certificates taught by faculty and 230+ industry mentors.
+              A graduate department for executives navigating disruption — with
+              executive programs and topic certificates taught by faculty and 230+ industry mentors.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <GoldButton href="/programs">Explore Programs &rarr;</GoldButton>
@@ -158,19 +144,6 @@ export default function Home() {
             <div className="hidden md:block">
               <ArrowLink href="/programs">View all programs</ArrowLink>
             </div>
-          </div>
-
-          <div className="mb-8">
-            <NavyFeatureCard
-              eyebrow={flagship.tag}
-              title={flagship.title}
-              body={flagship.body}
-              ctaLabel="Explore the MS"
-              href={flagship.href}
-              image={flagship.image}
-              imageAlt="Flagship master's program classroom"
-              meta={flagship.meta}
-            />
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
@@ -261,14 +234,14 @@ export default function Home() {
             <PullQuote
               quote="I got really lucky when I found this program. I realized that I actually had stronger ambitions to move up the ladder."
               name="Lee D."
-              role="MS Graduate, Class of 2025"
+              role="Program Graduate, Class of 2025"
             />
           </FadeIn>
           <FadeIn delay={80}>
             <PullQuote
               quote="Everything I learned, the perspectives I gained, and the connections I built have been invaluable."
               name="Boris F."
-              role="MS Graduate, Class of 2025"
+              role="Program Graduate, Class of 2025"
             />
           </FadeIn>
         </div>

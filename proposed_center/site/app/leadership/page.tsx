@@ -78,9 +78,8 @@ export default function LeadershipPage() {
             <p>
               Prior to Northeastern, Dr. Langer served as Director of the Center for Technology
               Management at Columbia University, where he was also Professor of Professional
-              Practice, Academic Director of the MS in Technology Management programs, and
-              a faculty member in the Department of Organization and Leadership at Teachers
-              College — the institution he now returns to.
+              Practice and a faculty member in the Department of Organization and Leadership
+              at Teachers College — the institution he now returns to.
             </p>
             <p>
               His research spans software architecture, digital transformation strategy,
