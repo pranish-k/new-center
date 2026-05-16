@@ -44,10 +44,6 @@ function decodeHtml(s: string): string {
   return s.replace(/&amp;/g, "&");
 }
 
-function splitValues(val: string): string[] {
-  return val.split(",").map((s) => decodeHtml(s.trim())).filter(Boolean);
-}
-
 export default async function MentorProfilePage({
   params,
 }: {
@@ -61,18 +57,6 @@ export default async function MentorProfilePage({
   const imgSrc = mentor.image
     ? `/mentors/${mentor.image.replace("images/", "")}`
     : null;
-
-  // 3 deterministic "more mentors" — others with overlap on industry, falling back to neighbors.
-  const industries = new Set(splitValues(mentor.industry));
-  const others = all
-    .filter((m) => m.slug !== mentor.slug)
-    .map((m) => ({
-      m,
-      score: splitValues(m.industry).filter((i) => industries.has(i)).length,
-    }))
-    .sort((a, b) => b.score - a.score || a.m.name.localeCompare(b.m.name))
-    .slice(0, 3)
-    .map((x) => x.m);
 
   return (
     <>
@@ -195,53 +179,6 @@ export default async function MentorProfilePage({
         </div>
       </FadeIn>
 
-      {/* More mentors */}
-      {others.length > 0 && (
-        <FadeIn className="bg-white">
-          <div className="mx-auto max-w-7xl px-8 py-20">
-            <Eyebrow label="More mentors" />
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {others.map((m) => {
-                const oImg = m.image
-                  ? `/mentors/${m.image.replace("images/", "")}`
-                  : null;
-                return (
-                  <Link
-                    key={m.slug}
-                    href={`/mentors/${m.slug}`}
-                    className="group flex border border-[#e2e0dc] bg-white p-5 text-[#111111] no-underline transition-[transform,border-color] duration-[250ms] ease-out hover:-translate-y-0.5 hover:border-[#002868]"
-                  >
-                    <div className="mr-4 h-16 w-16 flex-shrink-0 overflow-hidden bg-[#f5f4f2]">
-                      {oImg ? (
-                        <Image
-                          src={oImg}
-                          alt={m.name}
-                          width={64}
-                          height={64}
-                          className="h-full w-full object-cover object-top"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center font-serif text-lg text-[#b9975b]">
-                          {m.name.charAt(0)}
-                        </div>
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold leading-snug text-[#111111]">{m.name}</p>
-                      {m.title && (
-                        <p className="mt-0.5 text-[12px] leading-snug text-[#6b6b6b]">{m.title}</p>
-                      )}
-                      {m.company && (
-                        <p className="mt-0.5 text-[12px] text-[#b9975b]">{decodeHtml(m.company)}</p>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </FadeIn>
-      )}
     </>
   );
 }

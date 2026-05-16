@@ -111,7 +111,7 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
   return (
     <Link
       href={`/mentors/${mentor.slug}`}
-      className="group flex h-full flex-col border border-[#e2e0dc] border-t-2 border-t-[#b9975b] bg-white text-[#111111] no-underline transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
+      className="group flex h-full flex-col border border-[#e2e0dc] border-t-[3px] border-t-[#b9975b] bg-white text-[#111111] no-underline shadow-[0_2px_8px_-4px_rgba(17,17,17,0.08)] transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:shadow-[0_16px_32px_-12px_rgba(0,40,104,0.18)] hover:border-[#d8d4cc]"
     >
       <div className="relative w-full aspect-[1/1] bg-[#f5f4f2] overflow-hidden">
         {imgSrc ? (
@@ -129,29 +129,31 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <p className="font-serif text-[19px] leading-[1.2] text-[#111111]">{mentor.name}</p>
+      <div className="flex flex-1 flex-col p-5 text-center items-center">
+        <p className="font-serif text-[22px] leading-[1.2] text-[#111111] transition-colors duration-[200ms] group-hover:text-[#002868] group-hover:underline decoration-[#b9975b] decoration-1 underline-offset-[6px]">
+          {mentor.name}
+        </p>
         {mentor.title && (
-          <p className="mt-2 text-[12.5px] text-[#6b6b6b] leading-[1.45] line-clamp-2">
+          <p className="mt-2 text-[13.5px] text-[#6b6b6b] leading-[1.5] line-clamp-2">
             {mentor.title}
           </p>
         )}
         {mentor.company && (
-          <p className="mt-1 text-[12.5px] font-medium text-[#b9975b] truncate">{mentor.company}</p>
+          <p className="mt-1 text-[13.5px] font-medium text-[#b9975b] truncate">{mentor.company}</p>
         )}
 
         {visibleIndustries.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1.5">
+          <div className="mt-3 flex flex-wrap gap-1.5 justify-center">
             {visibleIndustries.map((ind) => (
               <span
                 key={ind}
-                className="text-[11px] uppercase tracking-[0.1em] text-[#6b6b6b] border border-[#e2e0dc] px-2 py-0.5"
+                className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#002868] bg-[#002868]/[0.06] px-2.5 py-1"
               >
                 {ind}
               </span>
             ))}
             {extraIndustries > 0 && (
-              <span className="text-[11px] uppercase tracking-[0.1em] text-[#b9975b] border border-[#e2e0dc] px-2 py-0.5">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#7a6235] bg-[#b9975b]/15 px-2.5 py-1">
                 +{extraIndustries}
               </span>
             )}
@@ -159,11 +161,15 @@ function MentorCard({ mentor }: { mentor: Mentor }) {
         )}
 
         {mentor.location && (
-          <p className="mt-auto pt-3 text-[12px] text-[#6b6b6b]">
+          <p className="mt-auto pt-3 text-[13px] text-[#6b6b6b]">
             <span className="text-[#b9975b] mr-1.5">&bull;</span>
             {mentor.location}
           </p>
         )}
+
+        <p className="mt-3 text-[11px] uppercase tracking-[0.15em] text-[#b9975b] font-semibold opacity-0 transition-opacity duration-[200ms] group-hover:opacity-100">
+          View profile &rarr;
+        </p>
       </div>
     </Link>
   );

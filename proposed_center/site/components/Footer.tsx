@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CENTER_NAME, CENTER_FULL, INSTITUTION } from "@/lib/brand";
+import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 export default function Footer() {
   return (
@@ -9,8 +9,7 @@ export default function Footer() {
         <div className="md:col-span-1">
           <p className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b] mb-1">Teachers College · Columbia University</p>
           <p className="text-[14px] leading-[1.35] text-[#002868] font-medium max-w-xs">
-            <span className="block text-[10px] tracking-[0.18em] uppercase text-[#6b6b6b] font-medium mb-1">Center for</span>
-            {CENTER_NAME}
+            {CENTER_FULL}
           </p>
           <p className="text-xs text-[#6b6b6b] mt-4 leading-relaxed">
             Transitioning from Northeastern University.<br />

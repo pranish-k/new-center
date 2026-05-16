@@ -79,9 +79,8 @@ export default function Home() {
             </p>
             <h1 className="m-0 font-serif text-[52px] font-normal leading-[1.02] tracking-[-0.02em] md:text-[76px]">
               Lead the next era of{" "}
-              <em className="not-italic font-serif italic text-[#b9975b]">technology</em>{" "}
-              &amp;
-              <br className="hidden md:block" /> digital transformation.
+              <em className="not-italic font-serif italic text-[#b9975b]">AI</em>{" "}
+              &amp; digital transformation.
             </h1>
             <p className="mt-7 max-w-md text-[17px] leading-[1.6] text-white/85">
               A graduate department for executives navigating disruption — with
@@ -163,8 +162,8 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Topic certificates strip on cream */}
-      <FadeIn className="bg-[#f7f6f3]">
+      {/* Topic certificates strip */}
+      <FadeIn className="bg-white">
         <div className="mx-auto max-w-7xl px-8 py-24">
           <div className="mb-10 flex items-end justify-between">
             <div>
