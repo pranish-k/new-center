@@ -10,7 +10,10 @@ export const metadata = {
 
 export default function MentorsPage() {
   const jsonPath = path.join(process.cwd(), "..", "data", "mentors", "mentors.json");
-  const mentorsData = JSON.parse(readFileSync(jsonPath, "utf-8"));
+  // Records with `published: false` stay in the data file but are hidden from the site.
+  const mentorsData = JSON.parse(readFileSync(jsonPath, "utf-8")).filter(
+    (m: { published?: boolean }) => m.published !== false,
+  );
   return (
     <>
       <InteriorHero

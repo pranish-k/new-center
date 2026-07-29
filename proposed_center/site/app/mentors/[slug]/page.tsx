@@ -19,11 +19,14 @@ type Mentor = {
   linkedin: string;
   bio: string;
   image: string;
+  published?: boolean;
 };
 
 function loadMentors(): Mentor[] {
   const jsonPath = path.join(process.cwd(), "..", "data", "mentors", "mentors.json");
-  return JSON.parse(readFileSync(jsonPath, "utf-8")) as Mentor[];
+  const all = JSON.parse(readFileSync(jsonPath, "utf-8")) as Mentor[];
+  // Records with `published: false` stay in the data file but are hidden from the site.
+  return all.filter((m) => m.published !== false);
 }
 
 export function generateStaticParams() {

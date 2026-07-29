@@ -62,7 +62,8 @@
     "location": "Stamford, CT, United States",
     "linkedin": "https://www.linkedin.com/in/juliahanderson",
     "bio": "Julia Anderson is currently the Chief Technology & Information Officer at Campbell Soup Company. In her previous role, she served as the Global Chief Information Officer at Smithfield Foods, a $15 billion global food company. As a member of the executive leadership team at Smithfield Foods, she supported the company's strategic targets by executing enterprise-wide information technology strategies to allow the company to scale its operations and use analytics to drive decision making. Ms. Anderson is a business-focused IT executive with an extensive track record in Fortune 500 consumer branded companies. Prior to Smithfield, she was Vice President of Global Applications and CIO North America at HJ Heinz where she was instrumental in the successful privatization of the company. Prior to Heinz, she was an IT Leader at PepsiCo during the growth of Foodservice division and bottler acquisition years. Ms. Anderson held transformation and IT leadership roles at Kraft foods during the merger with General Foods and Oscar Mayer. She joined parent company Altria where she was responsible for corporate systems. She started her career at Baxter Healthcare. Ms. Anderson serves on the Board of Directors for Make-A-Wish Virginia and the CGT Consumer Goods Technology, Executive Advisory Council. She has been active in SIM (Society of Information Management) since 1999. Ms. Anderson served on the board of the Fairfield Westchester chapter for three years and is a member of the Advanced Practices Council since 2006.",
-    "image": "images/julia-anderson.jpg"
+    "image": "images/julia-anderson.jpg",
+    "published": false
   },
   {
     "id": 89,
@@ -179,7 +180,8 @@
     "location": "Newark, NJ, United States",
     "linkedin": "https://www.linkedin.com/in/mark-barnard-8aa49b6",
     "bio": "With a long career at Blue Cross Blue Shield, Mark Barnard currently is the Senior Vice President of Service for Horizon Blue Cross Blue Shield of New Jersey. Prior to this roll, Mr. Barnard was the President and Chief Executive Officer of National Account Service Company, an Atlanta-based IT infrastructure provider dedicated to claims processing for Blue Cross and Blue Shield plans nationwide. Mr. Barnard also spent 16 years with Electronic Data Systems, where he was ultimately responsible for overseeing all electronic data systems operations for various Blue Cross and Blue Shield plans across the nation. In addition, as Vice President at The MEDSTAT Group, he had responsibility for client services and product development. Mr. Barnard holds a B.S. in Mathematics Education from Michigan State University. Prior to his career in health care, he taught mathematics at the high school level and coached wrestling. Active in community affairs, Mr. Barnard serves on the boards of directors of several nonprofit groups, and is an active volunteer for Habitat for Humanity, nationally and internationally, and for the Boy Scouts of America.",
-    "image": "images/mark-barnard.jpg"
+    "image": "images/mark-barnard.jpg",
+    "published": false
   },
   {
     "id": 97,
@@ -309,7 +311,8 @@
     "location": "Charleston, SC, United States",
     "linkedin": "https://www.linkedin.com/in/abouten",
     "bio": "Mr. Bouten is currently serving as a Strategic Advisor at freelance. He is one of the world's leading experts on digital business transformation with over 20 years of experience in digital innovation. Mr. Bouten helps companies achieve their digital goals and navigate the new digital economy. He has a proven ability to build and grow businesses, maximize profitability, and establish successful industry relationships. For eight years, he served as SVP & CIO of the Commodities and Commercial Markets division of McGraw-Hill Financial, a $1B branch of McGraw-Hill Financial's $5B global information organization. There, he developed and successfully executed a large-scale digital transformation program across multiple businesses within McGraw-Hill. He also served for six years as VP, Business Development & Technology at USATODAY.com, leading the development and implementation of innovative digital technologies to facilitate business growth. In early 2014, Mr. Bouten founded Digital Prism Advisors, a company that guides established businesses through their most important investment of the next decade – mastering the digital marketplace. He and his team of experienced consultants understand how any business can become a disruptor in the digital ecosystem through the strategic application of technology. Digital Prism is currently engaged in digital transformation programs with an international bookseller, a large professional membership organization, a prominent think tank, and a proprietary data provider.",
-    "image": "images/adriaan-l-bouten.jpg"
+    "image": "images/adriaan-l-bouten.jpg",
+    "published": false
   },
   {
     "id": 177,
@@ -920,7 +923,8 @@
     "location": "Dallas, TX, United States",
     "linkedin": "https://www.linkedin.com/in/finley1227",
     "bio": "John Finley is Chief Legal Officer and Chief Compliance Officer of AIS Healthcare. AIS is a national healthcare company based in Dallas, Texas. Mr. Finley provides leadership, oversight and direction in the areas of IT security, compliance, legal affairs, government affairs, affiliated organizations and risk management. For 20 years, Mr. Finley has held the Chief Legal, IT Security, Compliance and Audit roles academic at medical centers, integrated hospital systems, private equity backed pharma and Fortune 500 health care companies. He has also served in key legal and policy-making positions at the White House and the FDA. Mr. Finley has led complex programs across national and international jurisdictions. He brings significant experience and accomplishments in corporate compliance, IT security, enterprise-risk management, mergers and acquisitions, private equity, health care operations, clinical research, government investigations and material litigation. Mr. Finley serves as an Advisory Board Member for the University of Tulsa Henry Kendall College and a Board Member representing Foremankind.org. Mr. Finley holds a B.S. from the University of Tulsa and a law degree and M.S. from the University of Oklahoma and Oxford University. He resides in Dallas, Texas with his wife and three daughters.",
-    "image": "images/john-finley.jpg"
+    "image": "images/john-finley.jpg",
+    "published": false
   },
   {
     "id": 168,
@@ -933,7 +937,8 @@
     "location": "Portland, ME, United States",
     "linkedin": "https://www.linkedin.com/in/kathleenmfitzpatrick",
     "bio": "Kathleen Fitzpatrick's most recent position is as a Member at Chief. In the past, she served as the CIO and Managing Director of Russell Reynolds Associates, where she was responsible for driving the firm's technology strategy and supporting major IS initiatives. Ms. Fitzpatrick leverages her significant experience in key areas such as innovative systems architecture, client management platforms, hardware and software integration, user interface design and end-user training programs to ensure that the IS team understands and translates business trends and needs into viable technology solutions to support Russell Reynolds 46 offices across the globe. Ms. Fitzpatrick has more than 20 years of experience in the development of complex client management applications and IT architecture, having spent the last 15 years in senior IT roles for major financial services institutions. Prior to Russell Reynolds Associates, she was the Managing Director and the Head of Global Development for Citigroup’s Global Wealth Management Group where she was responsible for the successful global rollout of the strategic client profiling and on-boarding platform at Citi Private Bank. Prior to that, she held roles of increasing responsibility at UBS, most recently serving as a Managing Director and Head of Front Office Technology for UBS Financial Services’ U.S. Wealth Management where she was responsible for all technology used by financial advisors and their clients. While at UBS, Ms. Fitzpatrick served as Chief Architect. She also played a significant role in several acquisition integrations that were instrumental in building the organization’s current structure. Earlier in her career, she served as Project Manager for Smith Barney Shearson and spent her early years as a software developer. Ms. Fitzpatrick holds a B.S. in Mathematics and Computer Science from the State University of New York at Binghamton.",
-    "image": "images/kathleen-fitzpatrick.jpg"
+    "image": "images/kathleen-fitzpatrick.jpg",
+    "published": false
   },
   {
     "id": 117,
@@ -1115,7 +1120,8 @@
     "location": "Miami, FL, United States",
     "linkedin": "https://www.linkedin.com/in/gouldkaren",
     "bio": "Karen Gould is a distinguished thought leader, mentor, and advisor known for her entrepreneurial spirit and growth mindset. With extensive experience as a corporate and nonprofit director, senior executive, and technology investor, she has established herself as a systems thinker and a catalyst for creativity and innovation. Her expertise lies in adaptive leadership, creating shareholder value through collaboration, driving culture change, and developing sustainable global business practices, particularly in the field of infrastructure, which includes technology, communications, and construction. Karen Gould currently holds several significant roles, including Director at Gil-Bar Industries, which is backed by Intermediate Capital Group, PLC. She is also a Board Observer representing Golden Seeds Venture Fund for Chromatic 3D Materials and an Independent director for REV Renewables, a leader in renewable power generation and energy storage facilities. Throughout her career, Karen has been an active board member, often assuming leadership positions, including board chairman. She has served on various board committees, including audit, nominating, governance, and compensation. Her notable board experience includes roles at Orbcomm Inc. (NASDAQ: ORBC) and Turner Construction Company & affiliates. Earlier in her career, she served as a board member for Puretracks Inc. in Canada and Bell Communications Research (Bellcore). Karen Gould currently serves as the CEO and founder of Gould Consulting Group. In this capacity, she provides strategic guidance to boards and the C-suite and offers coaching and mentoring to executives on matters related to strategy, ESG (Environmental, Social, and Governance) integration, and leadership and organizational development. Additionally, she holds the position of Managing Director at Golden Seeds, an early-stage investment firm that champions gender diversity and equitable access to capital for women. In this role, she has conducted due diligence and made investments in eight technology companies, including leading a $5 million Series B investment in Chromatic 3D Materials. In her prior position, Ms. Gould served as the Executive Vice President, Chief Financial Officer, and Board Member at Turner Construction Company. During her tenure, she led strategic initiatives that transformed the company's culture, improved cash flow, tripled earnings, and scaled revenue from $8 billion to $16 billion. Her responsibilities included overseeing Finance, IT, cybersecurity, risk management, insurance, communications, and marketing, managing a staff of approximately 600. She was also instrumental in leading business continuity planning and execution during the challenges of 2020, contributing to the development of industry-leading response protocols for pandemic, civil unrest, systemic racism, and cybersecurity attacks. Furthermore, Karen spearheaded Turner's digital transformation, establishing business intelligence capabilities and enhancing operational efficiencies. Earlier in her career, Ms. Gould held senior positions at Bell Canada and AT&T Corporation, including roles as Financial Vice President and CFO at AT&T Long Distance Services. She also served as CFO and Vice President of Administration at SaaS pioneer CenterPost Communications and held positions as Vice President of Finance and CFO for Enterprise Business Services and Director of Treasury at Ameritech. Karen Gould holds an M.B.A. with Honors in Finance, Strategy, and International Business from the University of Chicago Booth School of Business. She earned her Bachelor of Science in Finance from Indiana University Kelley School of Business. Her commitment to community involvement is evident through her active participation on the Advisory Board and Real Estate Executive Committee for the Anti-Defamation League in New York and New Jersey. She also serves on the CFO Advisory Board for the University of Chicago Booth, where she occasionally acts as a guest lecturer.",
-    "image": "images/karen-gould.jpg"
+    "image": "images/karen-gould.jpg",
+    "published": false
   },
   {
     "id": 201,
@@ -1193,7 +1199,8 @@
     "location": "San Francisco, CA, United States",
     "linkedin": "https://www.linkedin.com/in/jeremyhartman2024",
     "bio": "Jeremy has over 25 years of technology, political, and non-profit experience, specializing in building organizations that activate audiences around new technology, products, or causes. Most recently, he served as the Vice President of Marketing at GoDaddy, where he led the world's first initiative to quantify the impact of microbusinesses on the economies of the US and the UK. This groundbreaking initiative garnered over 4 billion media impressions and catalyzed significant change at the local government level. Jeremy currently advises several companies and organizations, including the AI Asia-Pacific Institute, the CalPoly Center for Innovation and Entrepreneurship, and The Arena, an organization dedicated to convening, training, and supporting the next generation of U.S. political candidates and campaign staff. An alumnus of Washington University in St. Louis and Northwestern University, Jeremy currently resides with his family in the Bay Area, California.",
-    "image": "images/jeremy-hartman.jpeg"
+    "image": "images/jeremy-hartman.jpeg",
+    "published": false
   },
   {
     "id": 98,
@@ -1258,7 +1265,8 @@
     "location": "Charlotte, NC, United States",
     "linkedin": "https://www.linkedin.com/in/johnlhelm",
     "bio": "John works as an analyst and optimizer, specializing in understanding IT capabilities in the context of creating business value. John is currently helping a large private retail financial services firm prepare for an IPO. Prior to this, John was a Distinguished Engineer and Technical Advisor to the CTO at MongoDB. Before this role, John was the Chief Digital Officer at SiteHands.com, in charge of all technology, i.e. development, operations, support, security, and data science. Prior to Sitehands John worked as the Head of Quality for the London Stock Exchange Group; was the engineering manager of the scrambling compiler group at Polyverse.com; was a co-founder and the CTO of OMNI Retail Group, a startup focused on interactive, goal directed product discovery. Prior to OMNI, John performed consulting via JHelm Associates, LLC. Previously John was the Vice President of Engineering and Chief Technology Officer of Imprev.com, CTO of Drugstore.com, and a founding partner of Umaxon, a company specializing in system and software architecture, design, implementation, testing, and maintenance. Before Umaxon, John had several senior management positions at Merrill Lynch, including Head of Architecture; COO of Global Messaging, Collaboration Services and Directory Services; and Chief Information Architect. While at Merrill Lynch, in 2003 one of John's Open Source projects garnered a CIO Magazine \"Resourceful 100 Award\"; later he was tapped to rebuild and update the company's global messaging and directory infrastructures following the September 11 terrorist attack. Prior to Merrill Lynch, John has held key technology management positions at Deutsche Bank and Morgan Stanley. Other experience includes a variety of positions in academia and in the nonprofit and public sectors. John was on the faculty of the Department of Applied Physics at Columbia University, a Fellow at the National Academy of Engineering, and the Director of Computer Services at the American Health Foundation, where he responsible for the management of epidemiological databases and bio-statistics software. John has served on the advisory boards for University of Washington Agile and Cloud Computing Certificate Programs; and, mentors Technology MBA students from Columbia University, Northwestern University, and Georgetown University. John holds a Ph.D. in Applied Physics, a master's in Nuclear Engineering, and a bachelor's degree in Applied Chemistry from Columbia University. Prior to becoming educated, John was commercial lobserman, a sous chef, and pipefitter. John's pastimes and interests include sea kayaking, hiking, photography, cooking, philosophy, and theater.",
-    "image": "images/john-helm.jpg"
+    "image": "images/john-helm.jpg",
+    "published": false
   },
   {
     "id": 264,
@@ -1297,7 +1305,8 @@
     "location": "Singapore, Singapore",
     "linkedin": "https://www.linkedin.com/in/phlavnic",
     "bio": "Peter Hlavnicka is the founder and CEO of Phi Ventures Pte. Ltd., a cross-industry management consulting firm specializing in IP Strategy, Commercialization and Protection, M&A, and Transformation. He is also a Venture Partner of R3i Capital, a global deep-tech venture capital firm specializing in artificial intelligence and sustainable development. With over 30 years of experience in leadership and innovation, technology, and strategy consulting for MNCs such as Blackberry, Fitbit, Avaya, Sunpower, Lattice Semiconductor, Cypress Semiconductor, and Nortel Networks, Peter is also a serial entrepreneur and angel investor. He has provided advisory services to over 200 startups and MNCs across hi-tech, deep tech, Medtech, mobility, semiconductor, metaverse, AI, Senior Care, and other sectors in the Americas, Europe, Asia-Pacific, and the Middle East. Peter has successfully advised on core business-related IP strategy and market expansion and helped raise capital for the portfolio companies. Peter's expertise spans intellectual property strategy, commercialization, and protection – including Brand Protection, cybersecurity, Medtech, senior care, healthcare, supply chains, and artificial intelligence. Peter holds advisory roles in his portfolio companies BuzzAR, Stratificare, Kooky, SenzeHub, The Empathy Company, and others. Peter actively mentors and advises 50+ companies. Peter earned an Executive MBA from the Richard Ivey School of Business, University of Western Ontario, and a Master's in Technical Cybernetics and Artificial Intelligence from the Technical University of Kosice, Slovakia. Peter is also a published author of books on Enhanced Enterprise Risk Management and Protecting the Brand, Volume I: Counterfeiting and Grey Markets & Volume II: Busting the Bootlegs with Law Journal Press (LJP) and Business Expert Press (BEP). In recognition of his achievements, APAC Insider Singapore Business Awards named Peter's Phi Ventures as the Best in IP Protection & Compliance Specialists in 2024, as well as named Peter was selected as IAM Strategy 300: The World's Leading IP Strategists 2021, 2022, 2023, and 2024.",
-    "image": "images/peter-hlavnicka.png"
+    "image": "images/peter-hlavnicka.png",
+    "published": false
   },
   {
     "id": 163,
@@ -1895,7 +1904,8 @@
     "location": "New York, NY, United States",
     "linkedin": "https://www.linkedin.com/in/andreamarkstrom",
     "bio": "Andrea Markstrom is the Chief Information Officer for Schulte Roth & Zabel LLP. She works closely with the Executive Committee to identify, plan and implement technology solutions that align with the goals of the firm, practice groups and business departments. She leads the IT teams responsible for the firm’s various technologies and associated operations, and works to ensure that IT continues to deliver superior technology services and support. Andrea has more than 30 years of experience leading global information technology organizations for large law firms and corporations. She is the founder and CEO of i.WILL, a professional networking organization helping women advance in their careers. She is a two-time winner of the Inspire Orbie CIO of the Year Award for Corporate, is the Chair for Inspire CIO’s New York City Chapter, a board member with a number of LegalTech companies and an advisory committee member for LexisNexis and Gartner’s Evanta organization.",
-    "image": "images/andrea-markstrom.jpg"
+    "image": "images/andrea-markstrom.jpg",
+    "published": false
   },
   {
     "id": 81,
@@ -2545,7 +2555,8 @@
     "location": "New York, NY, United States",
     "linkedin": "https://www.linkedin.com/in/debra-robinson-5282a26",
     "bio": "Debra C. Robinson is the SVP of CIO Oracle Technology & Operations at Hearst. In Fall 2008, she was named SVP and CIO of Hearst. In this newly created position, Robinson was responsible for leading and coordinating IT initiatives and operations across all Hearst Magazines business units, which include 15 U.S. consumer magazine titles; Hearst Magazines Digital Media; CDS Global, the Hearst-owned international data management company that provides customized fulfillment services to publishers and direct marketers; Periodical Publishers’ Service Bureau (PPSB), the Hearst-owned circulation and subscription services company; and the National Magazine Company Limited, a wholly-owned subsidiary of Hearst Magazines in the U.K. Prior to being appointed CIO, Robinson was VP of Technology, Production and Digital Media for Hearst Magazines. She was instrumental in developing and organizing the newly-created department. She was the lead person for developing the technology and production needed to create and implement Hearst Magazines Digital Strategy. Before joining Hearst, Robinson was SVP and CIO at Primedia for five years. She also held executive positions at CMP Media, CVS Pharmacy, Delaware North Companies and Aramark. Robinson is a graduate of the Wharton School and also has an M.S. from the University of Pennsylvania.",
-    "image": "images/debra-robinson.jpg"
+    "image": "images/debra-robinson.jpg",
+    "published": false
   },
   {
     "id": 222,
@@ -2857,7 +2868,8 @@
     "location": "Bryan, TX, United States",
     "linkedin": "https://www.linkedin.com/in/mark-a-stone-phd-97113b7",
     "bio": "Mark A. Stone serves as the System CIO for the Texas A&M University System. The Texas A&M University System is one of the most influential systems of higher education in the nation, with a budget of $3.8 billion. Through a statewide network of 11 universities, seven state agencies, two service units, and a comprehensive health science center, the A&M System educates more than 131,000 students and makes more than 22 million additional educational contacts through service and outreach programs each year. Externally funded research expenditures exceed $820 million and help drive the state’s economy. With more than 28,000 faculty and staff, the A&M System has a physical presence in 250 of the state’s 254 counties and a programmatic presence in every one. Prior to Texas A&M, Stone served as the SVP and CIO of Safety-Kleen Systems, Inc. from August 2009 until December 2012. From May 2005 to February 2009, he served as SVP and CIO of Zale Corporation. Stone was with Zale Corporation for 14 years and worked in IT, Planning, Database Marketing, and Distribution. Prior to Zale Corporation, Stone served as the Director of Financial Operations for the Resolution Trust Corporation. Stone is a Certified Public Accountant. He holds a B.B.A. in Accounting from Baylor University and an M.S. in Divinity from Westminster Theological Seminary.",
-    "image": "images/mark-stone.png"
+    "image": "images/mark-stone.png",
+    "published": false
   },
   {
     "id": 284,
@@ -2922,7 +2934,8 @@
     "location": "Coventry, PA , United States",
     "linkedin": "https://www.linkedin.com/in/alan-r-thompson-7300b136",
     "bio": "Alan Thompson is a Senior Managing Partner at BSG Solutions Group. With a career spanning over 35 years in the banking industry, his most recent role was as Director, President, and CEO of an International Bermudian Bank that maintained offices in 10 countries. Before that, Thompson served as the President & CEO of Riyad Bank in Saudi Arabia. His extensive experience in the sector includes holding various executive positions during his 23 years with First Interstate Bank. His expertise encompasses line operating roles in retail and corporate banking, operations, wealth management, trust and asset management, and payment systems. Thompson's educational background features an M.B.A. from the Wharton School of Finance and a B.A. from Claremont McKenna College.",
-    "image": "images/alan-thompson.jpg"
+    "image": "images/alan-thompson.jpg",
+    "published": false
   },
   {
     "id": 139,
