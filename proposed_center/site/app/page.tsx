@@ -163,7 +163,7 @@ export default function Home() {
           </div>
 
           <div className="mt-14">
-            <StatsBar stats={stats} boxed />
+            <StatsBar stats={stats} ruled />
           </div>
 
           <div className="mt-10">

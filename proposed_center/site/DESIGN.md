@@ -182,9 +182,11 @@ Attribution: 13px sans, text-secondary, em-dash prefix
 
 ### Stats bar
 4 numbers across. Large serif number in navy, small tracked sans label below.
-Default is unboxed, whitespace as the separator. The `boxed` variant frames them
-on cream with a gold top rule and hairline separators - use it where the numbers
-need to read as one deliberate block, as on the homepage mentor section.
+Default is unboxed, whitespace as the separator. The `ruled` variant adds
+hairline rules above, below and between the numbers, for where they need to read
+as one deliberate block (homepage mentor section). It carries **no fill and no
+gold** - structure only. Do not put these numbers in a filled or gold-topped box:
+that is the `bg-gray-50 border p-8` anti-pattern in §8 wearing a different hat.
 
 ### Divider rule
 ```tsx
@@ -230,6 +232,11 @@ Never `border-gray-100` or `border-gray-200`.
 ## 9. Page-by-Page Notes
 
 ### Homepage
+**A full-bleed section extends its background only.** The content inside it stays
+on the `max-w-7xl px-8` rule, so the nav wordmark, every section heading and the
+flagship card all start on the same left edge. A full-width band whose text runs
+to its own padding instead reads as broken at wide viewports.
+
 The mentor row is the site's one piece of moving content. It shows four mentors
 from a pool of sixteen (`lib/featured-mentors.ts`) and crossfades every six
 seconds, pausing on hover and focus and disabled entirely under

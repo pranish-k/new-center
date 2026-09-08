@@ -47,16 +47,24 @@ export function InteriorHero({
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-6 max-w-xl text-[15px] leading-[1.7] text-white/75">{subtitle}</p>
+          <p className="mt-6 max-w-xl text-[15px] leading-[1.7] text-white/75">
+            {subtitle}
+          </p>
         ) : null}
-        {actions ? <div className="mt-10 flex flex-wrap gap-4">{actions}</div> : null}
+        {actions ? (
+          <div className="mt-10 flex flex-wrap gap-4">{actions}</div>
+        ) : null}
       </div>
     </section>
   );
 }
 
 export function Divider({ className = "" }: { className?: string }) {
-  return <hr className={`my-16 border-0 border-t border-[#e2e0dc] ${className}`.trim()} />;
+  return (
+    <hr
+      className={`my-16 border-0 border-t border-[#e2e0dc] ${className}`.trim()}
+    />
+  );
 }
 
 export function ArrowLink({
@@ -69,7 +77,11 @@ export function ArrowLink({
   ariaLabel?: string;
 }) {
   return (
-    <Link href={href} aria-label={ariaLabel} className="group inline-flex w-fit items-center gap-1 text-sm text-[#002868] underline hover:no-underline">
+    <Link
+      href={href}
+      aria-label={ariaLabel}
+      className="group inline-flex w-fit items-center gap-1 text-sm text-[#002868] underline hover:no-underline"
+    >
       {children}
       <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
         &rarr;
@@ -78,7 +90,13 @@ export function ArrowLink({
   );
 }
 
-export function PrimaryButton({ href, children }: { href: string; children: ReactNode }) {
+export function PrimaryButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -89,7 +107,13 @@ export function PrimaryButton({ href, children }: { href: string; children: Reac
   );
 }
 
-export function SecondaryButton({ href, children }: { href: string; children: ReactNode }) {
+export function SecondaryButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -101,7 +125,13 @@ export function SecondaryButton({ href, children }: { href: string; children: Re
 }
 
 // Gold accent CTA — use sparingly (1 per page max). Dark text on gold for AA.
-export function GoldButton({ href, children }: { href: string; children: ReactNode }) {
+export function GoldButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -113,7 +143,13 @@ export function GoldButton({ href, children }: { href: string; children: ReactNo
 }
 
 // GhostButton — outline CTA for use on dark surfaces.
-export function GhostButton({ href, children }: { href: string; children: ReactNode }) {
+export function GhostButton({
+  href,
+  children,
+}: {
+  href: string;
+  children: ReactNode;
+}) {
   return (
     <Link
       href={href}
@@ -154,7 +190,9 @@ export function ProgramHero({
             {title}
           </h1>
           {subtitle ? (
-            <p className="mt-5 max-w-md text-[16px] leading-[1.6] text-white/85">{subtitle}</p>
+            <p className="mt-5 max-w-md text-[16px] leading-[1.6] text-white/85">
+              {subtitle}
+            </p>
           ) : null}
           {meta.length > 0 ? (
             <div className="mt-9 flex flex-wrap gap-9 border-t border-white/15 pt-5">
@@ -163,12 +201,16 @@ export function ProgramHero({
                   <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
                     {m.label}
                   </p>
-                  <p className="m-0 mt-1 text-sm font-medium text-white">{m.value}</p>
+                  <p className="m-0 mt-1 text-sm font-medium text-white">
+                    {m.value}
+                  </p>
                 </div>
               ))}
             </div>
           ) : null}
-          {actions ? <div className="mt-8 flex flex-wrap gap-4">{actions}</div> : null}
+          {actions ? (
+            <div className="mt-8 flex flex-wrap gap-4">{actions}</div>
+          ) : null}
         </div>
         <div className="relative h-[300px] md:-mb-20 md:h-[480px]">
           <Image
@@ -211,60 +253,80 @@ export function NavyFeatureCard({
   return (
     <Link
       href={href}
-      className={`group relative grid bg-[#002868] text-white no-underline overflow-hidden ${
-        image ? "md:grid-cols-[1.1fr_1fr]" : "grid-cols-1"
-      }`}
+      className="group relative block overflow-hidden bg-[#002868] text-white no-underline"
     >
       <span className="absolute left-0 top-0 h-1 w-1/3 bg-[#b9975b]" />
-      <div
-        className={
-          feature
-            ? "relative px-10 py-16 md:px-20 md:py-24"
-            : "relative px-10 py-12 md:px-14 md:py-14"
-        }
-      >
-        <span className="mb-5 block h-0.5 w-8 bg-[#b9975b]" />
-        <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.15em] text-white/75">
-          {eyebrow}
-        </p>
-        <h2
-          className={`m-0 mb-5 font-serif font-normal leading-[1.1] tracking-tight ${
-            feature ? "text-[36px] md:text-[52px]" : "text-3xl md:text-4xl"
-          }`}
+      {/* A full-bleed section extends its background only: the content stays on
+          the site's max-w-7xl px-8 rule so every page shares one left edge. */}
+      <div className={feature ? "mx-auto max-w-7xl" : ""}>
+        <div
+          className={`grid ${image ? "md:grid-cols-[1.1fr_1fr]" : "grid-cols-1"}`}
         >
-          {title}
-        </h2>
-        <p
-          className={`m-0 mb-7 leading-[1.65] text-white/85 ${
-            feature ? "max-w-lg text-[17px]" : "max-w-md text-[15px]"
-          }`}
-        >
-          {body}
-        </p>
-        {meta.length > 0 ? (
-          <div className="mb-7 flex flex-wrap gap-8">
-            {meta.map((m) => (
-              <div key={m.label}>
-                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
-                  {m.label}
-                </p>
-                <p className="m-0 mt-1 text-sm font-medium text-white">{m.value}</p>
+          <div
+            className={
+              feature
+                ? "relative px-8 py-16 md:py-24"
+                : "relative px-10 py-12 md:px-14 md:py-14"
+            }
+          >
+            <span className="mb-5 block h-0.5 w-8 bg-[#b9975b]" />
+            <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.15em] text-white/75">
+              {eyebrow}
+            </p>
+            <h2
+              className={`m-0 mb-5 font-serif font-normal leading-[1.1] tracking-tight ${
+                feature ? "text-[36px] md:text-[52px]" : "text-3xl md:text-4xl"
+              }`}
+            >
+              {title}
+            </h2>
+            <p
+              className={`m-0 mb-7 leading-[1.65] text-white/85 ${
+                feature ? "max-w-lg text-[17px]" : "max-w-md text-[15px]"
+              }`}
+            >
+              {body}
+            </p>
+            {meta.length > 0 ? (
+              <div className="mb-7 flex flex-wrap gap-8">
+                {meta.map((m) => (
+                  <div key={m.label}>
+                    <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
+                      {m.label}
+                    </p>
+                    <p className="m-0 mt-1 text-sm font-medium text-white">
+                      {m.value}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
+            ) : null}
+            <span className="inline-flex items-center gap-2 bg-[#b9975b] px-7 py-3.5 text-sm font-semibold tracking-[0.02em] text-[#0a1628]">
+              {ctaLabel}
+              <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
+                &rarr;
+              </span>
+            </span>
           </div>
-        ) : null}
-        <span className="inline-flex items-center gap-2 bg-[#b9975b] px-7 py-3.5 text-sm font-semibold tracking-[0.02em] text-[#0a1628]">
-          {ctaLabel}
-          <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
-            &rarr;
-          </span>
-        </span>
-      </div>
-      {image ? (
-        <div className={feature ? "relative min-h-[320px] md:min-h-[560px]" : "relative min-h-[260px] md:min-h-[380px]"}>
-          <Image src={image} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
+          {image ? (
+            <div
+              className={
+                feature
+                  ? "relative min-h-[320px] md:min-h-[560px]"
+                  : "relative min-h-[260px] md:min-h-[380px]"
+              }
+            >
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 45vw"
+              />
+            </div>
+          ) : null}
         </div>
-      ) : null}
+      </div>
     </Link>
   );
 }
@@ -293,7 +355,10 @@ export function TintedCard({
       className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-[#f7f6f3] text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px]"
     >
       {image ? (
-        <div className="relative w-full overflow-hidden bg-[#002868]" style={{ paddingTop: "62%" }}>
+        <div
+          className="relative w-full overflow-hidden bg-[#002868]"
+          style={{ paddingTop: "62%" }}
+        >
           <Image
             src={image}
             alt={imageAlt}
@@ -318,7 +383,9 @@ export function TintedCard({
           {name}
         </h3>
         {line ? (
-          <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#6b6b6b]">{line}</p>
+          <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#6b6b6b]">
+            {line}
+          </p>
         ) : null}
         <p className="mt-5 text-xs font-semibold tracking-[0.02em] text-[#002868]">
           {cta}{" "}
@@ -335,20 +402,30 @@ export function TintedCard({
 export function StatsBar({
   stats,
   dark = false,
-  boxed = false,
+  ruled = false,
 }: {
   stats: { value: string; label: string }[];
   dark?: boolean;
-  // `boxed` frames the numbers on cream with a gold top rule and hairline
-  // separators, so the block reads as one unit rather than floating text.
-  boxed?: boolean;
+  // `ruled` adds hairlines above, below and between the numbers so the row
+  // reads as one block. No fill and no gold — structure only.
+  ruled?: boolean;
 }) {
-  if (boxed) {
+  if (ruled) {
     return (
-      <div className="border-t-[3px] border-t-[#b9975b] border-x border-b border-[#e2e0dc] bg-[#f7f6f3]">
-        <div className="grid grid-cols-2 divide-[#e2e0dc] sm:divide-x md:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="px-6 py-10 text-center">
+      <div className="border-y border-[#e2e0dc]">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {stats.map((s, i) => (
+            <div
+              key={s.label}
+              // Dividers are per-item rather than `divide-x`, which would leave a
+              // stray left border on the third item once the grid wraps to two
+              // columns on mobile.
+              className={`px-6 py-12 text-center ${
+                i % 2 === 1 ? "border-l border-[#e2e0dc]" : ""
+              } ${
+                i >= 2 ? "border-t border-[#e2e0dc] md:border-t-0" : ""
+              } md:border-l md:first:border-l-0`}
+            >
               <p className="m-0 font-serif text-[44px] font-normal leading-none text-[#002868]">
                 {s.value}
               </p>
@@ -412,7 +489,8 @@ export function PullQuote({
       </p>
       {name ? (
         <p className="mt-4 text-[13px] text-[#6b6b6b]">
-          &mdash; <strong className="font-semibold text-[#111111]">{name}</strong>
+          &mdash;{" "}
+          <strong className="font-semibold text-[#111111]">{name}</strong>
           {role ? `, ${role}` : null}
         </p>
       ) : null}
