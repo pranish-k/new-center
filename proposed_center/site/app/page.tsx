@@ -1,6 +1,6 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
-import MentorCard from "@/components/MentorCard";
+import FeaturedMentors from "@/components/FeaturedMentors";
 import {
   ArrowLink,
   Divider,
@@ -13,7 +13,7 @@ import {
   TintedCard,
 } from "@/components/Brand";
 import { INSTITUTION } from "@/lib/brand";
-import { getFeaturedMentors } from "@/lib/mentors";
+import { getFeaturedMentorGroups } from "@/lib/mentors";
 
 const stats = [
   { value: "230+", label: "Industry Mentors" },
@@ -69,7 +69,7 @@ const partnerLogos = [
 ];
 
 export default function Home() {
-  const featuredMentors = getFeaturedMentors();
+  const mentorGroups = getFeaturedMentorGroups();
 
   return (
     <>
@@ -134,12 +134,8 @@ export default function Home() {
             <StatsBar stats={stats} />
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
-            {featuredMentors.map((m, i) => (
-              <FadeIn key={m.id} delay={i * 40}>
-                <MentorCard mentor={m} compact />
-              </FadeIn>
-            ))}
+          <div className="mt-10">
+            <FeaturedMentors groups={mentorGroups} />
           </div>
 
           <div className="mt-10">

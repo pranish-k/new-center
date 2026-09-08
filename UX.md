@@ -61,7 +61,19 @@ A new pattern is justified only when none of these fits *and* the new pattern wi
 The site uses **rhythm** rather than uniform spacing — `py-8` for tight, `py-20` for standard, `py-32` for feature (DESIGN.md §5). When every section is the same height, the page reads flat. Vary deliberately to signal what's important.
 
 ### 3.6 No animation for animation's sake
-Four animations exist site-wide: scroll fade-in, mobile nav overlay, card hover (border + slight lift), arrow nudge. These are the budget. Adding a fifth requires a real reason — and if added, document it here and in DESIGN.md.
+Four animations exist site-wide: scroll fade-in, mobile nav overlay, card hover (border + slight lift), arrow nudge. These are the budget. Adding a fifth requires a real reason - and if added, document it here and in DESIGN.md.
+
+**Fifth animation (approved): the homepage mentor rotation.**
+The mentor network is the Center's strongest proof, and 230 mentors cannot be
+represented by a fixed four. The homepage row shows four at a time from a pool
+of sixteen and crossfades to the next group every six seconds.
+Conditions it must keep meeting, or it comes out:
+- `prefers-reduced-motion` disables rotation entirely; the first four stay put.
+- Rotation pauses on hover and whenever focus is inside the row, so a card never
+  changes under the pointer and a link never moves out from under the keyboard.
+- An explicit Pause control is present (WCAG 2.2.2 Pause, Stop, Hide).
+- Opacity only. No movement, no scale, nothing that competes with the hero.
+- It is the only rotating element on the site. A second one is not approved.
 
 ### 3.7 Design for skim, then for read
 Most visitors will skim. Headings, eyebrows, pull quotes, stats, and arrow links must communicate the page's substance on their own. Body paragraphs are for the smaller group that already decided to invest.

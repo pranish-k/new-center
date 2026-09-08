@@ -2,7 +2,7 @@
 // import from lib/mentor-utils.ts instead, which is free of node built-ins.
 import { readFileSync } from "fs";
 import path from "path";
-import { FEATURED_MENTOR_SLUGS } from "./featured-mentors";
+import { FEATURED_GROUP_SIZE, FEATURED_MENTOR_SLUGS } from "./featured-mentors";
 import type { Mentor } from "./mentor-utils";
 
 export type { Mentor };
@@ -30,4 +30,15 @@ export function getFeaturedMentors(): Mentor[] {
   return FEATURED_MENTOR_SLUGS.map((slug) => bySlug.get(slug)).filter(
     (m): m is Mentor => Boolean(m),
   );
+}
+
+// The featured mentors split into fixed-size groups for the rotating home row.
+// A trailing partial group is dropped so every group is full width.
+export function getFeaturedMentorGroups(size = FEATURED_GROUP_SIZE): Mentor[][] {
+  const all = getFeaturedMentors();
+  const groups: Mentor[][] = [];
+  for (let i = 0; i + size <= all.length; i += size) {
+    groups.push(all.slice(i, i + size));
+  }
+  return groups.length > 0 ? groups : [all];
 }

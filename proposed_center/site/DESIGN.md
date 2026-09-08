@@ -226,6 +226,15 @@ Never `border-gray-100` or `border-gray-200`.
 ## 9. Page-by-Page Notes
 
 ### Homepage
+The mentor row is the site's one piece of moving content. It shows four mentors
+from a pool of sixteen (`lib/featured-mentors.ts`) and crossfades every six
+seconds, pausing on hover and focus and disabled entirely under
+`prefers-reduced-motion`. Full conditions in UX.md §3.6.
+
+Two rules when editing the pool: keep its length a multiple of four, and only
+add mentors whose headshot is at least 600px wide - at four across the cards
+render about 286px, and most of the 250 headshots are under 250px.
+
 Section order is fixed:
 
 1. Hero - navy, image bleeds to right edge, no box around the photo
@@ -300,4 +309,4 @@ flagship slot, the first has to come out.
   the 3-link, 64px spec in §4. `/research` was deliberately added to the footer
   rather than the nav to avoid making this worse.
 - Remaining workshops and courses beyond the current 11 (the full catalogue is
-  closer to 60).
+  closer to 60).Nutaniz, Field AI, Tulles 

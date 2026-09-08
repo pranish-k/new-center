@@ -45,11 +45,11 @@ export default function MentorCard({
       </div>
 
       <div
-        className={`flex flex-1 flex-col text-center items-center ${compact ? "p-4" : "p-5"}`}
+        className={`flex flex-1 flex-col text-center items-center ${compact ? "p-5" : "p-5"}`}
       >
         <h3
           className={`m-0 font-normal font-serif leading-[1.2] text-[#111111] transition-colors duration-[200ms] group-hover:text-[#002868] group-hover:underline decoration-[#b9975b] decoration-1 underline-offset-[6px] ${
-            compact ? "text-[17px]" : "text-[22px]"
+            compact ? "text-[19px]" : "text-[22px]"
           }`}
         >
           {name}
@@ -57,7 +57,7 @@ export default function MentorCard({
         {title && (
           <p
             className={`mt-2 text-[#6b6b6b] leading-[1.5] line-clamp-2 ${
-              compact ? "text-[12.5px]" : "text-[13.5px]"
+              compact ? "min-h-[3em] text-[13.5px]" : "text-[13.5px]"
             }`}
           >
             {title}
@@ -65,9 +65,7 @@ export default function MentorCard({
         )}
         {company && (
           <p
-            className={`mt-1 font-medium text-[#b9975b] line-clamp-1 ${
-              compact ? "text-[12.5px]" : "text-[13.5px]"
-            }`}
+            className={`mt-1 font-medium text-[#b9975b] line-clamp-1 text-[13.5px]`}
           >
             {company}
           </p>
