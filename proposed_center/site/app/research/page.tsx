@@ -63,12 +63,12 @@ export default function ResearchPage() {
         subtitle="Applied research carried out with partner organizations: on workforce development, technology adoption, and the practice of reflective leadership."
       />
 
-      <div className="mx-auto max-w-3xl px-6 py-20">
+      <div className="mx-auto max-w-3xl px-6 pt-14 pb-28">
         {/* Workforce Opportunity Services */}
         <FadeIn>
           <section id="wos" className="scroll-mt-28">
             <Eyebrow label="Workforce Opportunity Services" />
-            <h2 className="-mt-2 m-0 mb-6 font-serif text-3xl font-normal leading-tight text-[#111111]">
+            <h2 className="m-0 mb-6 font-serif text-[28px] font-normal leading-tight text-[#111111] md:text-[36px]">
               Pathways into technology careers
             </h2>
             <div className="space-y-5 text-[15px] leading-[1.7] text-[#6b6b6b]">
@@ -107,7 +107,7 @@ export default function ResearchPage() {
         <FadeIn>
           <section id="partners" className="scroll-mt-28">
             <Eyebrow label="Corporate Partners" />
-            <h2 className="-mt-2 m-0 mb-6 font-serif text-3xl font-normal leading-tight text-[#111111]">
+            <h2 className="m-0 mb-6 font-serif text-[28px] font-normal leading-tight text-[#111111] md:text-[36px]">
               Research and learning, co-designed
             </h2>
             <div className="space-y-5 text-[15px] leading-[1.7] text-[#6b6b6b]">
@@ -127,7 +127,7 @@ export default function ResearchPage() {
                   "Faculty-led research collaborations",
                 ].map((b) => (
                   <li key={b} className="flex gap-3 list-none">
-                    <span className="mt-[9px] h-px w-3 flex-shrink-0 bg-[#b9975b]" />
+                    <span className="mt-[13px] h-px w-3 flex-shrink-0 bg-[#b9975b]" />
                     <span>{b}</span>
                   </li>
                 ))}
@@ -147,7 +147,7 @@ export default function ResearchPage() {
         <FadeIn>
           <section id="projects" className="scroll-mt-28">
             <Eyebrow label="Projects & Publications" />
-            <h2 className="-mt-2 m-0 mb-6 font-serif text-3xl font-normal leading-tight text-[#111111]">
+            <h2 className="m-0 mb-6 font-serif text-[28px] font-normal leading-tight text-[#111111] md:text-[36px]">
               Applied projects, published findings
             </h2>
             <p className="mb-10 text-[15px] leading-[1.7] text-[#6b6b6b]">
@@ -156,9 +156,9 @@ export default function ResearchPage() {
               completed to date.
             </p>
 
-            <h3 className="m-0 mb-5 text-[13px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
+            <p className="m-0 mb-5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
               Selected books
-            </h3>
+            </p>
             <ul className="m-0 mb-10 space-y-5 p-0">
               {books.map((b) => (
                 <li key={b.title} className="list-none border-l-[3px] border-[#e2e0dc] pl-5">
@@ -170,9 +170,9 @@ export default function ResearchPage() {
               ))}
             </ul>
 
-            <h3 className="m-0 mb-5 text-[13px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
+            <p className="m-0 mb-5 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
               Selected articles
-            </h3>
+            </p>
             <ul className="m-0 mb-10 space-y-5 p-0">
               {articles.map((a) => (
                 <li key={a.title} className="list-none border-l-[3px] border-[#e2e0dc] pl-5">
@@ -182,9 +182,9 @@ export default function ResearchPage() {
               ))}
             </ul>
 
-            <h3 className="m-0 mb-4 text-[13px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
+            <p className="m-0 mb-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
               Journal
-            </h3>
+            </p>
             <p className="m-0 text-[15px] leading-[1.7] text-[#6b6b6b]">
               <a
                 href="https://www.tandfonline.com/toc/crep20/current"
@@ -206,7 +206,7 @@ export default function ResearchPage() {
         <FadeIn>
           <section id="masterclass" className="scroll-mt-28">
             <Eyebrow label="CxO Masterclass" />
-            <h2 className="-mt-2 m-0 mb-6 font-serif text-3xl font-normal leading-tight text-[#111111]">
+            <h2 className="m-0 mb-6 font-serif text-[28px] font-normal leading-tight text-[#111111] md:text-[36px]">
               Senior-executive sessions
             </h2>
             <p className="mb-8 text-[15px] leading-[1.7] text-[#6b6b6b]">
@@ -227,7 +227,7 @@ export default function ResearchPage() {
       </div>
 
       {/* Closing prompt */}
-      <section className="bg-[#002868] text-white">
+      <section className="bg-[#0a1628] text-white">
         <div className="mx-auto max-w-3xl px-8 py-24 text-center">
           <span className="mx-auto mb-6 block h-0.5 w-8 bg-[#b9975b]" />
           <p className="m-0 font-serif text-2xl leading-[1.4] md:text-[28px]">

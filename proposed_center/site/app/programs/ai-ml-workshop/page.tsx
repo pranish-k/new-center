@@ -52,10 +52,10 @@ export default function AIMLWorkshopPage() {
         subtitle="An immersive workshop for executives and senior leaders exploring strategic AI/ML application, with actionable plans for both business units and enterprise strategy."
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
+      <div className="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-20">
         <FadeIn className="grid items-start gap-10 md:grid-cols-2">
-          <blockquote className="pull-quote -mt-1">
-            <p className="font-serif text-2xl italic leading-[1.5] text-[#111111]">
+          <blockquote className="pull-quote">
+            <p>
               Understand the methods, apply them to real business challenges, and leave with an implementation roadmap.
             </p>
           </blockquote>
@@ -70,14 +70,14 @@ export default function AIMLWorkshopPage() {
 
         <FadeIn>
           <Eyebrow label="Workshop objectives" />
-          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+          <div className="-mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               { title: "Understand AI/ML", body: "Learn the primary AI/ML methodologies and their best use cases across industries." },
               { title: "Apply Strategically", body: "Apply AI/ML thinking to solve critical issues within a business unit and enterprise context." },
               { title: "Build a Roadmap", body: "Develop an implementation roadmap including leadership and change management considerations." },
             ].map((o) => (
               <div key={o.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{o.title}</h3>
+                <h3 className="mb-3 text-[18px] font-semibold leading-snug text-[#111111]">{o.title}</h3>
                 <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{o.body}</p>
               </div>
             ))}

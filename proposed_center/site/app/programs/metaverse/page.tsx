@@ -69,7 +69,7 @@ export default function MetaversePage() {
 
         <FadeIn>
           <Eyebrow label="Why this course" />
-          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+          <div className="-mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
                 title: "End-to-end exploration",
@@ -85,7 +85,7 @@ export default function MetaversePage() {
               },
             ].map((item) => (
               <div key={item.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{item.title}</h3>
+                <h3 className="mb-3 text-[18px] font-semibold leading-snug text-[#111111]">{item.title}</h3>
                 <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{item.body}</p>
               </div>
             ))}

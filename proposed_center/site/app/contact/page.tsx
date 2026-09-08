@@ -12,39 +12,29 @@ export default function ContactPage() {
       <InteriorHero
         eyebrow="Get in touch"
         title="Contact Us"
-        subtitle="We welcome inquiries about programs, partnerships, and the Center's transition to Columbia."
+        subtitle="We welcome inquiries about programs, partnerships, and research collaboration."
       />
 
-      <div className="max-w-3xl mx-auto px-6 py-20">
+      <div className="max-w-3xl mx-auto px-6 pt-14 pb-28">
         <div className="grid md:grid-cols-2 gap-16">
 
           {/* Address */}
           <FadeIn>
             <Eyebrow label="Address" />
-            <address className="not-italic text-[15px] text-[#6b6b6b] leading-[1.7] space-y-1 -mt-4">
+            <h2 className="sr-only">Address and contact details</h2>
+            <address className="not-italic text-[15px] text-[#6b6b6b] leading-[1.7] space-y-1">
               <p className="font-semibold text-[#111111]">
                 {CENTER_FULL}
               </p>
               <p>{INSTITUTION}</p>
-              <p className="mt-4 text-[13px] italic">
-                Previously at: Northeastern University, 360 Huntington Avenue,
-                Boston, MA 02115
-              </p>
             </address>
 
             <div className="mt-8 space-y-3 text-[15px] text-[#6b6b6b]">
               <p className="flex gap-3">
                 <span className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-0.5 w-12 flex-shrink-0">Email</span>
-                <a
-                  href="mailto:[email here]"
-                  className="text-[#002868] hover:underline"
-                >
-                  [email here]
-                </a>
-              </p>
-              <p className="flex gap-3">
-                <span className="text-[11px] uppercase tracking-[0.15em] text-[#6b6b6b] mt-0.5 w-12 flex-shrink-0">Phone</span>
-                617.373.2000
+                <span className="border border-dashed border-[#e2e0dc] px-3 py-1 text-[13px]">
+                  Contact email to be confirmed
+                </span>
               </p>
             </div>
           </FadeIn>
@@ -52,7 +42,8 @@ export default function ContactPage() {
           {/* Note */}
           <FadeIn delay={80}>
             <Eyebrow label="Note" />
-            <div className="text-[15px] text-[#6b6b6b] leading-[1.7] space-y-4 -mt-4">
+            <h2 className="sr-only">About this site</h2>
+            <div className="text-[15px] text-[#6b6b6b] leading-[1.7] space-y-4">
               <p className="font-semibold text-[#111111]">
                 This is a prototype site.
               </p>

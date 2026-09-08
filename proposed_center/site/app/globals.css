@@ -96,3 +96,9 @@
   font-style: italic;
   line-height: 1.5;
 }
+
+/* Visible keyboard focus everywhere (accessibility floor, DESIGN.md §6). */
+:focus-visible {
+  outline: 2px solid var(--navy, #002868);
+  outline-offset: 2px;
+}

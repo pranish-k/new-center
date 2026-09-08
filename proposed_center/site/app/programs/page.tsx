@@ -36,7 +36,7 @@ export default function ProgramsPage() {
 
       {/* Executive & Professional — single flagship feature card on cream */}
       <section className="bg-[#f7f6f3]">
-        <div className="mx-auto max-w-7xl px-8 py-20" id="executive">
+        <div className="mx-auto max-w-7xl px-8 pt-24 pb-28" id="executive">
           <FadeIn>
             <Eyebrow label="Executive & Professional" />
           </FadeIn>
@@ -65,7 +65,7 @@ export default function ProgramsPage() {
           <FadeIn>
             <Eyebrow label="Workshops & Topic Certificates" />
           </FadeIn>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {workshopsAndCertificates.map((c, i) => (
               <FadeIn key={c.slug} delay={i * 40}>
                 <TintedCard
@@ -84,7 +84,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Closing prompt — feature spacing */}
-      <section className="bg-[#002868] text-white">
+      <section className="bg-[#0a1628] text-white">
         <div className="mx-auto max-w-3xl px-8 py-24 text-center">
           <span className="mx-auto mb-6 block h-0.5 w-8 bg-[#b9975b]" />
           <p className="m-0 font-serif text-2xl leading-[1.4] md:text-[28px]">

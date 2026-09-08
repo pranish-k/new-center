@@ -16,11 +16,23 @@ export type Mentor = {
   published?: boolean;
 };
 
+// The extracted source data is HTML-encoded; names, titles and companies all
+// need decoding before display or comparison.
+export function decodeEntities(s: string): string {
+  return s
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&nbsp;/g, " ");
+}
+
 // Industry and focus are stored as comma-separated strings.
 export function splitValues(val: string): string[] {
   return val
     .split(",")
-    .map((s) => s.trim().replace(/&amp;/g, "&"))
+    .map((s) => decodeEntities(s.trim()))
     .filter(Boolean);
 }
 

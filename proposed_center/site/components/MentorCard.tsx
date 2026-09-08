@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { mentorImageSrc, splitValues, type Mentor } from "@/lib/mentor-utils";
+import { decodeEntities, mentorImageSrc, splitValues, type Mentor } from "@/lib/mentor-utils";
 
 // Presentational only (no hooks), so both the client mentors grid and the
 // server-rendered home page can use the same card.
@@ -12,6 +12,9 @@ export default function MentorCard({
   compact?: boolean;
 }) {
   const imgSrc = mentorImageSrc(mentor);
+  const name = decodeEntities(mentor.name);
+  const title = decodeEntities(mentor.title);
+  const company = decodeEntities(mentor.company);
   const industries = splitValues(mentor.industry);
   const visibleIndustries = industries.slice(0, 2);
   const extraIndustries = industries.length - visibleIndustries.length;
@@ -19,13 +22,13 @@ export default function MentorCard({
   return (
     <Link
       href={`/mentors/${mentor.slug}`}
-      className="group flex h-full flex-col border border-[#e2e0dc] border-t-[3px] border-t-[#b9975b] bg-white text-[#111111] no-underline shadow-[0_2px_8px_-4px_rgba(17,17,17,0.08)] transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:shadow-[0_16px_32px_-12px_rgba(0,40,104,0.18)] hover:border-[#d8d4cc]"
+      className="group flex h-full flex-col border border-[#e2e0dc] border-t-[3px] border-t-[#b9975b] bg-white text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
     >
-      <div className="relative w-full aspect-[1/1] bg-[#f5f4f2] overflow-hidden">
+      <div className="relative w-full aspect-[1/1] bg-[#f7f6f3] overflow-hidden">
         {imgSrc ? (
           <Image
             src={imgSrc}
-            alt={mentor.name}
+            alt={name}
             fill
             sizes={
               compact
@@ -36,7 +39,7 @@ export default function MentorCard({
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center text-[#b9975b] text-5xl font-serif">
-            {mentor.name.charAt(0)}
+            {name.charAt(0)}
           </div>
         )}
       </div>
@@ -44,29 +47,29 @@ export default function MentorCard({
       <div
         className={`flex flex-1 flex-col text-center items-center ${compact ? "p-4" : "p-5"}`}
       >
-        <p
-          className={`font-serif leading-[1.2] text-[#111111] transition-colors duration-[200ms] group-hover:text-[#002868] group-hover:underline decoration-[#b9975b] decoration-1 underline-offset-[6px] ${
+        <h3
+          className={`m-0 font-normal font-serif leading-[1.2] text-[#111111] transition-colors duration-[200ms] group-hover:text-[#002868] group-hover:underline decoration-[#b9975b] decoration-1 underline-offset-[6px] ${
             compact ? "text-[17px]" : "text-[22px]"
           }`}
         >
-          {mentor.name}
-        </p>
-        {mentor.title && (
+          {name}
+        </h3>
+        {title && (
           <p
             className={`mt-2 text-[#6b6b6b] leading-[1.5] line-clamp-2 ${
               compact ? "text-[12.5px]" : "text-[13.5px]"
             }`}
           >
-            {mentor.title}
+            {title}
           </p>
         )}
-        {mentor.company && (
+        {company && (
           <p
-            className={`mt-1 font-medium text-[#b9975b] truncate ${
+            className={`mt-1 font-medium text-[#b9975b] line-clamp-1 ${
               compact ? "text-[12.5px]" : "text-[13.5px]"
             }`}
           >
-            {mentor.company}
+            {company}
           </p>
         )}
 
@@ -83,7 +86,7 @@ export default function MentorCard({
               </span>
             ))}
             {extraIndustries > 0 && (
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#7a6235] bg-[#b9975b]/15 px-2.5 py-1">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#002868] bg-[#002868]/[0.06] px-2.5 py-1">
                 +{extraIndustries}
               </span>
             )}

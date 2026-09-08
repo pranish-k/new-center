@@ -17,7 +17,8 @@ export default function MentorsPage() {
         subtitle="Every student is matched with an experienced executive who provides personalized guidance, professional access, and real-world perspective throughout the program."
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-8 pt-12 pb-24">
+        <h2 className="sr-only">Mentor directory</h2>
         <Suspense fallback={null}>
           <MentorsGrid mentors={mentorsData} />
         </Suspense>

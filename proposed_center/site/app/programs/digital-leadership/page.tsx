@@ -28,10 +28,10 @@ export default function DigitalLeadershipPage() {
         ]}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20 mt-24">
+      <div className="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-20 mt-24">
         <FadeIn className="grid items-start gap-10 md:grid-cols-2">
-          <blockquote className="pull-quote -mt-1">
-            <p className="font-serif text-2xl italic leading-[1.5] text-[#111111]">
+          <blockquote className="pull-quote">
+            <p>
               Develop advanced digital leadership skills through a flexible, personalized 6–12 month journey.
             </p>
           </blockquote>

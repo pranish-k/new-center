@@ -22,12 +22,13 @@ export default function MissionPage() {
         subtitle="We believe that talent, technology, and leadership — aligned — can transform any organization."
       />
 
-      <div className="max-w-3xl mx-auto px-6 py-20 space-y-20">
+      <div className="max-w-3xl mx-auto px-6 pt-14 pb-28 space-y-20">
 
         {/* Mission */}
         <FadeIn>
           <Eyebrow label="Mission" />
-          <blockquote className="border-l-[3px] border-[#b9975b] pl-6 -mt-4">
+          <h2 className="sr-only">Our mission</h2>
+          <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
             <p className="font-serif italic text-2xl text-[#111111] leading-[1.5]">
               To enable executives to use technology to address strategic challenges of business
               and to advance their knowledge through collaboration with industry leaders, faculty, and students.
@@ -40,7 +41,8 @@ export default function MissionPage() {
         {/* Vision */}
         <FadeIn>
           <Eyebrow label="Vision" />
-          <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px] -mt-4">
+          <h2 className="sr-only">Our vision</h2>
+          <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px]">
             <p>
               We envision a future where organizations meet disruption with agility, lead
               confidently through technological change, and cultivate talent to drive sustained
@@ -71,7 +73,8 @@ export default function MissionPage() {
         {/* Parent institute */}
         <FadeIn>
           <Eyebrow label="The Huber Institute" />
-          <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px] -mt-4">
+          <h2 className="sr-only">The Huber Institute</h2>
+          <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px]">
             <p>
               The Center sits within the{" "}
               <span className="text-[#111111] font-medium">{PARENT_INSTITUTE}</span> at{" "}
@@ -94,7 +97,8 @@ export default function MissionPage() {
         {/* Values */}
         <FadeIn>
           <Eyebrow label="Our Approach" />
-          <div className="grid md:grid-cols-3 gap-8 -mt-4">
+          <h2 className="sr-only">Our approach</h2>
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
                 title: "Experiential Learning",
@@ -111,7 +115,7 @@ export default function MissionPage() {
             ].map((v, i) => (
               <FadeIn key={v.title} delay={i * 80}>
                 <div className="group h-full border-t-2 border-[#b9975b] bg-[#f7f6f3] p-6 transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]">
-                  <h3 className="font-semibold text-[#111111] mb-3 text-[15px]">{v.title}</h3>
+                  <h3 className="font-semibold text-[#111111] mb-3 text-[18px] leading-snug">{v.title}</h3>
                   <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">{v.body}</p>
                 </div>
               </FadeIn>

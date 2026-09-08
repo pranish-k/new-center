@@ -1,10 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import MentorCard from "@/components/MentorCard";
 import {
   ArrowLink,
+  Divider,
   Eyebrow,
+  GhostButton,
   GoldButton,
   NavyFeatureCard,
   PullQuote,
@@ -73,7 +74,7 @@ export default function Home() {
   return (
     <>
       {/* Homepage hero — bold marketing, gold italic emphasis, gold CTA, director caption overlay. */}
-      <section className="relative overflow-hidden bg-[#002868] text-white">
+      <section className="relative overflow-hidden bg-[#0a1628] text-white">
         <span className="absolute left-0 top-0 h-1 w-1/3 bg-[#b9975b]" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-8 py-24 md:grid-cols-[1.05fr_1fr] md:py-32">
           <div>
@@ -81,27 +82,22 @@ export default function Home() {
             <p className="wordmark mb-7 text-[11px] tracking-[0.18em] text-white/70">
               Teachers College · Columbia University
             </p>
-            <h1 className="m-0 font-serif text-[52px] font-normal leading-[1.02] tracking-[-0.02em] md:text-[76px]">
+            <h1 className="m-0 font-serif text-[44px] font-normal leading-[1.04] tracking-[-0.02em] md:text-[64px]">
               Lead the next era of{" "}
               <em className="not-italic font-serif italic text-[#b9975b]">AI</em>{" "}
               &amp; digital transformation.
             </h1>
-            <p className="mt-7 max-w-md text-[17px] leading-[1.6] text-white/85">
+            <p className="mt-7 max-w-md text-[16px] leading-[1.65] text-white/85">
               A graduate department for executives navigating disruption — with
               executive programs and topic certificates taught by faculty and 230+ industry mentors.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <GoldButton href="/programs">Explore Programs &rarr;</GoldButton>
-              <Link
-                href="/contact"
-                className="inline-block border border-white/50 px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/15"
-              >
-                Request Information
-              </Link>
+              <GhostButton href="/contact">Request Information</GhostButton>
             </div>
           </div>
 
-          <div className="relative h-[420px] md:-mr-8 md:h-[520px]">
+          <div className="relative aspect-[4/3] md:-mr-8 md:aspect-auto md:h-[520px]">
             <Image
               src="/hero-teachers-college.jpg"
               alt={INSTITUTION}
@@ -123,7 +119,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-8 py-24">
           <div className="max-w-2xl">
             <Eyebrow label="Industry mentor network" />
-            <h2 className="-mt-2 m-0 font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
+            <h2 className="m-0 font-serif text-[30px] font-normal leading-tight tracking-[-0.015em] text-[#111111] md:text-[36px]">
               A mentor network, not a guest lecture list.
             </h2>
             <p className="mt-6 text-[16px] leading-[1.7] text-[#6b6b6b]">
@@ -138,7 +134,7 @@ export default function Home() {
             <StatsBar stats={stats} />
           </div>
 
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
             {featuredMentors.map((m, i) => (
               <FadeIn key={m.id} delay={i * 40}>
                 <MentorCard mentor={m} compact />
@@ -175,11 +171,11 @@ export default function Home() {
 
       {/* What we offer — one flagship program, featured on its own. */}
       <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 pb-10 pt-28">
+        <div className="mx-auto max-w-7xl px-8 pb-24 pt-28">
           <div className="mb-12 flex items-end justify-between">
             <div>
               <Eyebrow label="What we offer" />
-              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
+              <h2 className="m-0 max-w-2xl font-serif text-[30px] font-normal leading-tight tracking-[-0.015em] text-[#111111] md:text-[36px]">
                 Our flagship executive program.
               </h2>
             </div>
@@ -207,11 +203,12 @@ export default function Home() {
 
       {/* Workshops & topic certificates */}
       <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 py-24">
+        <div className="mx-auto max-w-7xl px-8 pb-24">
+          <Divider className="my-0 mb-20" />
           <div className="mb-10 flex items-end justify-between">
             <div>
               <Eyebrow label="Workshops & certificates" />
-              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
+              <h2 className="m-0 max-w-2xl font-serif text-[28px] font-normal leading-tight tracking-[-0.01em] text-[#111111] md:text-[36px]">
                 Shorter formats, taught by faculty who built the field.
               </h2>
             </div>
@@ -219,7 +216,7 @@ export default function Home() {
               <ArrowLink href="/programs">All programs and certificates</ArrowLink>
             </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {programsAndCertificates.map((c, i) => (
               <FadeIn key={c.slug} delay={i * 40}>
                 <TintedCard
@@ -242,7 +239,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-8 py-20">
           <div className="max-w-2xl">
             <Eyebrow label="Research activities" />
-            <h2 className="-mt-2 m-0 font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
+            <h2 className="m-0 font-serif text-[28px] font-normal leading-tight tracking-[-0.01em] text-[#111111] md:text-[36px]">
               Research carried out with partners, in practice.
             </h2>
             <p className="mt-6 text-[15px] leading-[1.7] text-[#6b6b6b]">
@@ -252,18 +249,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {researchStrands.map((s, i) => (
               <FadeIn key={s.title} delay={i * 40}>
                 <div className="flex h-full flex-col">
                   <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
-                  <h3 className="m-0 mb-3 text-[17px] font-semibold leading-snug text-[#111111]">
+                  <h3 className="m-0 mb-3 text-[18px] font-semibold leading-snug text-[#111111]">
                     {s.title}
                   </h3>
-                  <p className="m-0 mb-5 flex-1 text-[14px] leading-[1.7] text-[#6b6b6b]">
+                  <p className="m-0 mb-5 flex-1 text-[15px] leading-[1.7] text-[#6b6b6b]">
                     {s.body}
                   </p>
-                  <ArrowLink href={s.href}>Read more</ArrowLink>
+                  <ArrowLink href={s.href} ariaLabel={`Read more about ${s.title}`}>
+                    Read more
+                  </ArrowLink>
                 </div>
               </FadeIn>
             ))}
@@ -281,7 +280,7 @@ export default function Home() {
           className="relative bg-cover bg-center px-8 py-32 md:py-36"
           style={{ backgroundImage: "url(/session-classroom.jpg)" }}
         >
-          <div className="absolute inset-0 bg-[#002868]/85" />
+          <div className="absolute inset-0 bg-[#0a1628]/85" />
           <div className="relative mx-auto max-w-3xl text-white">
             <span className="mb-6 block h-0.5 w-8 bg-[#b9975b]" />
             <blockquote className="m-0">
@@ -294,12 +293,7 @@ export default function Home() {
               </p>
             </blockquote>
             <div className="mt-7">
-              <Link
-                href="/leadership"
-                className="inline-block border border-white/50 px-7 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-white/15"
-              >
-                About Dr. Langer
-              </Link>
+              <GhostButton href="/leadership">About Dr. Langer</GhostButton>
             </div>
           </div>
         </section>
@@ -308,7 +302,7 @@ export default function Home() {
       {/* Student voices — pull quote treatment */}
       <FadeIn className="mx-auto max-w-6xl px-6 py-20">
         <Eyebrow label="Student voices" />
-        <h2 className="-mt-2 mb-12 m-0 font-serif text-3xl font-normal leading-tight text-[#111111]">
+        <h2 className="mb-12 m-0 font-serif text-[28px] font-normal leading-tight text-[#111111] md:text-[36px]">
           What our graduates say
         </h2>
         <div className="grid gap-12 md:grid-cols-2">

@@ -72,14 +72,14 @@ export default function ExperiencePage() {
         subtitle="Our students are experienced professionals who come to accelerate — not just learn. Here's what they found."
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
+      <div className="max-w-6xl mx-auto px-6 pt-14 pb-28 space-y-24">
 
         {/* Testimonials — pull quote treatment */}
         <section>
           <FadeIn>
             <Eyebrow label="What graduates say" />
           </FadeIn>
-          <div className="grid md:grid-cols-2 gap-12 -mt-4">
+          <div className="grid md:grid-cols-2 gap-12">
             {testimonials.map((t, i) => (
               <FadeIn key={t.name} delay={i * 80}>
                 <blockquote className="border-l-[3px] border-[#b9975b] pl-6">
@@ -130,7 +130,7 @@ export default function ExperiencePage() {
         <section>
           <FadeIn>
             <Eyebrow label="Experiential Learning" />
-            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-10 -mt-4">Residencies</h2>
+            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-10">Residencies</h2>
           </FadeIn>
           <div className="grid md:grid-cols-2 gap-10">
             {residencyHighlights.map((r, i) => (
@@ -159,7 +159,7 @@ export default function ExperiencePage() {
           <FadeIn>
             <Eyebrow label="Who this is for" />
           </FadeIn>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 -mt-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
               "C-Level Executives",
               "Senior Directors & VPs",

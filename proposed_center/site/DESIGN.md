@@ -34,7 +34,13 @@ Off-white                 #f7f6f3   — Section backgrounds. Warmer than gray-50
 Text primary              #111111   — Body copy
 Text secondary            #6b6b6b   — Captions, metadata, labels
 Divider                   #e2e0dc   — Borders, rules. Warmer than gray-200.
+Navy hover                #001a4d   — Hover state for navy fills and links only.
+Gold hover                #a8864a   — Hover state for GoldButton only.
+TC logo                   #002360   — Official Teachers College mark. Do not alter.
 ```
+
+Nothing outside this list. `#1D4F91`, `#f5f4f2`, `#d8d4cc`, `#9c9c9c` and `#7a6235`
+were drift and have been removed.
 
 **Rules:**
 - Gold (`#b9975b`) is used for: horizontal rules above section headings, the vertical rule on blockquotes, active nav underlines. Never as a background fill, never on text larger than 14px labels.
@@ -110,10 +116,13 @@ Hamburger reveals a full-height overlay with the 3 links at large size, not a dr
 
 ### Max widths
 ```
-Text-heavy content pages     max-w-3xl    (768px)
-Standard page sections       max-w-6xl    (1152px)
-Full-bleed panels            no max-w — inner content still max-w-6xl
+Site chrome + heroes + card sections   max-w-7xl px-8   (1280px)
+Text-heavy content pages               max-w-3xl px-6   (768px)
+Full-bleed panels                      no max-w — inner content still max-w-7xl
 ```
+
+Nav, Footer, InteriorHero, ProgramHero and StatsBar all use `max-w-7xl px-8` so
+every page shares one left rule. `max-w-4xl` and `max-w-6xl` are not used.
 
 ### Section spacing rhythm
 Not every section gets `py-20`. Use contrast to create rhythm:

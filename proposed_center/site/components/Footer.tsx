@@ -4,8 +4,8 @@ import { CENTER_FULL, INSTITUTION, PARENT_INSTITUTE } from "@/lib/brand";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#e2e0dc] bg-[#f7f6f3] mt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <footer className="border-t border-[#e2e0dc] bg-[#f7f6f3]">
+      <div className="max-w-7xl mx-auto px-8 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         <div className="md:col-span-1">
           <p className="wordmark text-[10px] tracking-[0.18em] text-[#6b6b6b] mb-1">Teachers College · Columbia University</p>
           <p className="text-[14px] leading-[1.35] text-[#002868] font-medium max-w-xs">

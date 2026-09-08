@@ -3,7 +3,7 @@
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import MentorCard from "@/components/MentorCard";
-import { splitValues, type Mentor } from "@/lib/mentor-utils";
+import { decodeEntities, splitValues, type Mentor } from "@/lib/mentor-utils";
 
 const PAGE_SIZE = 21;
 
@@ -50,7 +50,7 @@ function FilterSelect({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="border border-[#e2e0dc] bg-white text-[#111111] text-sm px-3 py-2.5 pr-8 appearance-none focus:outline-none focus:border-[#002868] cursor-pointer"
+        className="border border-[#e2e0dc] bg-white text-[#111111] text-sm px-3 py-2.5 pr-8 appearance-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#002868] focus:border-[#002868] cursor-pointer"
       >
         <option value="">All</option>
         {options.map((o) => (
@@ -218,10 +218,12 @@ export default function MentorsGrid({ mentors }: { mentors: Mentor[] }) {
       }
       if (search) {
         const q = search.toLowerCase();
+        // Source values are HTML-encoded, so "Bain & Company" would never
+        // match the stored "Bain &amp; Company" without decoding first.
         if (
-          !m.name.toLowerCase().includes(q) &&
-          !m.company.toLowerCase().includes(q) &&
-          !m.title.toLowerCase().includes(q)
+          !decodeEntities(m.name).toLowerCase().includes(q) &&
+          !decodeEntities(m.company).toLowerCase().includes(q) &&
+          !decodeEntities(m.title).toLowerCase().includes(q)
         )
           return false;
       }
@@ -248,16 +250,17 @@ export default function MentorsGrid({ mentors }: { mentors: Mentor[] }) {
     setPage(1);
   }
 
-  // Drop a stale ?page from the URL once the filters have moved on.
+  // Drop a stale ?page from the URL when the filters move on. This keys off
+  // filterKey rather than filtersChanged: the render that flips filtersChanged
+  // true is discarded by React, so its effects never run.
   useEffect(() => {
-    if (!filtersChanged) return;
-    const params = new URLSearchParams(searchParams.toString());
-    if (params.has("page")) {
-      params.delete("page");
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-    }
-  }, [filtersChanged, searchParams, router, pathname]);
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("page")) return;
+    params.delete("page");
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterKey]);
 
   // Clamp during render rather than in an effect: filtering can shrink the
   // result set below the current page, and a setState there would cascade.
@@ -316,11 +319,11 @@ export default function MentorsGrid({ mentors }: { mentors: Mentor[] }) {
             placeholder="Search by name, company, or title"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border border-[#e2e0dc] bg-white text-[#111111] text-[15px] pl-10 pr-3 py-3 focus:outline-none focus:border-[#002868] placeholder:text-[#9c9c9c]"
+            className="w-full border border-[#e2e0dc] bg-white text-[#111111] text-[15px] pl-10 pr-3 py-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#002868] focus:border-[#002868] placeholder:text-[#6b6b6b]"
           />
         </div>
 
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           <FilterSelect
             label="Industry"
             options={allIndustries}

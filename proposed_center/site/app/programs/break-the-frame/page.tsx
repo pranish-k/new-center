@@ -21,10 +21,10 @@ export default function BreakTheFramePage() {
         subtitle="Designing what doesn't yet exist: a creative playshop for leaders ready to unlearn, rethink, and rebuild."
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-20">
+      <div className="max-w-3xl mx-auto px-6 pt-12 pb-24 space-y-20">
         <FadeIn className="grid items-start gap-10 md:grid-cols-2">
-          <blockquote className="pull-quote -mt-1">
-            <p className="font-serif text-2xl italic leading-[1.5] text-[#111111]">
+          <blockquote className="pull-quote">
+            <p>
               In a world obsessed with efficiency, Break the Frame is a creative pause button.
             </p>
           </blockquote>
@@ -64,7 +64,7 @@ export default function BreakTheFramePage() {
 
         <FadeIn>
           <Eyebrow label="Why it&apos;s different" />
-          <div className="-mt-4 grid gap-8 md:grid-cols-3">
+          <div className="-mt-4 grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
                 title: "Creative Sprint",
@@ -80,7 +80,7 @@ export default function BreakTheFramePage() {
               },
             ].map((v) => (
               <div key={v.title} className="border-t-2 border-[#b9975b] pt-6">
-                <h3 className="mb-3 text-[15px] font-semibold text-[#111111]">{v.title}</h3>
+                <h3 className="mb-3 text-[18px] font-semibold leading-snug text-[#111111]">{v.title}</h3>
                 <p className="text-[15px] leading-[1.7] text-[#6b6b6b]">{v.body}</p>
               </div>
             ))}

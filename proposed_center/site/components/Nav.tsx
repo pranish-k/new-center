@@ -69,16 +69,16 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#e2e0dc] bg-white">
-      <div className="max-w-6xl mx-auto px-6 w-full flex items-center justify-between gap-4 min-h-[90px] py-3 md:min-h-[100px] md:py-0">
+      <div className="max-w-7xl mx-auto px-8 w-full flex items-center justify-between gap-4 min-h-[64px] py-2 md:min-h-[72px] md:py-0">
         <Link
           href="/"
           aria-label={HOME_ARIA}
           className="group flex items-center gap-3 md:gap-4 min-w-0"
         >
-          <TCLogo className="h-[60px] w-auto md:h-[70px] flex-shrink-0" />
+          <TCLogo className="h-[42px] w-auto md:h-[50px] flex-shrink-0" />
           <span className="hidden sm:block w-px self-stretch bg-[#e2e0dc] my-1" />
           <span className="flex flex-col leading-tight min-w-0">
-            <span className="text-[15px] md:text-[18px] leading-[1.3] text-[#002868] font-medium md:max-w-[290px] break-words transition-colors group-hover:text-[#001a4d]">
+            <span className="hidden lg:block text-[15px] leading-[1.25] text-[#002868] font-medium lg:max-w-[260px] transition-colors group-hover:text-[#001a4d]">
               {CENTER_FULL}
             </span>
           </span>
@@ -91,7 +91,7 @@ export default function Nav() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`border-b-2 border-transparent pb-0.5 text-[18px] text-[#111111] transition-colors hover:text-[#002868] ${
+                className={`border-b-2 border-transparent pb-0.5 text-[15px] text-[#111111] transition-colors hover:text-[#002868] ${
                   active ? "border-[#b9975b]" : ""
                 }`}
               >
@@ -132,7 +132,7 @@ export default function Nav() {
           <Link
             key={l.href}
             href={l.href}
-            className="text-[38px] font-serif text-[#111111]"
+            className="text-[30px] font-serif text-[#111111]"
             onClick={() => setOpen(false)}
           >
             {l.label}
@@ -140,7 +140,7 @@ export default function Nav() {
         ))}
         <Link
           href="/contact"
-          className="w-fit border border-[#002868] bg-[#002868] px-6 py-2.5 text-[25px] font-semibold text-white"
+          className="w-fit border border-[#002868] bg-[#002868] px-6 py-2.5 text-[18px] font-semibold text-white"
           onClick={() => setOpen(false)}
         >
           Contact

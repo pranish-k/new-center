@@ -5,6 +5,11 @@ import FadeIn from "@/components/FadeIn";
 import { Eyebrow } from "@/components/Brand";
 import { CENTER_FULL } from "@/lib/brand";
 import { getMentors } from "@/lib/mentors";
+import { decodeEntities } from "@/lib/mentor-utils";
+
+// mentors.json lives outside the app root, so it is not traced into the
+// serverless bundle. Every slug is prerendered; anything else is a 404.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return getMentors().map((m) => ({ slug: m.slug }));
@@ -18,10 +23,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${m.name} | Mentor | Teachers College`,
     description: `${m.title}${m.company ? `, ${m.company}` : ""} — Industry mentor at the ${CENTER_FULL}.`,
   };
-}
-
-function decodeHtml(s: string): string {
-  return s.replace(/&amp;/g, "&");
 }
 
 export default async function MentorProfilePage({
@@ -41,7 +42,7 @@ export default async function MentorProfilePage({
   return (
     <>
       {/* Slim eyebrow band on navy — back link */}
-      <section className="bg-[#002868] text-white">
+      <section className="bg-[#0a1628] text-white">
         <div className="mx-auto max-w-7xl px-8 py-7">
           <Link
             href="/mentors"
@@ -56,11 +57,11 @@ export default async function MentorProfilePage({
       <section className="bg-white">
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-16 px-8 py-16 md:grid-cols-[0.85fr_1fr]">
           <FadeIn>
-            <div className="relative aspect-square w-full bg-[#f5f4f2]">
+            <div className="relative aspect-square w-full bg-[#f7f6f3]">
               {imgSrc ? (
                 <Image
                   src={imgSrc}
-                  alt={mentor.name}
+                  alt={decodeEntities(mentor.name)}
                   fill
                   sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover object-top"
@@ -68,7 +69,7 @@ export default async function MentorProfilePage({
                 />
               ) : (
                 <div className="flex h-full w-full items-center justify-center font-serif text-9xl text-[#b9975b]">
-                  {mentor.name.charAt(0)}
+                  {decodeEntities(mentor.name).charAt(0)}
                 </div>
               )}
             </div>
@@ -81,13 +82,13 @@ export default async function MentorProfilePage({
                 Industry Mentor
               </p>
               <h1 className="m-0 font-serif text-4xl font-normal leading-[1.05] tracking-[-0.02em] text-[#111111] md:text-[56px]">
-                {mentor.name}
+                {decodeEntities(mentor.name)}
               </h1>
               {mentor.title && (
-                <p className="mt-4 text-lg font-medium text-[#111111]">{mentor.title}</p>
+                <p className="mt-4 text-lg font-medium text-[#111111]">{decodeEntities(mentor.title)}</p>
               )}
               {mentor.company && (
-                <p className="m-0 text-base text-[#6b6b6b]">{decodeHtml(mentor.company)}</p>
+                <p className="m-0 text-base text-[#6b6b6b]">{decodeEntities(mentor.company)}</p>
               )}
 
               <dl className="mt-9 border-t border-[#e2e0dc]">
@@ -106,7 +107,7 @@ export default async function MentorProfilePage({
                         {row.label}
                       </dt>
                       <dd className="m-0 text-[15px] font-medium text-[#111111]">
-                        {decodeHtml(row.value)}
+                        {decodeEntities(row.value)}
                       </dd>
                     </div>
                   ))}
@@ -115,7 +116,7 @@ export default async function MentorProfilePage({
               <div className="mt-7 flex flex-wrap items-center gap-3">
                 <Link
                   href="/contact"
-                  className="inline-block bg-[#002868] px-7 py-3 text-[13px] font-semibold text-white transition-colors hover:bg-[#001a4d]"
+                  className="inline-block bg-[#002868] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#001a4d]"
                 >
                   Request a Pairing &rarr;
                 </Link>
@@ -124,9 +125,9 @@ export default async function MentorProfilePage({
                     href={mentor.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${mentor.name} on LinkedIn`}
+                    aria-label={`${decodeEntities(mentor.name)} on LinkedIn`}
                     title="View LinkedIn profile"
-                    className="inline-flex h-[46px] w-[46px] items-center justify-center bg-[#0A66C2] text-white transition-colors hover:bg-[#004182]"
+                    className="inline-flex h-[46px] w-[46px] items-center justify-center border border-[#e2e0dc] bg-transparent text-white transition-colors hover:border-[#002868]"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -150,9 +151,9 @@ export default async function MentorProfilePage({
         <div className="mx-auto max-w-3xl px-8 py-20">
           <Eyebrow label="Biography" />
           {mentor.bio ? (
-            <p className="-mt-2 text-[16px] leading-[1.75] text-[#111111]">{mentor.bio}</p>
+            <p className="text-[16px] leading-[1.75] text-[#111111]">{mentor.bio}</p>
           ) : (
-            <p className="-mt-2 text-[15px] leading-[1.75] italic text-[#6b6b6b]">
+            <p className="text-[15px] leading-[1.75] italic text-[#6b6b6b]">
               Biography will be added once mentor reviews are complete.
             </p>
           )}

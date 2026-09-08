@@ -12,7 +12,7 @@ export function Eyebrow({
   className?: string;
 }) {
   return (
-    <div className={`mb-8 ${className}`.trim()}>
+    <div className={`mb-4 ${className}`.trim()}>
       <span className="block h-0.5 w-6 bg-[#b9975b]" />
       <p
         className={`mt-3 text-[11px] font-medium uppercase tracking-[0.15em] ${
@@ -37,9 +37,9 @@ export function InteriorHero({
   actions?: ReactNode;
 }) {
   return (
-    <section className="relative bg-[#002868] text-white">
+    <section className="relative bg-[#0a1628] text-white">
       <span className="absolute left-0 top-0 h-[3px] w-20 bg-[#b9975b]" />
-      <div className="mx-auto max-w-6xl px-6 py-24 md:py-28">
+      <div className="mx-auto max-w-7xl px-8 py-24 md:py-28">
         <p className="wordmark wordmark--bold mb-6 text-[11px] tracking-[0.18em] text-white/70">
           {eyebrow}
         </p>
@@ -59,9 +59,17 @@ export function Divider({ className = "" }: { className?: string }) {
   return <hr className={`my-16 border-0 border-t border-[#e2e0dc] ${className}`.trim()} />;
 }
 
-export function ArrowLink({ href, children }: { href: string; children: ReactNode }) {
+export function ArrowLink({
+  href,
+  children,
+  ariaLabel,
+}: {
+  href: string;
+  children: ReactNode;
+  ariaLabel?: string;
+}) {
   return (
-    <Link href={href} className="group inline-flex w-fit items-center gap-1 text-sm text-[#002868] underline hover:no-underline">
+    <Link href={href} aria-label={ariaLabel} className="group inline-flex w-fit items-center gap-1 text-sm text-[#002868] underline hover:no-underline">
       {children}
       <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
         &rarr;
@@ -74,7 +82,7 @@ export function PrimaryButton({ href, children }: { href: string; children: Reac
   return (
     <Link
       href={href}
-      className="inline-block bg-[#002868] px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#001a4d]"
+      className="inline-block bg-[#002868] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#001a4d]"
     >
       {children}
     </Link>
@@ -85,7 +93,7 @@ export function SecondaryButton({ href, children }: { href: string; children: Re
   return (
     <Link
       href={href}
-      className="inline-block border border-[#002868] bg-[#f7f6f3] px-7 py-3 text-sm font-semibold text-[#002868] transition-colors hover:bg-[#002868] hover:text-white"
+      className="inline-block border border-[#002868] bg-[#f7f6f3] px-7 py-3.5 text-sm font-semibold text-[#002868] transition-colors hover:bg-[#002868] hover:text-white"
     >
       {children}
     </Link>
@@ -97,7 +105,19 @@ export function GoldButton({ href, children }: { href: string; children: ReactNo
   return (
     <Link
       href={href}
-      className="inline-block bg-[#b9975b] px-8 py-4 text-sm font-semibold tracking-[0.02em] text-[#0a1628] transition-colors hover:bg-[#a8864a]"
+      className="inline-block bg-[#b9975b] px-7 py-3.5 text-sm font-semibold tracking-[0.02em] text-[#0a1628] transition-colors hover:bg-[#a8864a]"
+    >
+      {children}
+    </Link>
+  );
+}
+
+// GhostButton — outline CTA for use on dark surfaces.
+export function GhostButton({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="inline-block border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/15"
     >
       {children}
     </Link>
@@ -123,7 +143,7 @@ export function ProgramHero({
   actions?: ReactNode;
 }) {
   return (
-    <section className="relative bg-[#002868] pb-20 text-white">
+    <section className="relative bg-[#0a1628] pb-20 text-white">
       <span className="absolute left-0 top-0 h-[3px] w-20 bg-[#b9975b]" />
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-14 px-8 pt-20 md:grid-cols-2 md:pt-24">
         <div className="pb-8">
@@ -140,7 +160,7 @@ export function ProgramHero({
             <div className="mt-9 flex flex-wrap gap-9 border-t border-white/15 pt-5">
               {meta.map((m) => (
                 <div key={m.label}>
-                  <p className="m-0 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
+                  <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
                     {m.label}
                   </p>
                   <p className="m-0 mt-1 text-sm font-medium text-white">{m.value}</p>
@@ -150,7 +170,7 @@ export function ProgramHero({
           ) : null}
           {actions ? <div className="mt-8 flex flex-wrap gap-4">{actions}</div> : null}
         </div>
-        <div className="relative -mb-20 h-[380px] md:h-[480px]">
+        <div className="relative h-[300px] md:-mb-20 md:h-[480px]">
           <Image
             src={image}
             alt={imageAlt}
@@ -188,7 +208,7 @@ export function NavyFeatureCard({
   return (
     <Link
       href={href}
-      className={`group relative grid bg-[#002868] text-white no-underline overflow-hidden ${
+      className={`group relative grid bg-[#0a1628] text-white no-underline overflow-hidden ${
         image ? "md:grid-cols-[1.1fr_1fr]" : "grid-cols-1"
       }`}
     >
@@ -205,7 +225,7 @@ export function NavyFeatureCard({
           <div className="mb-7 flex flex-wrap gap-8">
             {meta.map((m) => (
               <div key={m.label}>
-                <p className="m-0 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
+                <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
                   {m.label}
                 </p>
                 <p className="m-0 mt-1 text-sm font-medium text-white">{m.value}</p>
@@ -213,7 +233,7 @@ export function NavyFeatureCard({
             ))}
           </div>
         ) : null}
-        <span className="inline-flex items-center gap-2 bg-[#b9975b] px-7 py-3 text-[13px] font-semibold tracking-[0.02em] text-[#0a1628]">
+        <span className="inline-flex items-center gap-2 bg-[#b9975b] px-7 py-3.5 text-sm font-semibold tracking-[0.02em] text-[#0a1628]">
           {ctaLabel}
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
             &rarr;
@@ -225,60 +245,6 @@ export function NavyFeatureCard({
           <Image src={image} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
         </div>
       ) : null}
-    </Link>
-  );
-}
-
-// PhotoLedCard — marquee card. Photo top, off-white content block, larger serif H3.
-export function PhotoLedCard({
-  href,
-  image,
-  imageAlt = "",
-  tag,
-  title,
-  description,
-  ratio = 0.62,
-}: {
-  href: string;
-  image: string;
-  imageAlt?: string;
-  tag: string;
-  title: string;
-  description: string;
-  ratio?: number;
-}) {
-  return (
-    <Link
-      href={href}
-      className="group flex h-full flex-col bg-[#f7f6f3] text-[#111111] no-underline transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
-    >
-      <div
-        className="relative w-full overflow-hidden bg-[#1D4F91]"
-        style={{ paddingTop: `${ratio * 100}%` }}
-      >
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          className="object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.04]"
-          sizes="(max-width: 768px) 100vw, 33vw"
-        />
-      </div>
-      <div className="flex flex-1 flex-col p-7">
-        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#b9975b]">
-          {tag}
-        </p>
-        <h3 className="m-0 mb-3 font-serif text-[22px] font-normal leading-[1.25] tracking-[-0.005em] text-[#111111]">
-          {title}
-        </h3>
-        <p className="m-0 flex-1 text-sm leading-[1.55] text-[#6b6b6b]">{description}</p>
-        <p className="mt-5 text-[13px] font-semibold tracking-[0.02em] text-[#002868]">
-          Learn more{" "}
-          <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
-            &rarr;
-          </span>
-        </p>
-      </div>
     </Link>
   );
 }
@@ -304,10 +270,10 @@ export function TintedCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden bg-[#f7f6f3] text-[#111111] no-underline transition-transform duration-[250ms] ease-out hover:-translate-y-[3px]"
+      className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-[#f7f6f3] text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
     >
       {image ? (
-        <div className="relative w-full overflow-hidden bg-[#1D4F91]" style={{ paddingTop: "62%" }}>
+        <div className="relative w-full overflow-hidden bg-[#0a1628]" style={{ paddingTop: "62%" }}>
           <Image
             src={image}
             alt={imageAlt}
@@ -328,11 +294,11 @@ export function TintedCard({
         <p className="mb-3 mt-2 text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
           {tag}
         </p>
-        <h4 className="m-0 mb-2.5 font-serif text-[19px] font-normal leading-[1.25] text-[#111111]">
+        <h3 className="m-0 mb-2.5 min-h-[2.5em] font-serif text-[19px] font-normal leading-[1.25] text-[#111111]">
           {name}
-        </h4>
+        </h3>
         {line ? (
-          <p className="m-0 flex-1 text-[13px] leading-[1.55] text-[#6b6b6b]">{line}</p>
+          <p className="m-0 flex-1 text-[15px] leading-[1.6] text-[#6b6b6b]">{line}</p>
         ) : null}
         <p className="mt-5 text-xs font-semibold tracking-[0.02em] text-[#002868]">
           {cta}{" "}
@@ -354,8 +320,8 @@ export function StatsBar({
   dark?: boolean;
 }) {
   return (
-    <div className={dark ? "bg-[#002868] text-white" : "text-[#111111]"}>
-      <div className="mx-auto max-w-6xl px-6 py-14">
+    <div className={dark ? "bg-[#0a1628] text-white" : "text-[#111111]"}>
+      <div className="mx-auto max-w-7xl px-8 py-14">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="text-center">

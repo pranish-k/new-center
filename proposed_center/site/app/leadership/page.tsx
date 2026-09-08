@@ -49,7 +49,7 @@ export default function LeadershipPage() {
         subtitle={`Director · Professor of Practice · ${INSTITUTION}`}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-6xl mx-auto px-6 pt-14 pb-28">
 
         {/* Bio section */}
         <FadeIn className="flex flex-col md:flex-row gap-14 mb-20">
@@ -123,7 +123,7 @@ export default function LeadershipPage() {
         {/* Books */}
         <FadeIn className="mb-20">
           <Eyebrow label="Selected Publications" />
-          <div className="grid md:grid-cols-2 gap-5 -mt-4">
+          <div className="grid md:grid-cols-2 gap-5">
             {books.map((b, i) => (
               <FadeIn key={b.title} delay={i * 60}>
                 <div className="border border-[#e2e0dc] p-6 flex gap-4">
@@ -145,7 +145,7 @@ export default function LeadershipPage() {
         <FadeIn className="flex flex-col md:flex-row gap-10 items-center border border-[#e2e0dc] p-10 mb-14">
           <div className="flex-1">
             <Eyebrow label="Nonprofit Leadership" />
-            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-5 -mt-4">
+            <h2 className="text-3xl font-serif font-normal text-[#111111] leading-tight mb-5">
               Workforce Opportunity Services
             </h2>
             <p className="text-[15px] text-[#6b6b6b] leading-[1.7]">
