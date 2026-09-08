@@ -47,6 +47,11 @@ const articles = [
   },
 ];
 
+const partners = [
+  { src: "/logo-nutanix.png", alt: "Nutanix", w: 1066, h: 138, cap: "max-h-7" },
+  { src: "/logo-fieldai.png", alt: "FieldAI", w: 2000, h: 1047, cap: "max-h-11" },
+];
+
 const masterclassPoints = [
   "Co-designed with corporate members to reflect their business priorities",
   "Facilitated by leading experts from faculty and the mentor network",
@@ -133,10 +138,22 @@ export default function ResearchPage() {
                 ))}
               </ul>
             </div>
-            <div className="mt-8">
-              <span className="inline-block border border-dashed border-[#e2e0dc] px-4 py-2 text-xs text-[#6b6b6b]">
-                Partner list to be confirmed
-              </span>
+            <div className="mt-10 border-t border-[#e2e0dc] pt-8">
+              <p className="m-0 mb-6 text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
+                Current partners
+              </p>
+              <div className="flex flex-wrap items-center gap-x-12 gap-y-8">
+                {partners.map((l) => (
+                  <Image
+                    key={l.alt}
+                    src={l.src}
+                    alt={l.alt}
+                    width={l.w}
+                    height={l.h}
+                    className={`h-auto w-auto object-contain ${l.cap}`}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         </FadeIn>
@@ -185,18 +202,28 @@ export default function ResearchPage() {
             <p className="m-0 mb-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-[#6b6b6b]">
               Journal
             </p>
-            <p className="m-0 text-[15px] leading-[1.7] text-[#6b6b6b]">
-              <a
-                href="https://www.tandfonline.com/toc/crep20/current"
-                className="font-serif text-[17px] italic text-[#002868] underline decoration-[#b9975b] underline-offset-4"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Journal of Reflective Practice
-              </a>
-              <br />
-              Taylor &amp; Francis Group. Edited by Dr. Arthur M. Langer, Columbia University.
-            </p>
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-start">
+              <Image
+                src="/journal-reflective-practice.png"
+                alt="Reflective Practice journal cover"
+                width={200}
+                height={285}
+                className="h-auto w-[140px] flex-shrink-0 border border-[#e2e0dc]"
+              />
+              <p className="m-0 text-[15px] leading-[1.7] text-[#6b6b6b]">
+                <a
+                  href="https://www.tandfonline.com/toc/crep20/current"
+                  className="font-serif text-[17px] italic text-[#002868] underline decoration-[#b9975b] underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Reflective Practice
+                </a>
+                <br />
+                International and Multidisciplinary Perspectives. Taylor &amp; Francis
+                Group. Edited by Dr. Arthur M. Langer, Columbia University.
+              </p>
+            </div>
           </section>
         </FadeIn>
 
@@ -214,6 +241,13 @@ export default function ResearchPage() {
               environment built for candid discussion rather than presentation. Each is
               designed with the partner organization that hosts it.
             </p>
+            <Image
+              src="/research-masterclass.png"
+              alt="Dr. Arthur M. Langer presenting at a Center session"
+              width={750}
+              height={829}
+              className="mb-8 h-auto w-full border border-[#e2e0dc]"
+            />
             <ul className="m-0 space-y-3 p-0 text-[15px] leading-[1.7] text-[#6b6b6b]">
               {masterclassPoints.map((p) => (
                 <li key={p} className="flex gap-3 list-none">

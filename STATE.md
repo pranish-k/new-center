@@ -20,11 +20,13 @@ Phase 4 - content depth and partnerships. The site is built and building clean.
 - J.M. Huber Institute attribution in the footer and on `/mission`.
 
 ## Next session's work
-- Get corporate partner names from Dr. Langer and replace the placeholder at `/research#partners`.
+- Collect the missing assets listed below and wire them in; the layouts already take them.
 - Expand the workshop and course catalogue toward the full set (roughly 60).
 
 ## Open decisions / blockers
-- **Corporate partner list** - blocked on Dr. Langer. Placeholder is live and clearly marked.
+- **Missing assets**, all blocked on the client: more corporate partner logos
+  (Nutanix and FieldAI are in), book covers for the nine titles, a WOS
+  photograph, and the contact email and phone.
 - **WOS integration model** - still pending; `/research#wos` carries a "details coming soon" note.
 - **Color tokenization** - about 330 raw hex literals, no Tailwind v4 `@theme` block, two competing token sets. Highest-leverage cleanup remaining.
 - **Nav** - 4 links plus Contact pill at 90-100px, against the 3-link/64px spec in DESIGN.md §4.
@@ -32,4 +34,6 @@ Phase 4 - content depth and partnerships. The site is built and building clean.
 ## Notes for next session
 - `tmdl_archive/` is read-only - never modify files inside it.
 - Do not reuse the nine "Our students and mentors come from" logos as corporate partners; they are different claims.
-- Featured homepage mentors are an editable slug list in `site/lib/featured-mentors.ts`.
+- Featured homepage mentors are an editable slug list in `site/lib/featured-mentors.ts`; keep it a multiple of four and only use headshots at least 600px wide.
+- The homepage mentor rotation is the site's approved fifth animation. Its conditions are recorded in UX.md 3.6 and must keep holding.
+- The CxO masterclass photo shows a "Congratulations WOS Graduates" slide. Used there on request; may suit the WOS strand better.

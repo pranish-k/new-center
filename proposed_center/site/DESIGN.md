@@ -301,10 +301,15 @@ flagship slot, the first has to come out.
   partners, projects and publications, CxO masterclass)
 
 ### Open
-- **Corporate partner names** for `/research#partners` - currently a marked
-  placeholder. Do not reuse the nine logos from the "Our students and mentors
-  come from" band; that band is a statement about where people come from, not
-  a claim of partnership.
+- **More corporate partner logos.** Nutanix and FieldAI are live on `/` and
+  `/research#partners`; the media panel takes more without changes. Do not reuse
+  the nine logos from the "Our students and mentors come from" band; that band
+  says where people come from, which is not a claim of partnership.
+- **Book covers.** `content/research.md` lists nine titles. Both `/research` and
+  `/leadership` render them text-only because no cover images exist.
+- **Contact email and phone.** `/contact` carries a marked placeholder; the old
+  `[email here]` mailto and Northeastern's switchboard number were removed.
+- **A WOS photograph.** The strand currently carries the logo only.
 - **Color tokenization** - roughly 330 raw hex literals across the app, no
   Tailwind v4 `@theme` block, and two competing token sets (`globals.css`
   `:root` versus `public/design-system/colors_and_type.css`). Consolidating
