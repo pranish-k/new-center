@@ -33,26 +33,33 @@ const programsAndCertificates = [
   { tag: "Certificate", name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure.", cta: "Read syllabus" },
 ];
 
+// Research activities, stacked vertically. Each strand carries a media panel:
+// `logo` renders contained on cream, `photo` renders cover, `pending` renders a
+// marked placeholder until the asset arrives.
 const researchStrands = [
   {
     title: "Workforce Opportunity Services",
-    body: "Research on workforce development and pathways from underserved communities into technology careers.",
+    body: "Research on workforce development and the pathways that carry talent from underserved communities into technology careers. WOS places trained professionals with major corporations; the Center studies what makes those placements hold.",
     href: "/research#wos",
+    media: { kind: "logo" as const, src: "/wos-logo.png", alt: "Workforce Opportunity Services" },
   },
   {
     title: "Corporate Partners",
-    body: "Partner organizations that co-design research, masterclasses, and applied learning with the Center.",
+    body: "Partner organizations co-design research, masterclasses, and applied learning with the Center, giving faculty and students real organizational settings for assessment and action research.",
     href: "/research#partners",
+    media: { kind: "pending" as const, note: "Partner logos to be added" },
   },
   {
     title: "Projects & Publications",
-    body: "Applied projects with partner organizations, feeding published research and the Journal of Reflective Practice.",
+    body: "Applied projects run inside partner organizations feed published research, nine books, and the Journal of Reflective Practice, edited at Columbia by Dr. Langer.",
     href: "/research#projects",
+    media: { kind: "pending" as const, note: "Book covers to be added" },
   },
   {
     title: "CxO Masterclass",
-    body: "Curated senior-executive sessions co-designed with partners and facilitated by leading experts.",
+    body: "Curated senior-executive sessions built around a single problem, facilitated by leading experts and designed with the partner organization that hosts them.",
     href: "/research#masterclass",
+    media: { kind: "photo" as const, src: "/session-lecture.jpg", alt: "Executive masterclass session" },
   },
 ];
 
@@ -245,21 +252,48 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 border-t border-[#e2e0dc]">
             {researchStrands.map((s, i) => (
               <FadeIn key={s.title} delay={i * 40}>
-                <div className="flex h-full flex-col">
-                  <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
-                  <h3 className="m-0 mb-3 text-[18px] font-semibold leading-snug text-[#111111]">
-                    {s.title}
-                  </h3>
-                  <p className="m-0 mb-5 flex-1 text-[15px] leading-[1.7] text-[#6b6b6b]">
-                    {s.body}
-                  </p>
-                  <ArrowLink href={s.href} ariaLabel={`Read more about ${s.title}`}>
-                    Read more
-                  </ArrowLink>
-                </div>
+                <article className="grid items-start gap-8 border-b border-[#e2e0dc] py-12 md:grid-cols-[300px_1fr] md:gap-14">
+                  {/* Media panel — logo on cream, photo cover, or a marked gap */}
+                  <div className="relative aspect-[4/3] w-full overflow-hidden border border-[#e2e0dc] bg-white">
+                    {s.media.kind === "photo" ? (
+                      <Image
+                        src={s.media.src}
+                        alt={s.media.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 300px"
+                      />
+                    ) : s.media.kind === "logo" ? (
+                      <Image
+                        src={s.media.src}
+                        alt={s.media.alt}
+                        fill
+                        className="object-contain p-8"
+                        sizes="(max-width: 768px) 100vw, 300px"
+                      />
+                    ) : (
+                      <span className="absolute inset-4 flex items-center justify-center border border-dashed border-[#e2e0dc] px-4 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
+                        {s.media.note}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="md:pt-2">
+                    <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
+                    <h3 className="m-0 mb-4 font-serif text-[24px] font-normal leading-snug text-[#111111]">
+                      {s.title}
+                    </h3>
+                    <p className="m-0 mb-6 max-w-xl text-[15px] leading-[1.7] text-[#6b6b6b]">
+                      {s.body}
+                    </p>
+                    <ArrowLink href={s.href} ariaLabel={`Read more about ${s.title}`}>
+                      Read more
+                    </ArrowLink>
+                  </div>
+                </article>
               </FadeIn>
             ))}
           </div>
