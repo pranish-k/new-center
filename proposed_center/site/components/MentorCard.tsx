@@ -22,7 +22,7 @@ export default function MentorCard({
   return (
     <Link
       href={`/mentors/${mentor.slug}`}
-      className="group flex h-full flex-col border border-[#e2e0dc] border-t-[3px] border-t-[#b9975b] bg-white text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
+      className="group flex h-full flex-col border border-[#e2e0dc] border-t-[3px] border-t-[#b9975b] bg-white text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px]"
     >
       <div className="relative w-full aspect-[1/1] bg-[#f7f6f3] overflow-hidden">
         {imgSrc ? (

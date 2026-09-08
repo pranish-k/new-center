@@ -195,6 +195,7 @@ export function NavyFeatureCard({
   image,
   imageAlt = "",
   meta = [],
+  feature = false,
 }: {
   eyebrow: string;
   title: string;
@@ -204,6 +205,8 @@ export function NavyFeatureCard({
   image?: string;
   imageAlt?: string;
   meta?: { label: string; value: string }[];
+  // `feature` gives the card hero-scale presence for the one flagship program.
+  feature?: boolean;
 }) {
   return (
     <Link
@@ -212,15 +215,32 @@ export function NavyFeatureCard({
         image ? "md:grid-cols-[1.1fr_1fr]" : "grid-cols-1"
       }`}
     >
-      <div className="relative px-10 py-12 md:px-14 md:py-14">
+      <span className="absolute left-0 top-0 h-1 w-1/3 bg-[#b9975b]" />
+      <div
+        className={
+          feature
+            ? "relative px-10 py-16 md:px-20 md:py-24"
+            : "relative px-10 py-12 md:px-14 md:py-14"
+        }
+      >
         <span className="mb-5 block h-0.5 w-8 bg-[#b9975b]" />
         <p className="mb-5 text-[11px] font-medium uppercase tracking-[0.15em] text-white/75">
           {eyebrow}
         </p>
-        <h2 className="m-0 mb-5 font-serif text-3xl font-normal leading-[1.15] tracking-tight md:text-4xl">
+        <h2
+          className={`m-0 mb-5 font-serif font-normal leading-[1.1] tracking-tight ${
+            feature ? "text-[36px] md:text-[52px]" : "text-3xl md:text-4xl"
+          }`}
+        >
           {title}
         </h2>
-        <p className="m-0 mb-7 max-w-md text-[15px] leading-[1.65] text-white/85">{body}</p>
+        <p
+          className={`m-0 mb-7 leading-[1.65] text-white/85 ${
+            feature ? "max-w-lg text-[17px]" : "max-w-md text-[15px]"
+          }`}
+        >
+          {body}
+        </p>
         {meta.length > 0 ? (
           <div className="mb-7 flex flex-wrap gap-8">
             {meta.map((m) => (
@@ -241,7 +261,7 @@ export function NavyFeatureCard({
         </span>
       </div>
       {image ? (
-        <div className="relative min-h-[260px] md:min-h-[380px]">
+        <div className={feature ? "relative min-h-[320px] md:min-h-[560px]" : "relative min-h-[260px] md:min-h-[380px]"}>
           <Image src={image} alt={imageAlt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 45vw" />
         </div>
       ) : null}
@@ -270,7 +290,7 @@ export function TintedCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-[#f7f6f3] text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
+      className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-[#f7f6f3] text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px]"
     >
       {image ? (
         <div className="relative w-full overflow-hidden bg-[#002868]" style={{ paddingTop: "62%" }}>
@@ -315,10 +335,32 @@ export function TintedCard({
 export function StatsBar({
   stats,
   dark = false,
+  boxed = false,
 }: {
   stats: { value: string; label: string }[];
   dark?: boolean;
+  // `boxed` frames the numbers on cream with a gold top rule and hairline
+  // separators, so the block reads as one unit rather than floating text.
+  boxed?: boolean;
 }) {
+  if (boxed) {
+    return (
+      <div className="border-t-[3px] border-t-[#b9975b] border-x border-b border-[#e2e0dc] bg-[#f7f6f3]">
+        <div className="grid grid-cols-2 divide-[#e2e0dc] sm:divide-x md:grid-cols-4">
+          {stats.map((s) => (
+            <div key={s.label} className="px-6 py-10 text-center">
+              <p className="m-0 font-serif text-[44px] font-normal leading-none text-[#002868]">
+                {s.value}
+              </p>
+              <p className="m-0 mt-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
+                {s.label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={dark ? "bg-[#002868] text-white" : "text-[#111111]"}>
       <div className="mx-auto max-w-7xl px-8 py-14">

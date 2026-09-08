@@ -127,7 +127,7 @@ export default async function MentorProfilePage({
                     rel="noopener noreferrer"
                     aria-label={`${decodeEntities(mentor.name)} on LinkedIn`}
                     title="View LinkedIn profile"
-                    className="inline-flex h-[46px] w-[46px] items-center justify-center border border-[#e2e0dc] bg-transparent text-white transition-colors hover:border-[#002868]"
+                    className="inline-flex h-[46px] w-[46px] items-center justify-center border border-[#e2e0dc] bg-transparent text-[#002868] transition-colors hover:border-[#002868] hover:bg-[#002868] hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

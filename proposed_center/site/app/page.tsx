@@ -3,7 +3,6 @@ import FadeIn from "@/components/FadeIn";
 import FeaturedMentors from "@/components/FeaturedMentors";
 import {
   ArrowLink,
-  Divider,
   Eyebrow,
   GhostButton,
   GoldButton,
@@ -33,33 +32,59 @@ const programsAndCertificates = [
   { tag: "Certificate", name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure.", cta: "Read syllabus" },
 ];
 
-// Research activities, stacked vertically. Each strand carries a media panel:
-// `logo` renders contained on cream, `photo` renders cover, `pending` renders a
-// marked placeholder until the asset arrives.
-const researchStrands = [
+// Research activities, stacked vertically with the media panel on the left.
+// The panel handles four shapes so logos of very different proportions sit
+// together cleanly: Nutanix is 7.7:1, FieldAI 1.9:1, a journal cover 0.7:1.
+type StrandMedia =
+  | { kind: "photo"; src: string; alt: string }
+  | { kind: "logo"; src: string; alt: string }
+  | { kind: "cover"; src: string; alt: string }
+  | { kind: "logos"; items: { src: string; alt: string; cap: string; w: number; h: number }[] }
+  | { kind: "pending"; note: string };
+
+const researchStrands: {
+  title: string;
+  body: string;
+  href: string;
+  media: StrandMedia;
+}[] = [
   {
     title: "Workforce Opportunity Services",
     body: "Research on workforce development and the pathways that carry talent from underserved communities into technology careers. WOS places trained professionals with major corporations; the Center studies what makes those placements hold.",
     href: "/research#wos",
-    media: { kind: "logo" as const, src: "/wos-logo.png", alt: "Workforce Opportunity Services" },
+    media: { kind: "logo", src: "/wos-logo.png", alt: "Workforce Opportunity Services" },
   },
   {
     title: "Corporate Partners",
     body: "Partner organizations co-design research, masterclasses, and applied learning with the Center, giving faculty and students real organizational settings for assessment and action research.",
     href: "/research#partners",
-    media: { kind: "pending" as const, note: "Partner logos to be added" },
+    media: {
+      kind: "logos",
+      items: [
+        { src: "/logo-nutanix.png", alt: "Nutanix", cap: "max-h-8 md:max-h-9", w: 1066, h: 138 },
+        { src: "/logo-fieldai.png", alt: "FieldAI", cap: "max-h-12 md:max-h-14", w: 2000, h: 1047 },
+      ],
+    },
   },
   {
     title: "Projects & Publications",
-    body: "Applied projects run inside partner organizations feed published research, nine books, and the Journal of Reflective Practice, edited at Columbia by Dr. Langer.",
+    body: "Applied projects run inside partner organizations feed published research, nine books, and the International Journal of Reflective Practice, edited at Columbia by Dr. Langer.",
     href: "/research#projects",
-    media: { kind: "pending" as const, note: "Book covers to be added" },
+    media: {
+      kind: "cover",
+      src: "/journal-reflective-practice.png",
+      alt: "Reflective Practice journal, International and Multidisciplinary Perspectives",
+    },
   },
   {
     title: "CxO Masterclass",
     body: "Curated senior-executive sessions built around a single problem, facilitated by leading experts and designed with the partner organization that hosts them.",
     href: "/research#masterclass",
-    media: { kind: "photo" as const, src: "/session-lecture.jpg", alt: "Executive masterclass session" },
+    media: {
+      kind: "photo",
+      src: "/research-masterclass.png",
+      alt: "Dr. Arthur M. Langer presenting at a Center session",
+    },
   },
 ];
 
@@ -138,7 +163,7 @@ export default function Home() {
           </div>
 
           <div className="mt-14">
-            <StatsBar stats={stats} />
+            <StatsBar stats={stats} boxed />
           </div>
 
           <div className="mt-10">
@@ -157,24 +182,24 @@ export default function Home() {
           <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
             Our students and mentors come from
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10">
             {partnerLogos.map((l) => (
               <Image
                 key={l.alt}
                 src={l.src}
                 alt={l.alt}
-                width={110}
-                height={50}
-                className="h-10 w-auto object-contain opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+                width={180}
+                height={80}
+                className="h-12 w-auto object-contain opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0 md:h-16"
               />
             ))}
           </div>
         </div>
       </FadeIn>
 
-      {/* What we offer — one flagship program, featured on its own. */}
+      {/* What we offer — one flagship program at hero scale, full-bleed. */}
       <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 pb-24 pt-28">
+        <div className="mx-auto max-w-7xl px-8 pt-28">
           <div className="mb-12 flex items-end justify-between">
             <div>
               <Eyebrow label="What we offer" />
@@ -186,28 +211,27 @@ export default function Home() {
               <ArrowLink href="/programs">View all programs</ArrowLink>
             </div>
           </div>
-
-          <NavyFeatureCard
-            eyebrow="Flagship program"
-            title="Digital Leadership Experience"
-            body="A flexible 6–12 month program for executives, board members, entrepreneurs, and post-career professionals. Combines a customized learning plan, expert-led faculty sessions, and an applied capstone."
-            meta={[
-              { label: "Format", value: "6–12 months, flexible" },
-              { label: "Audience", value: "Executives & board members" },
-              { label: "Includes", value: "1:1 industry mentor" },
-            ]}
-            image="/program-mentoring.jpg"
-            imageAlt="Digital Leadership Experience"
-            ctaLabel="Explore the program"
-            href="/programs/digital-leadership"
-          />
         </div>
+        <NavyFeatureCard
+          feature
+          eyebrow="Flagship program"
+          title="Digital Leadership Experience"
+          body="A flexible 6–12 month program for executives, board members, entrepreneurs, and post-career professionals. Combines a customized learning plan, expert-led faculty sessions, and an applied capstone."
+          meta={[
+            { label: "Format", value: "6–12 months, flexible" },
+            { label: "Audience", value: "Executives & board members" },
+            { label: "Includes", value: "1:1 industry mentor" },
+          ]}
+          image="/program-mentoring.jpg"
+          imageAlt="Digital Leadership Experience"
+          ctaLabel="Explore the program"
+          href="/programs/digital-leadership"
+        />
       </FadeIn>
 
       {/* Workshops & topic certificates */}
       <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 pb-24">
-          <Divider className="my-0 mb-20" />
+        <div className="mx-auto max-w-7xl px-8 pb-24 pt-28">
           <div className="mb-10 flex items-end justify-between">
             <div>
               <Eyebrow label="Workshops & certificates" />
@@ -255,25 +279,49 @@ export default function Home() {
           <div className="mt-16 border-t border-[#e2e0dc]">
             {researchStrands.map((s, i) => (
               <FadeIn key={s.title} delay={i * 40}>
-                <article className="grid items-start gap-8 border-b border-[#e2e0dc] py-12 md:grid-cols-[300px_1fr] md:gap-14">
-                  {/* Media panel — logo on cream, photo cover, or a marked gap */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden border border-[#e2e0dc] bg-white">
+                <article className="grid items-start gap-8 border-b border-[#e2e0dc] py-12 md:grid-cols-[340px_1fr] md:gap-14">
+                  {/* Media panel — photo, single logo, multiple logos, a
+                      publication cover, or a marked gap awaiting an asset */}
+                  <div className="relative flex aspect-[4/3] w-full items-center justify-center overflow-hidden border border-[#e2e0dc] bg-white">
                     {s.media.kind === "photo" ? (
                       <Image
                         src={s.media.src}
                         alt={s.media.alt}
                         fill
                         className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 300px"
+                        sizes="(max-width: 768px) 100vw, 340px"
                       />
                     ) : s.media.kind === "logo" ? (
                       <Image
                         src={s.media.src}
                         alt={s.media.alt}
                         fill
-                        className="object-contain p-8"
-                        sizes="(max-width: 768px) 100vw, 300px"
+                        className="object-contain p-10"
+                        sizes="(max-width: 768px) 100vw, 340px"
                       />
+                    ) : s.media.kind === "cover" ? (
+                      <Image
+                        src={s.media.src}
+                        alt={s.media.alt}
+                        fill
+                        className="object-contain p-6"
+                        sizes="(max-width: 768px) 100vw, 340px"
+                      />
+                    ) : s.media.kind === "logos" ? (
+                      // Each logo keeps its own height cap, so a very wide mark
+                      // and a squarer one read at the same optical weight.
+                      <div className="flex w-full flex-col items-center justify-center gap-7 px-10 py-8">
+                        {s.media.items.map((l) => (
+                          <Image
+                            key={l.alt}
+                            src={l.src}
+                            alt={l.alt}
+                            width={l.w}
+                            height={l.h}
+                            className={`h-auto w-auto max-w-[75%] object-contain ${l.cap}`}
+                          />
+                        ))}
+                      </div>
                     ) : (
                       <span className="absolute inset-4 flex items-center justify-center border border-dashed border-[#e2e0dc] px-4 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
                         {s.media.note}

@@ -167,7 +167,7 @@ The one exception — image is present. Left: typographic statement. Right: Art 
 ```
 
 ### Program Card (major programs)
-Image occupies the top ~45% of the card. Below: tag label, title, one-line description, arrow link. 1px warm border. On hover: border shifts to navy.
+Image occupies the top ~45% of the card. Below: tag label, title, one-line description, arrow link. 1px warm border. On hover the card lifts 3px and the image scales slightly. The border colour does not change - motion carries the affordance.
 
 ### Certificate Card (small programs)
 Photo with `bg-[#0a1628]/55` overlay, white title centered at bottom. 4:3 aspect ratio. Hover: overlay lightens slightly.
@@ -181,7 +181,10 @@ Attribution: 13px sans, text-secondary, em-dash prefix
 ```
 
 ### Stats bar
-4 numbers across. Large serif number in navy, small tracked sans label below. No boxes, no borders — whitespace is the separator.
+4 numbers across. Large serif number in navy, small tracked sans label below.
+Default is unboxed, whitespace as the separator. The `boxed` variant frames them
+on cream with a gold top rule and hairline separators - use it where the numbers
+need to read as one deliberate block, as on the homepage mentor section.
 
 ### Divider rule
 ```tsx
@@ -214,6 +217,7 @@ Never `border-gray-100` or `border-gray-200`.
 | `text-xs uppercase tracking-widest text-gray-400` alone | Floats, reads as an afterthought | Gold rule + tracked label |
 | Every page hero identical: flat blue band | No variety, pages feel like copies | Typographic heroes, vary scale/weight per page |
 | `rounded-sm shadow-xl` on every image | Softens everything, loses authority | No radius, no shadow unless floating |
+| Border colour change on card hover | Reads as a form field gaining focus | Lift + image scale only |
 | Emoji in body copy (📍 📚 🏛) | Unprofessional on a graduate institution site | Small typographic labels |
 | Six nav links | Cluttered | Three links max |
 | `border-gray-100/200` dividers | Cold and clinical | Warm `#e2e0dc` |
