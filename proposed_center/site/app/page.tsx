@@ -1,16 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import MentorCard from "@/components/MentorCard";
 import {
   ArrowLink,
   Eyebrow,
   GoldButton,
-  PhotoLedCard,
+  NavyFeatureCard,
   PullQuote,
   StatsBar,
   TintedCard,
 } from "@/components/Brand";
 import { INSTITUTION } from "@/lib/brand";
+import { getFeaturedMentors } from "@/lib/mentors";
 
 const stats = [
   { value: "230+", label: "Industry Mentors" },
@@ -19,38 +21,38 @@ const stats = [
   { value: "25+", label: "Years of Leadership" },
 ];
 
-const executivePrograms = [
-  {
-    tag: "Executive Program",
-    title: "Digital Leadership Experience",
-    description:
-      "A flexible 6–12 month program for executives and board members navigating complex digital transformation initiatives.",
-    href: "/programs/digital-leadership",
-    image: "/program-mentoring.jpg",
-  },
-  {
-    tag: "Workshop",
-    title: "AI & Machine Learning Leadership",
-    description:
-      "A 3.5-day immersive workshop helping senior leaders build practical AI/ML implementation roadmaps.",
-    href: "/programs/ai-ml-workshop",
-    image: "/program-tech.jpg",
-  },
-  {
-    tag: "Workshop",
-    title: "Break the Frame",
-    description:
-      "A creative playshop for leaders ready to question assumptions, reframe challenges, and translate ideas into testable experiments.",
-    href: "/programs/break-the-frame",
-    image: "/program-leadership.jpg",
-  },
+// Workshops sit alongside the topic certificates, labelled honestly by tag.
+// The Digital Leadership Experience is the flagship and is featured on its own above.
+const programsAndCertificates = [
+  { tag: "Workshop", name: "AI & Machine Learning Leadership", slug: "ai-ml-workshop", image: "/program-tech.jpg", line: "Build a practical AI/ML implementation roadmap in 3.5 days.", cta: "View workshop" },
+  { tag: "Workshop", name: "Break the Frame", slug: "break-the-frame", image: "/program-leadership.jpg", line: "Question assumptions and turn ideas into testable experiments.", cta: "View workshop" },
+  { tag: "Certificate", name: "Blockchain", slug: "blockchain", image: "/course-blockchain.jpg", line: "Strategic frameworks for enterprise adoption.", cta: "Read syllabus" },
+  { tag: "Certificate", name: "Cybersecurity: Policy & Practice", slug: "cybersecurity-policy", image: "/course-cybersecurity.jpg", line: "Build incident response playbooks for the C-suite.", cta: "Read syllabus" },
+  { tag: "Certificate", name: "Managing AR, VR & the Metaverse", slug: "metaverse", image: "/program-metaverse.jpg", line: "Lead the next layer of customer experience.", cta: "Read syllabus" },
+  { tag: "Certificate", name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure.", cta: "Read syllabus" },
 ];
 
-const certificates = [
-  { name: "Blockchain", slug: "blockchain", image: "/course-blockchain.jpg", line: "Strategic frameworks for enterprise adoption." },
-  { name: "Cybersecurity: Policy & Practice", slug: "cybersecurity-policy", image: "/course-cybersecurity.jpg", line: "Build incident response playbooks for the C-suite." },
-  { name: "Managing AR, VR & the Metaverse", slug: "metaverse", image: "/program-metaverse.jpg", line: "Lead the next layer of customer experience." },
-  { name: "Smart City Initiatives", slug: "smart-city", image: "/hero-city.jpg", line: "Public-private patterns for connected infrastructure." },
+const researchStrands = [
+  {
+    title: "Workforce Opportunity Services",
+    body: "Research on workforce development and pathways from underserved communities into technology careers.",
+    href: "/research#wos",
+  },
+  {
+    title: "Corporate Partners",
+    body: "Partner organizations that co-design research, masterclasses, and applied learning with the Center.",
+    href: "/research#partners",
+  },
+  {
+    title: "Projects & Publications",
+    body: "Applied projects with partner organizations, feeding published research and the Journal of Reflective Practice.",
+    href: "/research#projects",
+  },
+  {
+    title: "CxO Masterclass",
+    body: "Curated senior-executive sessions co-designed with partners and facilitated by leading experts.",
+    href: "/research#masterclass",
+  },
 ];
 
 const partnerLogos = [
@@ -66,6 +68,8 @@ const partnerLogos = [
 ];
 
 export default function Home() {
+  const featuredMentors = getFeaturedMentors();
+
   return (
     <>
       {/* Homepage hero — bold marketing, gold italic emphasis, gold CTA, director caption overlay. */}
@@ -107,15 +111,49 @@ export default function Home() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="absolute bottom-6 left-6 right-6 border-l-[3px] border-[#b9975b] bg-[#0a1628]/85 px-5 py-4 text-white">
-              <p className="m-0 mb-1 text-[11px] font-medium uppercase tracking-[0.15em] text-white/70">              </p>
               <p className="m-0 font-serif text-lg">{INSTITUTION}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Partner logos — cream band separating the navy hero from the navy stats bar */}
-      <FadeIn className="border-b border-[#e2e0dc] bg-[#f7f6f3] py-14">
+      {/* Industry mentor network — the Center's core proof. Stats float on white
+          so the navy hero is not immediately followed by a second dark band. */}
+      <FadeIn className="bg-white">
+        <div className="mx-auto max-w-7xl px-8 py-24">
+          <div className="max-w-2xl">
+            <Eyebrow label="Industry mentor network" />
+            <h2 className="-mt-2 m-0 font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
+              A mentor network, not a guest lecture list.
+            </h2>
+            <p className="mt-6 text-[16px] leading-[1.7] text-[#6b6b6b]">
+              Every student is matched one-to-one with a practicing senior executive.
+              Our mentors are chief information officers, chief digital officers, and
+              chief executives who work through real problems alongside the people they
+              mentor, and stay connected long after the program ends.
+            </p>
+          </div>
+
+          <div className="mt-14">
+            <StatsBar stats={stats} />
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {featuredMentors.map((m, i) => (
+              <FadeIn key={m.id} delay={i * 40}>
+                <MentorCard mentor={m} compact />
+              </FadeIn>
+            ))}
+          </div>
+
+          <div className="mt-10">
+            <ArrowLink href="/mentors">Meet all 230+ mentors</ArrowLink>
+          </div>
+        </div>
+      </FadeIn>
+
+      {/* Partner logos — cream band */}
+      <FadeIn className="border-y border-[#e2e0dc] bg-[#f7f6f3] py-14">
         <div className="mx-auto max-w-6xl px-6">
           <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
             Our students and mentors come from
@@ -135,19 +173,14 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Stats — navy band, dark variant per reference */}
-      <FadeIn>
-        <StatsBar stats={stats} dark />
-      </FadeIn>
-
-      {/* Programs — flagship feature card + 3 supporting */}
+      {/* What we offer — one flagship program, featured on its own. */}
       <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 pb-10 pt-32">
-          <div className="mb-14 flex items-end justify-between">
+        <div className="mx-auto max-w-7xl px-8 pb-10 pt-28">
+          <div className="mb-12 flex items-end justify-between">
             <div>
               <Eyebrow label="What we offer" />
-              <h2 className="-mt-2 m-0 font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
-                Programs for every stage of leadership.
+              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[44px] font-normal leading-tight tracking-[-0.015em] text-[#111111]">
+                Our flagship executive program.
               </h2>
             </div>
             <div className="hidden md:block">
@@ -155,16 +188,48 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {executivePrograms.map((p, i) => (
-              <FadeIn key={p.title} delay={i * 60}>
-                <PhotoLedCard
-                  href={p.href}
-                  image={p.image}
-                  imageAlt={p.title}
-                  tag={p.tag}
-                  title={p.title}
-                  description={p.description}
+          <NavyFeatureCard
+            eyebrow="Flagship program"
+            title="Digital Leadership Experience"
+            body="A flexible 6–12 month program for executives, board members, entrepreneurs, and post-career professionals. Combines a customized learning plan, expert-led faculty sessions, and an applied capstone."
+            meta={[
+              { label: "Format", value: "6–12 months, flexible" },
+              { label: "Audience", value: "Executives & board members" },
+              { label: "Includes", value: "1:1 industry mentor" },
+            ]}
+            image="/program-mentoring.jpg"
+            imageAlt="Digital Leadership Experience"
+            ctaLabel="Explore the program"
+            href="/programs/digital-leadership"
+          />
+        </div>
+      </FadeIn>
+
+      {/* Workshops & topic certificates */}
+      <FadeIn className="bg-white">
+        <div className="mx-auto max-w-7xl px-8 py-24">
+          <div className="mb-10 flex items-end justify-between">
+            <div>
+              <Eyebrow label="Workshops & certificates" />
+              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
+                Shorter formats, taught by faculty who built the field.
+              </h2>
+            </div>
+            <div className="hidden md:block">
+              <ArrowLink href="/programs">All programs and certificates</ArrowLink>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {programsAndCertificates.map((c, i) => (
+              <FadeIn key={c.slug} delay={i * 40}>
+                <TintedCard
+                  href={`/programs/${c.slug}`}
+                  image={c.image}
+                  imageAlt={c.name}
+                  tag={c.tag}
+                  name={c.name}
+                  line={c.line}
+                  cta={c.cta}
                 />
               </FadeIn>
             ))}
@@ -172,32 +237,40 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Topic certificates strip */}
-      <FadeIn className="bg-white">
-        <div className="mx-auto max-w-7xl px-8 py-24">
-          <div className="mb-10 flex items-end justify-between">
-            <div>
-              <Eyebrow label="Topic certificates" />
-              <h2 className="-mt-2 m-0 max-w-2xl font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
-                Deep-dive certificates, taught by faculty who built the field.
-              </h2>
-            </div>
-            <div className="hidden md:block">
-              <ArrowLink href="/programs">All certificates</ArrowLink>
-            </div>
+      {/* Research activities — four strands, typographic, linking into /research */}
+      <FadeIn className="border-y border-[#e2e0dc] bg-[#f7f6f3]">
+        <div className="mx-auto max-w-7xl px-8 py-20">
+          <div className="max-w-2xl">
+            <Eyebrow label="Research activities" />
+            <h2 className="-mt-2 m-0 font-serif text-[36px] font-normal leading-tight tracking-[-0.01em] text-[#111111]">
+              Research carried out with partners, in practice.
+            </h2>
+            <p className="mt-6 text-[15px] leading-[1.7] text-[#6b6b6b]">
+              The Center studies how organizations learn and change as technology
+              reshapes them, through applied projects with partner organizations
+              rather than from a distance.
+            </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            {certificates.map((c, i) => (
-              <FadeIn key={c.slug} delay={i * 40}>
-                <TintedCard
-                  href={`/programs/${c.slug}`}
-                  image={c.image}
-                  imageAlt={c.name}
-                  name={c.name}
-                  line={c.line}
-                />
+
+          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {researchStrands.map((s, i) => (
+              <FadeIn key={s.title} delay={i * 40}>
+                <div className="flex h-full flex-col">
+                  <span className="mb-4 block h-0.5 w-8 bg-[#b9975b]" />
+                  <h3 className="m-0 mb-3 text-[17px] font-semibold leading-snug text-[#111111]">
+                    {s.title}
+                  </h3>
+                  <p className="m-0 mb-5 flex-1 text-[14px] leading-[1.7] text-[#6b6b6b]">
+                    {s.body}
+                  </p>
+                  <ArrowLink href={s.href}>Read more</ArrowLink>
+                </div>
               </FadeIn>
             ))}
+          </div>
+
+          <div className="mt-14">
+            <ArrowLink href="/research">Explore our research</ArrowLink>
           </div>
         </div>
       </FadeIn>
@@ -256,40 +329,6 @@ export default function Home() {
         </div>
         <div className="mt-10">
           <ArrowLink href="/experience">Read student stories</ArrowLink>
-        </div>
-      </FadeIn>
-
-      {/* WOS partnership */}
-      <FadeIn className="mx-auto max-w-6xl border-t border-[#e2e0dc] px-6 py-20">
-        <div className="flex flex-col items-center gap-12 border border-[#e2e0dc] p-10 md:flex-row md:p-14">
-          <div className="flex-1">
-            <Eyebrow label="Strategic Partnership" />
-            <h2 className="-mt-2 mb-5 m-0 font-serif text-3xl font-normal leading-tight text-[#111111]">
-              Workforce Opportunity Services
-            </h2>
-            <p className="mb-4 max-w-xl text-[15px] leading-[1.7] text-[#6b6b6b]">
-              Founded by Dr. Langer, WOS is a nonprofit that identifies talent from underserved
-              communities — including veterans — and prepares them for high-impact careers in
-              technology. WOS acts as an outsourcing partner for major corporations, placing
-              trained professionals as software engineers, analysts, and more.
-            </p>
-            <p className="max-w-xl text-[15px] leading-[1.7] text-[#6b6b6b]">
-              WOS will partner with the new Columbia department, creating a unique pipeline that
-              connects executive education with workforce development.
-            </p>
-          </div>
-          <div className="flex flex-shrink-0 flex-col items-center gap-4">
-            <Image
-              src="/wos-logo.png"
-              alt="Workforce Opportunity Services"
-              width={180}
-              height={80}
-              className="object-contain"
-            />
-            <span className="border border-dashed border-[#e2e0dc] px-4 py-2 text-center text-xs text-[#6b6b6b]">
-              Partnership details coming soon
-            </span>
-          </div>
         </div>
       </FadeIn>
     </>

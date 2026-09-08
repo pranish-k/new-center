@@ -16,7 +16,7 @@ const Footer = () => (
           fontSize: 15, letterSpacing: "0.06em", color: "#002868",
           textTransform: "uppercase", margin: 0,
         }}>
-          Center for Technology Management
+          Center for Strategic Learning and Leadership for the Digital Age
         </p>
         <p style={{ fontSize: 12, color: "#6b6b6b", marginTop: 16, lineHeight: 1.6 }}>
           Established by Dr. Art Langer.
@@ -43,7 +43,7 @@ const Footer = () => (
     </div>
 
     <div style={{ borderTop: "1px solid #e2e0dc", padding: "16px 0", textAlign: "center", fontSize: 12, color: "#6b6b6b" }}>
-      © {new Date().getFullYear()} Center for Technology Management, Columbia University Teachers College.
+      © {new Date().getFullYear()} Center for Strategic Learning and Leadership for the Digital Age, Columbia University Teachers College.
       Prototype — content sourced from TMDL at Northeastern University.
     </div>
   </footer>

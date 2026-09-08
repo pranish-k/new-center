@@ -7,7 +7,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/Brand";
-import { INSTITUTION } from "@/lib/brand";
+import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
 
 export const metadata = {
   title: "Leadership | Teachers College",
@@ -71,8 +71,8 @@ export default function LeadershipPage() {
           <div className="flex-1 space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px]">
             <p>
               Dr. Arthur M. Langer is a leading academic authority on technology management,
-              digital transformation, and organizational learning. He leads the Center for
-              Technology Management and Digital Leadership at {INSTITUTION}.
+              digital transformation, and organizational learning. He leads the {CENTER_FULL} at{" "}
+              {INSTITUTION}.
             </p>
             <p>
               Prior to Northeastern, Dr. Langer served as Director of the Center for Technology

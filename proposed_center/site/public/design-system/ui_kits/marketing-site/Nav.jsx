@@ -26,7 +26,7 @@ const Nav = ({ current, go }) => {
             fontSize: 15, letterSpacing: "0.06em", color: "#002868",
             textTransform: "uppercase", marginTop: 2,
           }}>
-            Center for Technology Management
+            Center for Strategic Learning and Leadership for the Digital Age
           </span>
         </a>
         <nav style={{ display: "flex", alignItems: "center", gap: 32 }}>

@@ -1,6 +1,6 @@
 # Marketing site UI kit
 
-Click-thru recreation of the **Center for Technology Management and Digital Leadership** marketing site. Mirrors the original Next.js codebase as plain React + JSX so it can be lifted into any prototype.
+Click-thru recreation of the **Center for Strategic Learning and Leadership for the Digital Age** marketing site. Mirrors the original Next.js codebase as plain React + JSX so it can be lifted into any prototype.
 
 ## Files
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CENTER_FULL, INSTITUTION } from "@/lib/brand";
+import { CENTER_FULL, INSTITUTION, PARENT_INSTITUTE } from "@/lib/brand";
 
 export default function Footer() {
   return (
@@ -12,6 +12,7 @@ export default function Footer() {
             {CENTER_FULL}
           </p>
           <p className="text-xs text-[#6b6b6b] mt-4 leading-relaxed">
+            Part of the {PARENT_INSTITUTE}.<br />
             Established by Dr. Art Langer.
           </p>
           <div className="mt-6 flex items-center gap-3">
@@ -31,6 +32,7 @@ export default function Footer() {
           <Link href="/mission" className="hover:text-[#002868] transition-colors">About</Link>
           <Link href="/programs" className="hover:text-[#002868] transition-colors">Programs</Link>
           <Link href="/mentors" className="hover:text-[#002868] transition-colors">Mentors</Link>
+          <Link href="/research" className="hover:text-[#002868] transition-colors">Research</Link>
           <Link href="/contact" className="hover:text-[#002868] transition-colors">Contact</Link>
         </nav>
 

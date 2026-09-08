@@ -7,6 +7,7 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from "@/components/Brand";
+import { INSTITUTION, PARENT_INSTITUTE } from "@/lib/brand";
 
 export const metadata = {
   title: "Mission & Vision | Teachers College",
@@ -61,6 +62,29 @@ export default function MissionPage() {
             <p>
               By aligning strategy, technology, and people, we strive to shape the next
               generation of transformative leadership.
+            </p>
+          </div>
+        </FadeIn>
+
+        <Divider />
+
+        {/* Parent institute */}
+        <FadeIn>
+          <Eyebrow label="The Huber Institute" />
+          <div className="space-y-5 text-[#6b6b6b] leading-[1.7] text-[15px] -mt-4">
+            <p>
+              The Center sits within the{" "}
+              <span className="text-[#111111] font-medium">{PARENT_INSTITUTE}</span> at{" "}
+              {INSTITUTION}, established in 1999 to advance the state of knowledge and
+              practice for learning and change in organizations.
+            </p>
+            <p>
+              The Institute&rsquo;s research focuses on the ways strategic organizational
+              learning, knowledge creation, and knowledge sharing improve performance.
+              Working through partnerships with business, schools, government, and
+              not-for-profit agencies, it conducts organizational assessments and action
+              research, and creates practical tools that help organizations reach better
+              decisions faster.
             </p>
           </div>
         </FadeIn>

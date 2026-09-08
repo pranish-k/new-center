@@ -291,6 +291,7 @@ export function TintedCard({
   tag = "Certificate",
   name,
   line,
+  cta = "Read syllabus",
 }: {
   href: string;
   image?: string;
@@ -298,6 +299,7 @@ export function TintedCard({
   tag?: string;
   name: string;
   line?: string;
+  cta?: string;
 }) {
   return (
     <Link
@@ -333,7 +335,7 @@ export function TintedCard({
           <p className="m-0 flex-1 text-[13px] leading-[1.55] text-[#6b6b6b]">{line}</p>
         ) : null}
         <p className="mt-5 text-xs font-semibold tracking-[0.02em] text-[#002868]">
-          Read syllabus{" "}
+          {cta}{" "}
           <span className="inline-block transition-transform duration-200 ease-out group-hover:translate-x-[3px]">
             &rarr;
           </span>

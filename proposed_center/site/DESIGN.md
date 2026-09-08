@@ -1,4 +1,4 @@
-# Design System — Center for Technology Management
+# Design System — Center for Strategic Learning and Leadership for the Digital Age
 ## Columbia University Teachers College
 
 This file is the single source of truth for all visual and UX decisions on this site.
@@ -89,7 +89,7 @@ Never just uppercase text floating alone — it needs the gold rule to anchor it
 ### Structure
 ```
 [Columbia University Teachers College]          About   Programs   Contact →
-[Center for Technology Management      ]
+[Center for Strategic Learning and Leadership for the Digital Age      ]
 ```
 
 - **Left:** Two-line wordmark. Line 1: institution in 11px tracked gray. Line 2: center name in 15px navy semibold.
@@ -214,12 +214,21 @@ Never `border-gray-100` or `border-gray-200`.
 ## 9. Page-by-Page Notes
 
 ### Homepage
-- Hero: image bleeds to right edge, no box around collage
-- Stats: remove border, let numbers float on white
-- Programs: image-first cards
-- Quote section: float on white, no gray background box
-- Testimonials: pull quote treatment, not gray bordered boxes
-- Partner logos: remove gray background section
+Section order is fixed:
+
+1. Hero - navy, image bleeds to right edge, no box around the photo
+2. Industry mentor network - stats float on white (never navy here; the hero
+   above is already navy), plus six featured mentors from `lib/featured-mentors.ts`
+3. Partner logo band - cream, "Our students and mentors come from"
+4. What we offer - the Digital Leadership Experience alone, as a `NavyFeatureCard`
+5. Workshops & certificates - `TintedCard` grid, workshops first
+6. Research activities - four strands linking into `/research`
+7. Director quote - full-bleed photo band
+8. Student voices - pull quote treatment, not gray bordered boxes
+
+Only one program is featured under "What we offer". Everything else lives in the
+workshops and certificates grid. If a second program is ever promoted to the
+flagship slot, the first has to come out.
 
 ### Programs index
 - Dark typographic hero band
@@ -252,19 +261,31 @@ Never `border-gray-100` or `border-gray-200`.
 7. `mission/page.tsx` — typography pass
 8. All `programs/[slug]/page.tsx` — consistent template
 
+---
 
+## 11. Backlog
 
+### Done
+- Center renamed to "Center for Strategic Learning and Leadership for the Digital Age"
+  (single source: `lib/brand.ts`)
+- J.M. Huber Institute attribution - footer brand block and a `/mission` section
+- Industry mentor network section on the homepage
+- Digital Leadership Experience as the sole flagship, on `/` and `/programs`
+- Remaining workshops folded into the certificates grid
+- Research activities section plus the `/research` page (WOS, corporate
+  partners, projects and publications, CxO masterclass)
 
-
-
-
-Update name of center
-Linked to Jim Huber
-Industry mentors network
-Sole webpage for digital leadership
-Rest 60 workshop + courses
-Research activities:
-WOS
-Corporate partners
-Projects → PUB
-CxO masterclass
+### Open
+- **Corporate partner names** for `/research#partners` - currently a marked
+  placeholder. Do not reuse the nine logos from the "Our students and mentors
+  come from" band; that band is a statement about where people come from, not
+  a claim of partnership.
+- **Color tokenization** - roughly 330 raw hex literals across the app, no
+  Tailwind v4 `@theme` block, and two competing token sets (`globals.css`
+  `:root` versus `public/design-system/colors_and_type.css`). Consolidating
+  these is the highest-leverage cleanup left.
+- **Nav** - currently 4 links plus the Contact pill at 90–100px tall, against
+  the 3-link, 64px spec in §4. `/research` was deliberately added to the footer
+  rather than the nav to avoid making this worse.
+- Remaining workshops and courses beyond the current 11 (the full catalogue is
+  closer to 60).

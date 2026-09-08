@@ -1,6 +1,6 @@
 ---
 name: center-tech-management-design
-description: Use this skill to generate well-branded interfaces and assets for the Center for Technology Management and Digital Leadership at Columbia University Teachers College, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping the editorial, graduate-academic visual system.
+description: Use this skill to generate well-branded interfaces and assets for the Center for Strategic Learning and Leadership for the Digital Age at Columbia University Teachers College, either for production or throwaway prototypes/mocks/etc. Contains essential design guidelines, colors, type, fonts, assets, and UI kit components for prototyping the editorial, graduate-academic visual system.
 user-invocable: true
 ---
 

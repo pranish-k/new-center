@@ -1,19 +1,14 @@
-import { readFileSync } from "fs";
-import path from "path";
 import { Suspense } from "react";
 import MentorsGrid from "./MentorsGrid";
 import { InteriorHero } from "@/components/Brand";
+import { getMentors } from "@/lib/mentors";
 
 export const metadata = {
   title: "Mentors | Teachers College",
 };
 
 export default function MentorsPage() {
-  const jsonPath = path.join(process.cwd(), "..", "data", "mentors", "mentors.json");
-  // Records with `published: false` stay in the data file but are hidden from the site.
-  const mentorsData = JSON.parse(readFileSync(jsonPath, "utf-8")).filter(
-    (m: { published?: boolean }) => m.published !== false,
-  );
+  const mentorsData = getMentors();
   return (
     <>
       <InteriorHero

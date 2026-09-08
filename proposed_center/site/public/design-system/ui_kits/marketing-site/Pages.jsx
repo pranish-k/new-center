@@ -352,7 +352,7 @@ const FacultyDetail = ({ slug, go }) => {
             <div style={{ marginTop: 18, fontSize: 13, color: "#6b6b6b", lineHeight: 1.8 }}>
               <p style={{ margin: "0 0 4px", color: "#b9975b", textTransform: "uppercase",
                           letterSpacing: "0.12em", fontSize: 11, fontWeight: 600 }}>Affiliations</p>
-              <p style={{ margin: 0 }}>Center for Technology Management<br/>Columbia University Teachers College</p>
+              <p style={{ margin: 0 }}>Center for Strategic Learning and Leadership for the Digital Age<br/>Columbia University Teachers College</p>
             </div>
           </div>
           <div>
@@ -529,7 +529,7 @@ const Contact = () => (
       <div>
         <Eyebrow label="Address" />
         <address style={{ fontStyle: "normal", fontSize: 15, color: "#6b6b6b", lineHeight: 1.7, marginTop: 8 }}>
-          <p style={{ color: "#111", fontWeight: 600, margin: "0 0 6px" }}>Center for Technology Management and Digital Leadership</p>
+          <p style={{ color: "#111", fontWeight: 600, margin: "0 0 6px" }}>Center for Strategic Learning and Leadership for the Digital Age</p>
           <p style={{ margin: 0 }}>Columbia University Teachers College</p>
           <p style={{ margin: "16px 0 0", fontSize: 13, fontStyle: "italic" }}>
             Previously at Northeastern University, Boston, MA

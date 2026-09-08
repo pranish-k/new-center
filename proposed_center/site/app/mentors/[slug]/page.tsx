@@ -1,41 +1,18 @@
-import { readFileSync } from "fs";
-import path from "path";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeIn from "@/components/FadeIn";
 import { Eyebrow } from "@/components/Brand";
 import { CENTER_FULL } from "@/lib/brand";
-
-type Mentor = {
-  id: number;
-  slug: string;
-  name: string;
-  title: string;
-  company: string;
-  industry: string;
-  focus: string;
-  location: string;
-  linkedin: string;
-  bio: string;
-  image: string;
-  published?: boolean;
-};
-
-function loadMentors(): Mentor[] {
-  const jsonPath = path.join(process.cwd(), "..", "data", "mentors", "mentors.json");
-  const all = JSON.parse(readFileSync(jsonPath, "utf-8")) as Mentor[];
-  // Records with `published: false` stay in the data file but are hidden from the site.
-  return all.filter((m) => m.published !== false);
-}
+import { getMentors } from "@/lib/mentors";
 
 export function generateStaticParams() {
-  return loadMentors().map((m) => ({ slug: m.slug }));
+  return getMentors().map((m) => ({ slug: m.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const m = loadMentors().find((x) => x.slug === slug);
+  const m = getMentors().find((x) => x.slug === slug);
   if (!m) return { title: "Mentor | Teachers College" };
   return {
     title: `${m.name} | Mentor | Teachers College`,
@@ -53,7 +30,7 @@ export default async function MentorProfilePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const all = loadMentors();
+  const all = getMentors();
   const mentor = all.find((m) => m.slug === slug);
   if (!mentor) notFound();
 
