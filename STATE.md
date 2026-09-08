@@ -29,7 +29,7 @@ Phase 4 - content depth and partnerships. The site is built and building clean.
   photograph, and the contact email and phone.
 - **WOS integration model** - still pending; `/research#wos` carries a "details coming soon" note.
 - **Color tokenization** - about 330 raw hex literals, no Tailwind v4 `@theme` block, two competing token sets. Highest-leverage cleanup remaining.
-- **Nav** - 4 links plus Contact pill at 90-100px, against the 3-link/64px spec in DESIGN.md §4.
+- **Nav** - now 64/72px per DESIGN.md §4, but still 4 links plus the Contact pill against the 3-link spec. `/research` went to the footer rather than make that worse.
 
 ## Notes for next session
 - `tmdl_archive/` is read-only - never modify files inside it.
