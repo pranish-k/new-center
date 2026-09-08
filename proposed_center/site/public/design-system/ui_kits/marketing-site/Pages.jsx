@@ -13,17 +13,10 @@ const Home = ({ go, openProgram }) => {
     <>
       <HomeHero go={go} />
 
-      {/* Transition strip */}
-      <section style={{ background: "#f7f6f3", borderBottom: "1px solid #e2e0dc" }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "20px 32px",
-                      display: "flex", alignItems: "center", gap: 14 }}>
-          <span style={{ color: "#b9975b", fontWeight: 700 }}>→</span>
-          <p style={{ fontSize: 14, color: "#6b6b6b", lineHeight: 1.6, margin: 0 }}>
-            <strong style={{ color: "#111" }}>In transition.</strong> Moving from Northeastern University to{" "}
-            <strong style={{ color: "#111" }}>Columbia University Teachers College</strong>, under the continued leadership of Dr. Art Langer.
-          </p>
-        </div>
-      </section>
+      {/* Partner logos — cream band separating the navy hero from the navy stats bar */}
+      <div style={{ background: "#f7f6f3", borderBottom: "1px solid #e2e0dc" }}>
+        <PartnerStrip logos={PARTNER_LOGOS} />
+      </div>
 
       {/* Stats on navy band */}
       <StatsBar stats={stats} dark />
@@ -109,7 +102,6 @@ const Home = ({ go, openProgram }) => {
         </div>
       </section>
 
-      <PartnerStrip logos={PARTNER_LOGOS} />
     </>
   );
 };
@@ -548,8 +540,8 @@ const Contact = () => (
         <Eyebrow label="Note" />
         <p style={{ fontSize: 15, color: "#111", fontWeight: 600, marginTop: 8 }}>This is a prototype site.</p>
         <p style={{ fontSize: 15, color: "#6b6b6b", lineHeight: 1.7 }}>
-          The Center is in transition from Northeastern University to Columbia University Teachers College.
-          Contact details for the new department will be updated once the transition is complete.
+          Contact details for the Columbia University Teachers College department will be
+          updated as they are confirmed.
         </p>
       </div>
     </div>

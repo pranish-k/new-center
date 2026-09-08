@@ -57,9 +57,8 @@ export default function ContactPage() {
                 This is a prototype site.
               </p>
               <p>
-                The Center is currently in transition from Northeastern University
-                to {INSTITUTION}. Contact details for the new Columbia department
-                will be updated once the transition is complete.
+                Contact details for the {INSTITUTION} department will be updated
+                as they are confirmed.
               </p>
               <p>
                 In the meantime, reach out via the email above or visit the{" "}

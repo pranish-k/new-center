@@ -1,6 +1,6 @@
 # Center for Technology Management & Digital Leadership — Design System
 
-A design system for the proposed **Center for Technology Management and Digital Leadership** website, currently in transition from Northeastern University to **Columbia University Teachers College** under the continued leadership of Dr. Arthur M. Langer.
+A design system for the proposed **Center for Technology Management and Digital Leadership** website at **Columbia University Teachers College**, under the leadership of Dr. Arthur M. Langer.
 
 The Center is a graduate-level academic department (degree, executive, and certificate programs). The design reference bar — set explicitly in the source repo's `DESIGN.md` — is **Columbia GSAPP, MIT Media Lab, Harvard GSD**. This is an editorial, typographic, restrained system. It is **not** a SaaS / Squarespace / startup landing page.
 
@@ -80,7 +80,7 @@ Always rounded to a meaningful threshold and suffixed with `+`: `230+`, `15+`, `
 - Hero subtitle: *"Preparing experienced leaders to meet disruption with agility, drive digital transformation, and shape the future of work."*
 - Mission: *"To enable executives to use technology to address strategic challenges of business and to advance their knowledge through collaboration with industry leaders, faculty, and students."*
 - Pull quote (Dr. Langer): *"By harnessing the power of hands-on experience and tailored mentorship, the Center empowers its network of learners to practice agility in a tech-driven world."*
-- Transition banner: *"In transition. The Center is moving from Northeastern University to Columbia University Teachers College under the continued leadership of Dr. Art Langer."*
+- Partner logo band (cream, separates the navy hero from the navy stats bar): *"Our students and mentors come from"*
 
 ---
 

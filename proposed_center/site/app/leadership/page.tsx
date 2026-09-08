@@ -72,8 +72,7 @@ export default function LeadershipPage() {
             <p>
               Dr. Arthur M. Langer is a leading academic authority on technology management,
               digital transformation, and organizational learning. He leads the Center for
-              Technology Management and Digital Leadership, currently in transition from
-              Northeastern University to {INSTITUTION}.
+              Technology Management and Digital Leadership at {INSTITUTION}.
             </p>
             <p>
               Prior to Northeastern, Dr. Langer served as Director of the Center for Technology

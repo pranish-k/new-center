@@ -114,16 +114,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Transition banner — tight rhythm */}
-      <section className="border-b border-[#e2e0dc] bg-[#f7f6f3]">
-        <div className="mx-auto flex max-w-7xl items-start gap-4 px-8 py-5">
-          <span className="mt-0.5 flex-shrink-0 text-base font-bold text-[#b9975b]">&rarr;</span>
-          <p className="text-sm leading-relaxed text-[#6b6b6b]">
-            <strong className="text-[#111111]">In transition.</strong> The Center is moving from Northeastern University to{" "}
-            <strong className="text-[#111111]">{INSTITUTION}</strong> under the continued leadership of Dr. Art Langer.
+      {/* Partner logos — cream band separating the navy hero from the navy stats bar */}
+      <FadeIn className="border-b border-[#e2e0dc] bg-[#f7f6f3] py-14">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
+            Our students and mentors come from
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {partnerLogos.map((l) => (
+              <Image
+                key={l.alt}
+                src={l.src}
+                alt={l.alt}
+                width={110}
+                height={50}
+                className="h-10 w-auto object-contain opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
+              />
+            ))}
+          </div>
         </div>
-      </section>
+      </FadeIn>
 
       {/* Stats — navy band, dark variant per reference */}
       <FadeIn>
@@ -249,29 +259,8 @@ export default function Home() {
         </div>
       </FadeIn>
 
-      {/* Partner logos */}
-      <FadeIn className="border-t border-[#e2e0dc] py-14">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="mb-10 text-center text-[11px] font-medium uppercase tracking-[0.15em] text-[#6b6b6b]">
-            Our students and mentors come from
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {partnerLogos.map((l) => (
-              <Image
-                key={l.alt}
-                src={l.src}
-                alt={l.alt}
-                width={110}
-                height={50}
-                className="h-10 w-auto object-contain opacity-50 grayscale transition-all hover:opacity-100 hover:grayscale-0"
-              />
-            ))}
-          </div>
-        </div>
-      </FadeIn>
-
       {/* WOS partnership */}
-      <FadeIn className="mx-auto max-w-6xl px-6 py-20">
+      <FadeIn className="mx-auto max-w-6xl border-t border-[#e2e0dc] px-6 py-20">
         <div className="flex flex-col items-center gap-12 border border-[#e2e0dc] p-10 md:flex-row md:p-14">
           <div className="flex-1">
             <Eyebrow label="Strategic Partnership" />

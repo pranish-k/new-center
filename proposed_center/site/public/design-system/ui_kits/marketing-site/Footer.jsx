@@ -19,7 +19,6 @@ const Footer = () => (
           Center for Technology Management
         </p>
         <p style={{ fontSize: 12, color: "#6b6b6b", marginTop: 16, lineHeight: 1.6 }}>
-          Transitioning from Northeastern University.<br />
           Established by Dr. Art Langer.
         </p>
         <div style={{ marginTop: 20, display: "flex", alignItems: "center", gap: 12 }}>

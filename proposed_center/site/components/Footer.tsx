@@ -12,7 +12,6 @@ export default function Footer() {
             {CENTER_FULL}
           </p>
           <p className="text-xs text-[#6b6b6b] mt-4 leading-relaxed">
-            Transitioning from Northeastern University.<br />
             Established by Dr. Art Langer.
           </p>
           <div className="mt-6 flex items-center gap-3">
