@@ -42,7 +42,7 @@ export default async function MentorProfilePage({
   return (
     <>
       {/* Slim eyebrow band on navy — back link */}
-      <section className="bg-[#0a1628] text-white">
+      <section className="bg-[#002868] text-white">
         <div className="mx-auto max-w-7xl px-8 py-7">
           <Link
             href="/mentors"

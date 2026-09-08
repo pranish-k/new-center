@@ -84,7 +84,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Closing prompt — feature spacing */}
-      <section className="bg-[#0a1628] text-white">
+      <section className="bg-[#002868] text-white">
         <div className="mx-auto max-w-3xl px-8 py-24 text-center">
           <span className="mx-auto mb-6 block h-0.5 w-8 bg-[#b9975b]" />
           <p className="m-0 font-serif text-2xl leading-[1.4] md:text-[28px]">

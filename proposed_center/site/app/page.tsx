@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <>
       {/* Homepage hero — bold marketing, gold italic emphasis, gold CTA, director caption overlay. */}
-      <section className="relative overflow-hidden bg-[#0a1628] text-white">
+      <section className="relative overflow-hidden bg-[#002868] text-white">
         <span className="absolute left-0 top-0 h-1 w-1/3 bg-[#b9975b]" />
         <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-8 py-24 md:grid-cols-[1.05fr_1fr] md:py-32">
           <div>
@@ -280,7 +280,7 @@ export default function Home() {
           className="relative bg-cover bg-center px-8 py-32 md:py-36"
           style={{ backgroundImage: "url(/session-classroom.jpg)" }}
         >
-          <div className="absolute inset-0 bg-[#0a1628]/85" />
+          <div className="absolute inset-0 bg-[#002868]/85" />
           <div className="relative mx-auto max-w-3xl text-white">
             <span className="mb-6 block h-0.5 w-8 bg-[#b9975b]" />
             <blockquote className="m-0">

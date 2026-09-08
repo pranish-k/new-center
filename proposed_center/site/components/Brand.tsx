@@ -37,7 +37,7 @@ export function InteriorHero({
   actions?: ReactNode;
 }) {
   return (
-    <section className="relative bg-[#0a1628] text-white">
+    <section className="relative bg-[#002868] text-white">
       <span className="absolute left-0 top-0 h-[3px] w-20 bg-[#b9975b]" />
       <div className="mx-auto max-w-7xl px-8 py-24 md:py-28">
         <p className="wordmark wordmark--bold mb-6 text-[11px] tracking-[0.18em] text-white/70">
@@ -143,7 +143,7 @@ export function ProgramHero({
   actions?: ReactNode;
 }) {
   return (
-    <section className="relative bg-[#0a1628] pb-20 text-white">
+    <section className="relative bg-[#002868] pb-20 text-white">
       <span className="absolute left-0 top-0 h-[3px] w-20 bg-[#b9975b]" />
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-14 px-8 pt-20 md:grid-cols-2 md:pt-24">
         <div className="pb-8">
@@ -208,7 +208,7 @@ export function NavyFeatureCard({
   return (
     <Link
       href={href}
-      className={`group relative grid bg-[#0a1628] text-white no-underline overflow-hidden ${
+      className={`group relative grid bg-[#002868] text-white no-underline overflow-hidden ${
         image ? "md:grid-cols-[1.1fr_1fr]" : "grid-cols-1"
       }`}
     >
@@ -273,7 +273,7 @@ export function TintedCard({
       className="group flex h-full flex-col overflow-hidden border border-[#e2e0dc] bg-[#f7f6f3] text-[#111111] no-underline transition-all duration-[250ms] ease-out hover:-translate-y-[3px] hover:border-[#002868]"
     >
       {image ? (
-        <div className="relative w-full overflow-hidden bg-[#0a1628]" style={{ paddingTop: "62%" }}>
+        <div className="relative w-full overflow-hidden bg-[#002868]" style={{ paddingTop: "62%" }}>
           <Image
             src={image}
             alt={imageAlt}
@@ -320,7 +320,7 @@ export function StatsBar({
   dark?: boolean;
 }) {
   return (
-    <div className={dark ? "bg-[#0a1628] text-white" : "text-[#111111]"}>
+    <div className={dark ? "bg-[#002868] text-white" : "text-[#111111]"}>
       <div className="mx-auto max-w-7xl px-8 py-14">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {stats.map((s) => (

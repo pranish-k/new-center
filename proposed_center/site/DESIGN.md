@@ -27,9 +27,12 @@ What we are explicitly **not** doing:
 ## 2. Color
 
 ```
-Primary (Columbia Blue)   #002868   — Structural anchors, headlines, nav, CTAs
+Primary (Columbia Blue)   #002868   — THE brand color. All dark surfaces: heroes,
+                                      navy bands, feature cards, stats bar, CTAs,
+                                      headlines, nav.
 Accent (Gold)             #b9975b   — Thin rules, eyebrow underlines, active states. Never as a fill on large areas.
-Dark Surface              #0a1628   — Hero sections, full-bleed dark panels. Richer than flat #002868.
+Dark accent               #0a1628   — Dark text on gold buttons, and the hero photo
+                                      caption card only. NOT a section background.
 Off-white                 #f7f6f3   — Section backgrounds. Warmer than gray-50, softer than pure white.
 Text primary              #111111   — Body copy
 Text secondary            #6b6b6b   — Captions, metadata, labels
@@ -45,7 +48,7 @@ were drift and have been removed.
 **Rules:**
 - Gold (`#b9975b`) is used for: horizontal rules above section headings, the vertical rule on blockquotes, active nav underlines. Never as a background fill, never on text larger than 14px labels.
 - Navy (`#002868`) is used sparingly on light pages — primarily for headings and CTAs. If a section uses it as a background, the next section must be white or off-white. Never two dark sections back to back.
-- `#0a1628` replaces `#002868` as the hero/dark-panel background — it has more depth.
+- `#002868` is the brand navy and is the correct background for every dark section. Do not substitute `#0a1628`; it is an accent for dark-on-gold text and the hero caption card only.
 
 ---
 
@@ -145,7 +148,7 @@ Feature (hero, quote, big visual)   py-24 – py-32
 ### Page Hero — interior pages
 Typographic only. No image in the band.
 ```
-bg-[#0a1628] text-white
+bg-[#002868] text-white
 Eyebrow: gold rule + tracked text in blue-300/60
 H1: font-serif, large, tight leading, max-w-2xl
 Subtitle: 15px sans, text-blue-200/70, max-w-xl
@@ -199,7 +202,7 @@ Never `border-gray-100` or `border-gray-200`.
 ### Treatment
 - **No rounded corners** on photos in editorial contexts. Straight edges read as authoritative.
 - **No drop shadows** on photos unless floating over a colored background.
-- Dark overlays for text legibility: `bg-[#0a1628]/60` — never a flat opaque color.
+- Dark overlays for text legibility: `bg-[#002868]/85` — never a flat opaque color.
 
 ---
 
