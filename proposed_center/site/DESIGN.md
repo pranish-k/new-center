@@ -251,3 +251,20 @@ Never `border-gray-100` or `border-gray-200`.
 6. `experience/page.tsx` — pull quote testimonials
 7. `mission/page.tsx` — typography pass
 8. All `programs/[slug]/page.tsx` — consistent template
+
+
+
+
+
+
+
+Update name of center
+Linked to Jim Huber
+Industry mentors network
+Sole webpage for digital leadership
+Rest 60 workshop + courses
+Research activities:
+WOS
+Corporate partners
+Projects → PUB
+CxO masterclass
