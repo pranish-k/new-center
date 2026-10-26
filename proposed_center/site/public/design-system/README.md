@@ -1,6 +1,6 @@
-# Center for Strategic Learning and Leadership for the Digital Age — Design System
+# Center for Strategic Learning and Leadership for the Digital Era — Design System
 
-A design system for the proposed **Center for Strategic Learning and Leadership for the Digital Age** website at **Columbia University Teachers College**, under the leadership of Dr. Arthur M. Langer.
+A design system for the proposed **Center for Strategic Learning and Leadership for the Digital Era** website at **Columbia University Teachers College**, under the leadership of Dr. Arthur M. Langer.
 
 The Center is a graduate-level academic department (degree, executive, and certificate programs). The design reference bar — set explicitly in the source repo's `DESIGN.md` — is **Columbia GSAPP, MIT Media Lab, Harvard GSD**. This is an editorial, typographic, restrained system. It is **not** a SaaS / Squarespace / startup landing page.
 

@@ -1,4 +1,4 @@
-# Design System — Center for Strategic Learning and Leadership for the Digital Age
+# Design System — Center for Strategic Learning and Leadership for the Digital Era
 ## Columbia University Teachers College
 
 This file is the single source of truth for all visual and UX decisions on this site.
@@ -98,7 +98,7 @@ Never just uppercase text floating alone — it needs the gold rule to anchor it
 ### Structure
 ```
 [Columbia University Teachers College]          About   Programs   Contact →
-[Center for Strategic Learning and Leadership for the Digital Age      ]
+[Center for Strategic Learning and Leadership for the Digital Era      ]
 ```
 
 - **Left:** Two-line wordmark. Line 1: institution in 11px tracked gray. Line 2: center name in 15px navy semibold.
@@ -298,7 +298,7 @@ flagship slot, the first has to come out.
 ## 11. Backlog
 
 ### Done
-- Center renamed to "Center for Strategic Learning and Leadership for the Digital Age"
+- Center renamed to "Center for Strategic Learning and Leadership for the Digital Era"
   (single source: `lib/brand.ts`)
 - J.M. Huber Institute attribution - footer brand block and a `/mission` section
 - Industry mentor network section on the homepage

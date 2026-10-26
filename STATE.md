@@ -14,7 +14,7 @@ Phase 4 - content depth and partnerships. The site is built and building clean.
 - Next.js 16 site live in `proposed_center/site/`: home, mission, leadership, experience, contact, programs index plus 12 program detail pages, mentors directory, and research.
 - 243 mentors in `data/mentors/mentors.json` (230 published); directory has filters, URL-synced state, and per-mentor pages.
 - Design system published at `site/public/design-system/`; `site/DESIGN.md` is the source of truth.
-- Center renamed to **Center for Strategic Learning and Leadership for the Digital Age** (single source: `site/lib/brand.ts`).
+- Center renamed to **Center for Strategic Learning and Leadership for the Digital Era** (single source: `site/lib/brand.ts`).
 - Homepage restructured: mentor network section after the hero, Digital Leadership Experience as sole flagship, remaining workshops folded into the certificates grid, new research activities section.
 - New `/research` page covering WOS, corporate partners, projects and publications, and the CxO masterclass.
 - J.M. Huber Institute attribution in the footer and on `/mission`.
